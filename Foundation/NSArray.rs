@@ -504,20 +504,20 @@ unsafe impl<ObjectType: ?Sized + NSSecureCoding> NSSecureCoding for NSMutableArr
 extern_methods!(
     unsafe impl<ObjectType: Message> NSMutableArray<ObjectType> {
         #[method(addObject:)]
-        pub unsafe fn addObject(&mut self, an_object: &ObjectType);
+        pub unsafe fn addObject(&self, an_object: &ObjectType);
 
         #[method(insertObject:atIndex:)]
-        pub unsafe fn insertObject_atIndex(&mut self, an_object: &ObjectType, index: NSUInteger);
+        pub unsafe fn insertObject_atIndex(&self, an_object: &ObjectType, index: NSUInteger);
 
         #[method(removeLastObject)]
-        pub unsafe fn removeLastObject(&mut self);
+        pub unsafe fn removeLastObject(&self);
 
         #[method(removeObjectAtIndex:)]
-        pub unsafe fn removeObjectAtIndex(&mut self, index: NSUInteger);
+        pub unsafe fn removeObjectAtIndex(&self, index: NSUInteger);
 
         #[method(replaceObjectAtIndex:withObject:)]
         pub unsafe fn replaceObjectAtIndex_withObject(
-            &mut self,
+            &self,
             index: NSUInteger,
             an_object: &ObjectType,
         );
@@ -565,55 +565,55 @@ extern_methods!(
     /// NSExtendedMutableArray
     unsafe impl<ObjectType: Message> NSMutableArray<ObjectType> {
         #[method(addObjectsFromArray:)]
-        pub unsafe fn addObjectsFromArray(&mut self, other_array: &NSArray<ObjectType>);
+        pub unsafe fn addObjectsFromArray(&self, other_array: &NSArray<ObjectType>);
 
         #[method(exchangeObjectAtIndex:withObjectAtIndex:)]
         pub unsafe fn exchangeObjectAtIndex_withObjectAtIndex(
-            &mut self,
+            &self,
             idx1: NSUInteger,
             idx2: NSUInteger,
         );
 
         #[method(removeAllObjects)]
-        pub fn removeAllObjects(&mut self);
+        pub fn removeAllObjects(&self);
 
         #[cfg(feature = "Foundation_NSRange")]
         #[method(removeObject:inRange:)]
-        pub unsafe fn removeObject_inRange(&mut self, an_object: &ObjectType, range: NSRange);
+        pub unsafe fn removeObject_inRange(&self, an_object: &ObjectType, range: NSRange);
 
         #[method(removeObject:)]
-        pub unsafe fn removeObject(&mut self, an_object: &ObjectType);
+        pub unsafe fn removeObject(&self, an_object: &ObjectType);
 
         #[cfg(feature = "Foundation_NSRange")]
         #[method(removeObjectIdenticalTo:inRange:)]
         pub unsafe fn removeObjectIdenticalTo_inRange(
-            &mut self,
+            &self,
             an_object: &ObjectType,
             range: NSRange,
         );
 
         #[method(removeObjectIdenticalTo:)]
-        pub unsafe fn removeObjectIdenticalTo(&mut self, an_object: &ObjectType);
+        pub unsafe fn removeObjectIdenticalTo(&self, an_object: &ObjectType);
 
         #[deprecated = "Not supported"]
         #[method(removeObjectsFromIndices:numIndices:)]
         pub unsafe fn removeObjectsFromIndices_numIndices(
-            &mut self,
+            &self,
             indices: NonNull<NSUInteger>,
             cnt: NSUInteger,
         );
 
         #[method(removeObjectsInArray:)]
-        pub unsafe fn removeObjectsInArray(&mut self, other_array: &NSArray<ObjectType>);
+        pub unsafe fn removeObjectsInArray(&self, other_array: &NSArray<ObjectType>);
 
         #[cfg(feature = "Foundation_NSRange")]
         #[method(removeObjectsInRange:)]
-        pub unsafe fn removeObjectsInRange(&mut self, range: NSRange);
+        pub unsafe fn removeObjectsInRange(&self, range: NSRange);
 
         #[cfg(feature = "Foundation_NSRange")]
         #[method(replaceObjectsInRange:withObjectsFromArray:range:)]
         pub unsafe fn replaceObjectsInRange_withObjectsFromArray_range(
-            &mut self,
+            &self,
             range: NSRange,
             other_array: &NSArray<ObjectType>,
             other_range: NSRange,
@@ -622,17 +622,17 @@ extern_methods!(
         #[cfg(feature = "Foundation_NSRange")]
         #[method(replaceObjectsInRange:withObjectsFromArray:)]
         pub unsafe fn replaceObjectsInRange_withObjectsFromArray(
-            &mut self,
+            &self,
             range: NSRange,
             other_array: &NSArray<ObjectType>,
         );
 
         #[method(setArray:)]
-        pub unsafe fn setArray(&mut self, other_array: &NSArray<ObjectType>);
+        pub unsafe fn setArray(&self, other_array: &NSArray<ObjectType>);
 
         #[method(sortUsingFunction:context:)]
         pub unsafe fn sortUsingFunction_context(
-            &mut self,
+            &self,
             compare: unsafe extern "C" fn(
                 NonNull<ObjectType>,
                 NonNull<ObjectType>,
@@ -642,39 +642,39 @@ extern_methods!(
         );
 
         #[method(sortUsingSelector:)]
-        pub unsafe fn sortUsingSelector(&mut self, comparator: Sel);
+        pub unsafe fn sortUsingSelector(&self, comparator: Sel);
 
         #[cfg(feature = "Foundation_NSIndexSet")]
         #[method(insertObjects:atIndexes:)]
         pub unsafe fn insertObjects_atIndexes(
-            &mut self,
+            &self,
             objects: &NSArray<ObjectType>,
             indexes: &NSIndexSet,
         );
 
         #[cfg(feature = "Foundation_NSIndexSet")]
         #[method(removeObjectsAtIndexes:)]
-        pub unsafe fn removeObjectsAtIndexes(&mut self, indexes: &NSIndexSet);
+        pub unsafe fn removeObjectsAtIndexes(&self, indexes: &NSIndexSet);
 
         #[cfg(feature = "Foundation_NSIndexSet")]
         #[method(replaceObjectsAtIndexes:withObjects:)]
         pub unsafe fn replaceObjectsAtIndexes_withObjects(
-            &mut self,
+            &self,
             indexes: &NSIndexSet,
             objects: &NSArray<ObjectType>,
         );
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(&mut self, obj: &ObjectType, idx: NSUInteger);
+        pub unsafe fn setObject_atIndexedSubscript(&self, obj: &ObjectType, idx: NSUInteger);
 
         #[cfg(feature = "Foundation_NSObjCRuntime")]
         #[method(sortUsingComparator:)]
-        pub unsafe fn sortUsingComparator(&mut self, cmptr: NSComparator);
+        pub unsafe fn sortUsingComparator(&self, cmptr: NSComparator);
 
         #[cfg(feature = "Foundation_NSObjCRuntime")]
         #[method(sortWithOptions:usingComparator:)]
         pub unsafe fn sortWithOptions_usingComparator(
-            &mut self,
+            &self,
             opts: NSSortOptions,
             cmptr: NSComparator,
         );
@@ -720,7 +720,7 @@ extern_methods!(
         #[cfg(feature = "Foundation_NSOrderedCollectionDifference")]
         #[method(applyDifference:)]
         pub unsafe fn applyDifference(
-            &mut self,
+            &self,
             difference: &NSOrderedCollectionDifference<ObjectType>,
         );
     }
