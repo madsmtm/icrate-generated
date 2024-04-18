@@ -200,19 +200,19 @@ extern_methods!(
         pub fn stride(&self) -> NSUInteger;
 
         #[method(setStride:)]
-        pub fn setStride(&self, stride: NSUInteger);
+        pub fn set_stride(&self, stride: NSUInteger);
 
         #[method(stepFunction)]
-        pub fn stepFunction(&self) -> MTLStepFunction;
+        pub fn step_function(&self) -> MTLStepFunction;
 
         #[method(setStepFunction:)]
-        pub fn setStepFunction(&self, step_function: MTLStepFunction);
+        pub fn set_step_function(&self, step_function: MTLStepFunction);
 
         #[method(stepRate)]
-        pub fn stepRate(&self) -> NSUInteger;
+        pub fn step_rate(&self) -> NSUInteger;
 
         #[method(setStepRate:)]
-        pub fn setStepRate(&self, step_rate: NSUInteger);
+        pub fn set_step_rate(&self, step_rate: NSUInteger);
     }
 );
 
@@ -242,13 +242,13 @@ unsafe impl NSObjectProtocol for MTLBufferLayoutDescriptorArray {}
 extern_methods!(
     unsafe impl MTLBufferLayoutDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             index: NSUInteger,
         ) -> Retained<MTLBufferLayoutDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             buffer_desc: Option<&MTLBufferLayoutDescriptor>,
             index: NSUInteger,
@@ -287,19 +287,19 @@ extern_methods!(
         pub fn format(&self) -> MTLAttributeFormat;
 
         #[method(setFormat:)]
-        pub fn setFormat(&self, format: MTLAttributeFormat);
+        pub fn set_format(&self, format: MTLAttributeFormat);
 
         #[method(offset)]
         pub fn offset(&self) -> NSUInteger;
 
         #[method(setOffset:)]
-        pub fn setOffset(&self, offset: NSUInteger);
+        pub fn set_offset(&self, offset: NSUInteger);
 
         #[method(bufferIndex)]
-        pub fn bufferIndex(&self) -> NSUInteger;
+        pub fn buffer_index(&self) -> NSUInteger;
 
         #[method(setBufferIndex:)]
-        pub unsafe fn setBufferIndex(&self, buffer_index: NSUInteger);
+        pub unsafe fn set_buffer_index(&self, buffer_index: NSUInteger);
     }
 );
 
@@ -329,13 +329,13 @@ unsafe impl NSObjectProtocol for MTLAttributeDescriptorArray {}
 extern_methods!(
     unsafe impl MTLAttributeDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             index: NSUInteger,
         ) -> Retained<MTLAttributeDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attribute_desc: Option<&MTLAttributeDescriptor>,
             index: NSUInteger,
@@ -371,7 +371,7 @@ unsafe impl NSObjectProtocol for MTLStageInputOutputDescriptor {}
 extern_methods!(
     unsafe impl MTLStageInputOutputDescriptor {
         #[method_id(@__retain_semantics Other stageInputOutputDescriptor)]
-        pub fn stageInputOutputDescriptor() -> Retained<MTLStageInputOutputDescriptor>;
+        pub fn stage_input_output_descriptor() -> Retained<MTLStageInputOutputDescriptor>;
 
         #[method_id(@__retain_semantics Other layouts)]
         pub fn layouts(&self) -> Retained<MTLBufferLayoutDescriptorArray>;
@@ -380,16 +380,16 @@ extern_methods!(
         pub fn attributes(&self) -> Retained<MTLAttributeDescriptorArray>;
 
         #[method(indexType)]
-        pub fn indexType(&self) -> MTLIndexType;
+        pub fn index_type(&self) -> MTLIndexType;
 
         #[method(setIndexType:)]
-        pub unsafe fn setIndexType(&self, index_type: MTLIndexType);
+        pub unsafe fn set_index_type(&self, index_type: MTLIndexType);
 
         #[method(indexBufferIndex)]
-        pub fn indexBufferIndex(&self) -> NSUInteger;
+        pub fn index_buffer_index(&self) -> NSUInteger;
 
         #[method(setIndexBufferIndex:)]
-        pub unsafe fn setIndexBufferIndex(&self, index_buffer_index: NSUInteger);
+        pub unsafe fn set_index_buffer_index(&self, index_buffer_index: NSUInteger);
 
         #[method(reset)]
         pub fn reset(&self);

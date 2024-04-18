@@ -46,7 +46,7 @@ extern_methods!(
         pub fn mutability(&self) -> MTLMutability;
 
         #[method(setMutability:)]
-        pub fn setMutability(&self, mutability: MTLMutability);
+        pub fn set_mutability(&self, mutability: MTLMutability);
     }
 );
 
@@ -76,13 +76,13 @@ unsafe impl NSObjectProtocol for MTLPipelineBufferDescriptorArray {}
 extern_methods!(
     unsafe impl MTLPipelineBufferDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             buffer_index: NSUInteger,
         ) -> Retained<MTLPipelineBufferDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             buffer: Option<&MTLPipelineBufferDescriptor>,
             buffer_index: NSUInteger,

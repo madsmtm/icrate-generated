@@ -197,10 +197,10 @@ extern_category!(
     #[doc(alias = "CATransform3DAdditions")]
     pub unsafe trait NSValueCATransform3DAdditions {
         #[method_id(@__retain_semantics Other valueWithCATransform3D:)]
-        unsafe fn valueWithCATransform3D(t: CATransform3D) -> Retained<NSValue>;
+        unsafe fn value_with_ca_transform3_d(t: CATransform3D) -> Retained<NSValue>;
 
         #[method(CATransform3DValue)]
-        unsafe fn CATransform3DValue(&self) -> CATransform3D;
+        unsafe fn ca_transform3_d_value(&self) -> CATransform3D;
     }
 
     unsafe impl NSValueCATransform3DAdditions for NSValue {}

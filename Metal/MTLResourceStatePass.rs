@@ -23,31 +23,34 @@ extern_methods!(
     unsafe impl MTLResourceStatePassSampleBufferAttachmentDescriptor {
         #[cfg(feature = "MTLCounters")]
         #[method_id(@__retain_semantics Other sampleBuffer)]
-        pub unsafe fn sampleBuffer(
+        pub unsafe fn sample_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLCounterSampleBuffer>>>;
 
         #[cfg(feature = "MTLCounters")]
         #[method(setSampleBuffer:)]
-        pub unsafe fn setSampleBuffer(
+        pub unsafe fn set_sample_buffer(
             &self,
             sample_buffer: Option<&ProtocolObject<dyn MTLCounterSampleBuffer>>,
         );
 
         #[method(startOfEncoderSampleIndex)]
-        pub unsafe fn startOfEncoderSampleIndex(&self) -> NSUInteger;
+        pub unsafe fn start_of_encoder_sample_index(&self) -> NSUInteger;
 
         #[method(setStartOfEncoderSampleIndex:)]
-        pub unsafe fn setStartOfEncoderSampleIndex(
+        pub unsafe fn set_start_of_encoder_sample_index(
             &self,
             start_of_encoder_sample_index: NSUInteger,
         );
 
         #[method(endOfEncoderSampleIndex)]
-        pub unsafe fn endOfEncoderSampleIndex(&self) -> NSUInteger;
+        pub unsafe fn end_of_encoder_sample_index(&self) -> NSUInteger;
 
         #[method(setEndOfEncoderSampleIndex:)]
-        pub unsafe fn setEndOfEncoderSampleIndex(&self, end_of_encoder_sample_index: NSUInteger);
+        pub unsafe fn set_end_of_encoder_sample_index(
+            &self,
+            end_of_encoder_sample_index: NSUInteger,
+        );
     }
 );
 
@@ -77,13 +80,13 @@ unsafe impl NSObjectProtocol for MTLResourceStatePassSampleBufferAttachmentDescr
 extern_methods!(
     unsafe impl MTLResourceStatePassSampleBufferAttachmentDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             attachment_index: NSUInteger,
         ) -> Retained<MTLResourceStatePassSampleBufferAttachmentDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attachment: Option<&MTLResourceStatePassSampleBufferAttachmentDescriptor>,
             attachment_index: NSUInteger,
@@ -119,10 +122,10 @@ unsafe impl NSObjectProtocol for MTLResourceStatePassDescriptor {}
 extern_methods!(
     unsafe impl MTLResourceStatePassDescriptor {
         #[method_id(@__retain_semantics Other resourceStatePassDescriptor)]
-        pub unsafe fn resourceStatePassDescriptor() -> Retained<MTLResourceStatePassDescriptor>;
+        pub unsafe fn resource_state_pass_descriptor() -> Retained<MTLResourceStatePassDescriptor>;
 
         #[method_id(@__retain_semantics Other sampleBufferAttachments)]
-        pub unsafe fn sampleBufferAttachments(
+        pub unsafe fn sample_buffer_attachments(
             &self,
         ) -> Retained<MTLResourceStatePassSampleBufferAttachmentDescriptorArray>;
     }

@@ -15,7 +15,7 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
     }
 
     unsafe impl ProtocolType for dyn MTLFence {}

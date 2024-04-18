@@ -22,7 +22,7 @@ unsafe impl NSObjectProtocol for MTLLinkedFunctions {}
 extern_methods!(
     unsafe impl MTLLinkedFunctions {
         #[method_id(@__retain_semantics Other linkedFunctions)]
-        pub fn linkedFunctions() -> Retained<MTLLinkedFunctions>;
+        pub fn linked_functions() -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other functions)]
@@ -30,16 +30,17 @@ extern_methods!(
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setFunctions:)]
-        pub fn setFunctions(&self, functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>);
+        pub fn set_functions(&self, functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>);
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other binaryFunctions)]
-        pub fn binaryFunctions(&self)
-            -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
+        pub fn binary_functions(
+            &self,
+        ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setBinaryFunctions:)]
-        pub fn setBinaryFunctions(
+        pub fn set_binary_functions(
             &self,
             binary_functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>,
         );
@@ -52,20 +53,20 @@ extern_methods!(
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setGroups:)]
-        pub fn setGroups(
+        pub fn set_groups(
             &self,
             groups: Option<&NSDictionary<NSString, NSArray<ProtocolObject<dyn MTLFunction>>>>,
         );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other privateFunctions)]
-        pub fn privateFunctions(
+        pub fn private_functions(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setPrivateFunctions:)]
-        pub fn setPrivateFunctions(
+        pub fn set_private_functions(
             &self,
             private_functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>,
         );

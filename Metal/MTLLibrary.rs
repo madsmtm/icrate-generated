@@ -44,20 +44,20 @@ extern_methods!(
         pub fn name(&self) -> Retained<NSString>;
 
         #[method(attributeIndex)]
-        pub fn attributeIndex(&self) -> NSUInteger;
+        pub fn attribute_index(&self) -> NSUInteger;
 
         #[cfg(feature = "MTLArgument")]
         #[method(attributeType)]
-        pub fn attributeType(&self) -> MTLDataType;
+        pub fn attribute_type(&self) -> MTLDataType;
 
         #[method(isActive)]
-        pub fn isActive(&self) -> bool;
+        pub fn is_active(&self) -> bool;
 
         #[method(isPatchData)]
-        pub fn isPatchData(&self) -> bool;
+        pub fn is_patch_data(&self) -> bool;
 
         #[method(isPatchControlPointData)]
-        pub fn isPatchControlPointData(&self) -> bool;
+        pub fn is_patch_control_point_data(&self) -> bool;
     }
 );
 
@@ -90,20 +90,20 @@ extern_methods!(
         pub fn name(&self) -> Retained<NSString>;
 
         #[method(attributeIndex)]
-        pub fn attributeIndex(&self) -> NSUInteger;
+        pub fn attribute_index(&self) -> NSUInteger;
 
         #[cfg(feature = "MTLArgument")]
         #[method(attributeType)]
-        pub fn attributeType(&self) -> MTLDataType;
+        pub fn attribute_type(&self) -> MTLDataType;
 
         #[method(isActive)]
-        pub fn isActive(&self) -> bool;
+        pub fn is_active(&self) -> bool;
 
         #[method(isPatchData)]
-        pub fn isPatchData(&self) -> bool;
+        pub fn is_patch_data(&self) -> bool;
 
         #[method(isPatchControlPointData)]
-        pub fn isPatchControlPointData(&self) -> bool;
+        pub fn is_patch_control_point_data(&self) -> bool;
     }
 );
 
@@ -193,38 +193,38 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
         fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method(functionType)]
-        fn functionType(&self) -> MTLFunctionType;
+        fn function_type(&self) -> MTLFunctionType;
 
         #[method(patchType)]
-        fn patchType(&self) -> MTLPatchType;
+        fn patch_type(&self) -> MTLPatchType;
 
         #[method(patchControlPointCount)]
-        fn patchControlPointCount(&self) -> NSInteger;
+        fn patch_control_point_count(&self) -> NSInteger;
 
         #[method_id(@__retain_semantics Other vertexAttributes)]
-        fn vertexAttributes(&self) -> Option<Retained<NSArray<MTLVertexAttribute>>>;
+        fn vertex_attributes(&self) -> Option<Retained<NSArray<MTLVertexAttribute>>>;
 
         #[method_id(@__retain_semantics Other stageInputAttributes)]
-        fn stageInputAttributes(&self) -> Option<Retained<NSArray<MTLAttribute>>>;
+        fn stage_input_attributes(&self) -> Option<Retained<NSArray<MTLAttribute>>>;
 
         #[method_id(@__retain_semantics Other name)]
         fn name(&self) -> Retained<NSString>;
 
         #[method_id(@__retain_semantics Other functionConstantsDictionary)]
-        fn functionConstantsDictionary(
+        fn function_constants_dictionary(
             &self,
         ) -> Retained<NSDictionary<NSString, MTLFunctionConstant>>;
 
         #[cfg(feature = "MTLArgumentEncoder")]
         #[method_id(@__retain_semantics New newArgumentEncoderWithBufferIndex:)]
-        unsafe fn newArgumentEncoderWithBufferIndex(
+        unsafe fn new_argument_encoder_with_buffer_index(
             &self,
             buffer_index: NSUInteger,
         ) -> Retained<ProtocolObject<dyn MTLArgumentEncoder>>;
@@ -337,37 +337,37 @@ unsafe impl NSObjectProtocol for MTLCompileOptions {}
 extern_methods!(
     unsafe impl MTLCompileOptions {
         #[method_id(@__retain_semantics Other preprocessorMacros)]
-        pub fn preprocessorMacros(&self) -> Option<Retained<NSDictionary<NSString, NSObject>>>;
+        pub fn preprocessor_macros(&self) -> Option<Retained<NSDictionary<NSString, NSObject>>>;
 
         #[method(setPreprocessorMacros:)]
-        pub unsafe fn setPreprocessorMacros(
+        pub unsafe fn set_preprocessor_macros(
             &self,
             preprocessor_macros: Option<&NSDictionary<NSString, NSObject>>,
         );
 
         #[method(fastMathEnabled)]
-        pub fn fastMathEnabled(&self) -> bool;
+        pub fn fast_math_enabled(&self) -> bool;
 
         #[method(setFastMathEnabled:)]
-        pub fn setFastMathEnabled(&self, fast_math_enabled: bool);
+        pub fn set_fast_math_enabled(&self, fast_math_enabled: bool);
 
         #[method(languageVersion)]
-        pub fn languageVersion(&self) -> MTLLanguageVersion;
+        pub fn language_version(&self) -> MTLLanguageVersion;
 
         #[method(setLanguageVersion:)]
-        pub fn setLanguageVersion(&self, language_version: MTLLanguageVersion);
+        pub fn set_language_version(&self, language_version: MTLLanguageVersion);
 
         #[method(libraryType)]
-        pub fn libraryType(&self) -> MTLLibraryType;
+        pub fn library_type(&self) -> MTLLibraryType;
 
         #[method(setLibraryType:)]
-        pub fn setLibraryType(&self, library_type: MTLLibraryType);
+        pub fn set_library_type(&self, library_type: MTLLibraryType);
 
         #[method_id(@__retain_semantics Other installName)]
-        pub fn installName(&self) -> Option<Retained<NSString>>;
+        pub fn install_name(&self) -> Option<Retained<NSString>>;
 
         #[method(setInstallName:)]
-        pub unsafe fn setInstallName(&self, install_name: Option<&NSString>);
+        pub unsafe fn set_install_name(&self, install_name: Option<&NSString>);
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method_id(@__retain_semantics Other libraries)]
@@ -376,46 +376,49 @@ extern_methods!(
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method(setLibraries:)]
-        pub fn setLibraries(
+        pub fn set_libraries(
             &self,
             libraries: Option<&NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>,
         );
 
         #[method(preserveInvariance)]
-        pub fn preserveInvariance(&self) -> bool;
+        pub fn preserve_invariance(&self) -> bool;
 
         #[method(setPreserveInvariance:)]
-        pub fn setPreserveInvariance(&self, preserve_invariance: bool);
+        pub fn set_preserve_invariance(&self, preserve_invariance: bool);
 
         #[method(optimizationLevel)]
-        pub unsafe fn optimizationLevel(&self) -> MTLLibraryOptimizationLevel;
+        pub unsafe fn optimization_level(&self) -> MTLLibraryOptimizationLevel;
 
         #[method(setOptimizationLevel:)]
-        pub unsafe fn setOptimizationLevel(&self, optimization_level: MTLLibraryOptimizationLevel);
+        pub unsafe fn set_optimization_level(
+            &self,
+            optimization_level: MTLLibraryOptimizationLevel,
+        );
 
         #[method(compileSymbolVisibility)]
-        pub unsafe fn compileSymbolVisibility(&self) -> MTLCompileSymbolVisibility;
+        pub unsafe fn compile_symbol_visibility(&self) -> MTLCompileSymbolVisibility;
 
         #[method(setCompileSymbolVisibility:)]
-        pub unsafe fn setCompileSymbolVisibility(
+        pub unsafe fn set_compile_symbol_visibility(
             &self,
             compile_symbol_visibility: MTLCompileSymbolVisibility,
         );
 
         #[method(allowReferencingUndefinedSymbols)]
-        pub unsafe fn allowReferencingUndefinedSymbols(&self) -> bool;
+        pub unsafe fn allow_referencing_undefined_symbols(&self) -> bool;
 
         #[method(setAllowReferencingUndefinedSymbols:)]
-        pub unsafe fn setAllowReferencingUndefinedSymbols(
+        pub unsafe fn set_allow_referencing_undefined_symbols(
             &self,
             allow_referencing_undefined_symbols: bool,
         );
 
         #[method(maxTotalThreadsPerThreadgroup)]
-        pub unsafe fn maxTotalThreadsPerThreadgroup(&self) -> NSUInteger;
+        pub unsafe fn max_total_threads_per_threadgroup(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadsPerThreadgroup:)]
-        pub unsafe fn setMaxTotalThreadsPerThreadgroup(
+        pub unsafe fn set_max_total_threads_per_threadgroup(
             &self,
             max_total_threads_per_threadgroup: NSUInteger,
         );
@@ -477,21 +480,21 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
         fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method_id(@__retain_semantics New newFunctionWithName:)]
-        fn newFunctionWithName(
+        fn new_function_with_name(
             &self,
             function_name: &NSString,
         ) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLFunctionConstantValues")]
         #[method_id(@__retain_semantics New newFunctionWithName:constantValues:error:_)]
-        fn newFunctionWithName_constantValues_error(
+        fn new_function_with_name_constant_values_error(
             &self,
             name: &NSString,
             constant_values: &MTLFunctionConstantValues,
@@ -499,7 +502,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLFunctionConstantValues", feature = "block2"))]
         #[method(newFunctionWithName:constantValues:completionHandler:)]
-        unsafe fn newFunctionWithName_constantValues_completionHandler(
+        unsafe fn new_function_with_name_constant_values_completion_handler(
             &self,
             name: &NSString,
             constant_values: &MTLFunctionConstantValues,
@@ -510,7 +513,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLFunctionDescriptor", feature = "block2"))]
         #[method(newFunctionWithDescriptor:completionHandler:)]
-        unsafe fn newFunctionWithDescriptor_completionHandler(
+        unsafe fn new_function_with_descriptor_completion_handler(
             &self,
             descriptor: &MTLFunctionDescriptor,
             completion_handler: &block2::Block<
@@ -520,14 +523,14 @@ extern_protocol!(
 
         #[cfg(feature = "MTLFunctionDescriptor")]
         #[method_id(@__retain_semantics New newFunctionWithDescriptor:error:_)]
-        fn newFunctionWithDescriptor_error(
+        fn new_function_with_descriptor_error(
             &self,
             descriptor: &MTLFunctionDescriptor,
         ) -> Result<Retained<ProtocolObject<dyn MTLFunction>>, Retained<NSError>>;
 
         #[cfg(all(feature = "MTLFunctionDescriptor", feature = "block2"))]
         #[method(newIntersectionFunctionWithDescriptor:completionHandler:)]
-        unsafe fn newIntersectionFunctionWithDescriptor_completionHandler(
+        unsafe fn new_intersection_function_with_descriptor_completion_handler(
             &self,
             descriptor: &MTLIntersectionFunctionDescriptor,
             completion_handler: &block2::Block<
@@ -537,19 +540,19 @@ extern_protocol!(
 
         #[cfg(feature = "MTLFunctionDescriptor")]
         #[method_id(@__retain_semantics New newIntersectionFunctionWithDescriptor:error:_)]
-        fn newIntersectionFunctionWithDescriptor_error(
+        fn new_intersection_function_with_descriptor_error(
             &self,
             descriptor: &MTLIntersectionFunctionDescriptor,
         ) -> Result<Retained<ProtocolObject<dyn MTLFunction>>, Retained<NSError>>;
 
         #[method_id(@__retain_semantics Other functionNames)]
-        fn functionNames(&self) -> Retained<NSArray<NSString>>;
+        fn function_names(&self) -> Retained<NSArray<NSString>>;
 
         #[method(type)]
         unsafe fn r#type(&self) -> MTLLibraryType;
 
         #[method_id(@__retain_semantics Other installName)]
-        fn installName(&self) -> Option<Retained<NSString>>;
+        fn install_name(&self) -> Option<Retained<NSString>>;
     }
 
     unsafe impl ProtocolType for dyn MTLLibrary {}

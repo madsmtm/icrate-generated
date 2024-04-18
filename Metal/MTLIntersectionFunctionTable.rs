@@ -57,14 +57,14 @@ unsafe impl NSObjectProtocol for MTLIntersectionFunctionTableDescriptor {}
 extern_methods!(
     unsafe impl MTLIntersectionFunctionTableDescriptor {
         #[method_id(@__retain_semantics Other intersectionFunctionTableDescriptor)]
-        pub unsafe fn intersectionFunctionTableDescriptor(
+        pub unsafe fn intersection_function_table_descriptor(
         ) -> Retained<MTLIntersectionFunctionTableDescriptor>;
 
         #[method(functionCount)]
-        pub unsafe fn functionCount(&self) -> NSUInteger;
+        pub unsafe fn function_count(&self) -> NSUInteger;
 
         #[method(setFunctionCount:)]
-        pub fn setFunctionCount(&self, function_count: NSUInteger);
+        pub fn set_function_count(&self, function_count: NSUInteger);
     }
 );
 
@@ -91,7 +91,7 @@ extern_protocol!(
     pub unsafe trait MTLIntersectionFunctionTable: MTLResource + IsRetainable {
         #[cfg(feature = "MTLBuffer")]
         #[method(setBuffer:offset:atIndex:)]
-        unsafe fn setBuffer_offset_atIndex(
+        unsafe fn set_buffer_offset_at_index(
             &self,
             buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
             offset: NSUInteger,
@@ -100,7 +100,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLBuffer")]
         #[method(setBuffers:offsets:withRange:)]
-        unsafe fn setBuffers_offsets_withRange(
+        unsafe fn set_buffers_offsets_with_range(
             &self,
             buffers: NonNull<*const ProtocolObject<dyn MTLBuffer>>,
             offsets: NonNull<NSUInteger>,
@@ -109,11 +109,11 @@ extern_protocol!(
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
 
         #[cfg(feature = "MTLFunctionHandle")]
         #[method(setFunction:atIndex:)]
-        fn setFunction_atIndex(
+        fn set_function_at_index(
             &self,
             function: Option<&ProtocolObject<dyn MTLFunctionHandle>>,
             index: NSUInteger,
@@ -121,35 +121,35 @@ extern_protocol!(
 
         #[cfg(feature = "MTLFunctionHandle")]
         #[method(setFunctions:withRange:)]
-        unsafe fn setFunctions_withRange(
+        unsafe fn set_functions_with_range(
             &self,
             functions: NonNull<*const ProtocolObject<dyn MTLFunctionHandle>>,
             range: NSRange,
         );
 
         #[method(setOpaqueTriangleIntersectionFunctionWithSignature:atIndex:)]
-        unsafe fn setOpaqueTriangleIntersectionFunctionWithSignature_atIndex(
+        unsafe fn set_opaque_triangle_intersection_function_with_signature_at_index(
             &self,
             signature: MTLIntersectionFunctionSignature,
             index: NSUInteger,
         );
 
         #[method(setOpaqueTriangleIntersectionFunctionWithSignature:withRange:)]
-        unsafe fn setOpaqueTriangleIntersectionFunctionWithSignature_withRange(
+        unsafe fn set_opaque_triangle_intersection_function_with_signature_with_range(
             &self,
             signature: MTLIntersectionFunctionSignature,
             range: NSRange,
         );
 
         #[method(setOpaqueCurveIntersectionFunctionWithSignature:atIndex:)]
-        unsafe fn setOpaqueCurveIntersectionFunctionWithSignature_atIndex(
+        unsafe fn set_opaque_curve_intersection_function_with_signature_at_index(
             &self,
             signature: MTLIntersectionFunctionSignature,
             index: NSUInteger,
         );
 
         #[method(setOpaqueCurveIntersectionFunctionWithSignature:withRange:)]
-        unsafe fn setOpaqueCurveIntersectionFunctionWithSignature_withRange(
+        unsafe fn set_opaque_curve_intersection_function_with_signature_with_range(
             &self,
             signature: MTLIntersectionFunctionSignature,
             range: NSRange,
@@ -157,7 +157,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLVisibleFunctionTable")]
         #[method(setVisibleFunctionTable:atBufferIndex:)]
-        unsafe fn setVisibleFunctionTable_atBufferIndex(
+        unsafe fn set_visible_function_table_at_buffer_index(
             &self,
             function_table: Option<&ProtocolObject<dyn MTLVisibleFunctionTable>>,
             buffer_index: NSUInteger,
@@ -165,7 +165,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLVisibleFunctionTable")]
         #[method(setVisibleFunctionTables:withBufferRange:)]
-        unsafe fn setVisibleFunctionTables_withBufferRange(
+        unsafe fn set_visible_function_tables_with_buffer_range(
             &self,
             function_tables: NonNull<*const ProtocolObject<dyn MTLVisibleFunctionTable>>,
             buffer_range: NSRange,

@@ -22,13 +22,14 @@ unsafe impl NSObjectProtocol for MTLVisibleFunctionTableDescriptor {}
 extern_methods!(
     unsafe impl MTLVisibleFunctionTableDescriptor {
         #[method_id(@__retain_semantics Other visibleFunctionTableDescriptor)]
-        pub unsafe fn visibleFunctionTableDescriptor() -> Retained<MTLVisibleFunctionTableDescriptor>;
+        pub unsafe fn visible_function_table_descriptor(
+        ) -> Retained<MTLVisibleFunctionTableDescriptor>;
 
         #[method(functionCount)]
-        pub unsafe fn functionCount(&self) -> NSUInteger;
+        pub unsafe fn function_count(&self) -> NSUInteger;
 
         #[method(setFunctionCount:)]
-        pub unsafe fn setFunctionCount(&self, function_count: NSUInteger);
+        pub unsafe fn set_function_count(&self, function_count: NSUInteger);
     }
 );
 
@@ -48,11 +49,11 @@ extern_protocol!(
     pub unsafe trait MTLVisibleFunctionTable: MTLResource + IsRetainable {
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
 
         #[cfg(feature = "MTLFunctionHandle")]
         #[method(setFunction:atIndex:)]
-        unsafe fn setFunction_atIndex(
+        unsafe fn set_function_at_index(
             &self,
             function: Option<&ProtocolObject<dyn MTLFunctionHandle>>,
             index: NSUInteger,
@@ -60,7 +61,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLFunctionHandle")]
         #[method(setFunctions:withRange:)]
-        unsafe fn setFunctions_withRange(
+        unsafe fn set_functions_with_range(
             &self,
             functions: NonNull<*const ProtocolObject<dyn MTLFunctionHandle>>,
             range: NSRange,

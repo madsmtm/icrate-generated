@@ -72,82 +72,88 @@ unsafe impl NSObjectProtocol for MTLIndirectCommandBufferDescriptor {}
 extern_methods!(
     unsafe impl MTLIndirectCommandBufferDescriptor {
         #[method(commandTypes)]
-        pub fn commandTypes(&self) -> MTLIndirectCommandType;
+        pub fn command_types(&self) -> MTLIndirectCommandType;
 
         #[method(setCommandTypes:)]
-        pub fn setCommandTypes(&self, command_types: MTLIndirectCommandType);
+        pub fn set_command_types(&self, command_types: MTLIndirectCommandType);
 
         #[method(inheritPipelineState)]
-        pub fn inheritPipelineState(&self) -> bool;
+        pub fn inherit_pipeline_state(&self) -> bool;
 
         #[method(setInheritPipelineState:)]
-        pub fn setInheritPipelineState(&self, inherit_pipeline_state: bool);
+        pub fn set_inherit_pipeline_state(&self, inherit_pipeline_state: bool);
 
         #[method(inheritBuffers)]
-        pub fn inheritBuffers(&self) -> bool;
+        pub fn inherit_buffers(&self) -> bool;
 
         #[method(setInheritBuffers:)]
-        pub fn setInheritBuffers(&self, inherit_buffers: bool);
+        pub fn set_inherit_buffers(&self, inherit_buffers: bool);
 
         #[method(maxVertexBufferBindCount)]
-        pub fn maxVertexBufferBindCount(&self) -> NSUInteger;
+        pub fn max_vertex_buffer_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxVertexBufferBindCount:)]
-        pub fn setMaxVertexBufferBindCount(&self, max_vertex_buffer_bind_count: NSUInteger);
+        pub fn set_max_vertex_buffer_bind_count(&self, max_vertex_buffer_bind_count: NSUInteger);
 
         #[method(maxFragmentBufferBindCount)]
-        pub fn maxFragmentBufferBindCount(&self) -> NSUInteger;
+        pub fn max_fragment_buffer_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxFragmentBufferBindCount:)]
-        pub fn setMaxFragmentBufferBindCount(&self, max_fragment_buffer_bind_count: NSUInteger);
+        pub fn set_max_fragment_buffer_bind_count(
+            &self,
+            max_fragment_buffer_bind_count: NSUInteger,
+        );
 
         #[method(maxKernelBufferBindCount)]
-        pub fn maxKernelBufferBindCount(&self) -> NSUInteger;
+        pub fn max_kernel_buffer_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxKernelBufferBindCount:)]
-        pub fn setMaxKernelBufferBindCount(&self, max_kernel_buffer_bind_count: NSUInteger);
+        pub fn set_max_kernel_buffer_bind_count(&self, max_kernel_buffer_bind_count: NSUInteger);
 
         #[method(maxKernelThreadgroupMemoryBindCount)]
-        pub unsafe fn maxKernelThreadgroupMemoryBindCount(&self) -> NSUInteger;
+        pub unsafe fn max_kernel_threadgroup_memory_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxKernelThreadgroupMemoryBindCount:)]
-        pub unsafe fn setMaxKernelThreadgroupMemoryBindCount(
+        pub unsafe fn set_max_kernel_threadgroup_memory_bind_count(
             &self,
             max_kernel_threadgroup_memory_bind_count: NSUInteger,
         );
 
         #[method(maxObjectBufferBindCount)]
-        pub unsafe fn maxObjectBufferBindCount(&self) -> NSUInteger;
+        pub unsafe fn max_object_buffer_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxObjectBufferBindCount:)]
-        pub unsafe fn setMaxObjectBufferBindCount(&self, max_object_buffer_bind_count: NSUInteger);
+        pub unsafe fn set_max_object_buffer_bind_count(
+            &self,
+            max_object_buffer_bind_count: NSUInteger,
+        );
 
         #[method(maxMeshBufferBindCount)]
-        pub unsafe fn maxMeshBufferBindCount(&self) -> NSUInteger;
+        pub unsafe fn max_mesh_buffer_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxMeshBufferBindCount:)]
-        pub unsafe fn setMaxMeshBufferBindCount(&self, max_mesh_buffer_bind_count: NSUInteger);
+        pub unsafe fn set_max_mesh_buffer_bind_count(&self, max_mesh_buffer_bind_count: NSUInteger);
 
         #[method(maxObjectThreadgroupMemoryBindCount)]
-        pub unsafe fn maxObjectThreadgroupMemoryBindCount(&self) -> NSUInteger;
+        pub unsafe fn max_object_threadgroup_memory_bind_count(&self) -> NSUInteger;
 
         #[method(setMaxObjectThreadgroupMemoryBindCount:)]
-        pub unsafe fn setMaxObjectThreadgroupMemoryBindCount(
+        pub unsafe fn set_max_object_threadgroup_memory_bind_count(
             &self,
             max_object_threadgroup_memory_bind_count: NSUInteger,
         );
 
         #[method(supportRayTracing)]
-        pub unsafe fn supportRayTracing(&self) -> bool;
+        pub unsafe fn support_ray_tracing(&self) -> bool;
 
         #[method(setSupportRayTracing:)]
-        pub unsafe fn setSupportRayTracing(&self, support_ray_tracing: bool);
+        pub unsafe fn set_support_ray_tracing(&self, support_ray_tracing: bool);
 
         #[method(supportDynamicAttributeStride)]
-        pub unsafe fn supportDynamicAttributeStride(&self) -> bool;
+        pub unsafe fn support_dynamic_attribute_stride(&self) -> bool;
 
         #[method(setSupportDynamicAttributeStride:)]
-        pub unsafe fn setSupportDynamicAttributeStride(
+        pub unsafe fn set_support_dynamic_attribute_stride(
             &self,
             support_dynamic_attribute_stride: bool,
         );
@@ -173,21 +179,21 @@ extern_protocol!(
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
 
         #[method(resetWithRange:)]
-        unsafe fn resetWithRange(&self, range: NSRange);
+        unsafe fn reset_with_range(&self, range: NSRange);
 
         #[cfg(feature = "MTLIndirectCommandEncoder")]
         #[method_id(@__retain_semantics Other indirectRenderCommandAtIndex:)]
-        unsafe fn indirectRenderCommandAtIndex(
+        unsafe fn indirect_render_command_at_index(
             &self,
             command_index: NSUInteger,
         ) -> Retained<ProtocolObject<dyn MTLIndirectRenderCommand>>;
 
         #[cfg(feature = "MTLIndirectCommandEncoder")]
         #[method_id(@__retain_semantics Other indirectComputeCommandAtIndex:)]
-        unsafe fn indirectComputeCommandAtIndex(
+        unsafe fn indirect_compute_command_at_index(
             &self,
             command_index: NSUInteger,
         ) -> Retained<ProtocolObject<dyn MTLIndirectComputeCommand>>;

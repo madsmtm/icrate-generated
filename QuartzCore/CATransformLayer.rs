@@ -46,7 +46,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

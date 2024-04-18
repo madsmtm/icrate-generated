@@ -29,29 +29,29 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Other HDR10MetadataWithDisplayInfo:contentInfo:opticalOutputScale:)]
-        pub unsafe fn HDR10MetadataWithDisplayInfo_contentInfo_opticalOutputScale(
+        pub unsafe fn hdr10_metadata_with_display_info_content_info_optical_output_scale(
             display_data: Option<&NSData>,
             content_data: Option<&NSData>,
             scale: c_float,
         ) -> Retained<CAEDRMetadata>;
 
         #[method_id(@__retain_semantics Other HDR10MetadataWithMinLuminance:maxLuminance:opticalOutputScale:)]
-        pub unsafe fn HDR10MetadataWithMinLuminance_maxLuminance_opticalOutputScale(
+        pub unsafe fn hdr10_metadata_with_min_luminance_max_luminance_optical_output_scale(
             min_nits: c_float,
             max_nits: c_float,
             scale: c_float,
         ) -> Retained<CAEDRMetadata>;
 
         #[method_id(@__retain_semantics Other HLGMetadataWithAmbientViewingEnvironment:)]
-        pub unsafe fn HLGMetadataWithAmbientViewingEnvironment(
+        pub unsafe fn hlg_metadata_with_ambient_viewing_environment(
             data: &NSData,
         ) -> Retained<CAEDRMetadata>;
 
         #[method_id(@__retain_semantics Other HLGMetadata)]
-        pub unsafe fn HLGMetadata() -> Retained<CAEDRMetadata>;
+        pub unsafe fn hlg_metadata() -> Retained<CAEDRMetadata>;
 
         #[method(isAvailable)]
-        pub unsafe fn isAvailable() -> bool;
+        pub unsafe fn is_available() -> bool;
     }
 );
 

@@ -72,7 +72,7 @@ extern_methods!(
         pub unsafe fn usage(&self) -> MTLAccelerationStructureUsage;
 
         #[method(setUsage:)]
-        pub unsafe fn setUsage(&self, usage: MTLAccelerationStructureUsage);
+        pub unsafe fn set_usage(&self, usage: MTLAccelerationStructureUsage);
     }
 );
 
@@ -104,10 +104,10 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureGeometryDescriptor {}
 extern_methods!(
     unsafe impl MTLAccelerationStructureGeometryDescriptor {
         #[method(intersectionFunctionTableOffset)]
-        pub unsafe fn intersectionFunctionTableOffset(&self) -> NSUInteger;
+        pub unsafe fn intersection_function_table_offset(&self) -> NSUInteger;
 
         #[method(setIntersectionFunctionTableOffset:)]
-        pub fn setIntersectionFunctionTableOffset(
+        pub fn set_intersection_function_table_offset(
             &self,
             intersection_function_table_offset: NSUInteger,
         );
@@ -116,13 +116,13 @@ extern_methods!(
         pub unsafe fn opaque(&self) -> bool;
 
         #[method(setOpaque:)]
-        pub unsafe fn setOpaque(&self, opaque: bool);
+        pub unsafe fn set_opaque(&self, opaque: bool);
 
         #[method(allowDuplicateIntersectionFunctionInvocation)]
-        pub unsafe fn allowDuplicateIntersectionFunctionInvocation(&self) -> bool;
+        pub unsafe fn allow_duplicate_intersection_function_invocation(&self) -> bool;
 
         #[method(setAllowDuplicateIntersectionFunctionInvocation:)]
-        pub unsafe fn setAllowDuplicateIntersectionFunctionInvocation(
+        pub unsafe fn set_allow_duplicate_intersection_function_invocation(
             &self,
             allow_duplicate_intersection_function_invocation: bool,
         );
@@ -131,37 +131,41 @@ extern_methods!(
         pub unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub unsafe fn setLabel(&self, label: Option<&NSString>);
+        pub unsafe fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other primitiveDataBuffer)]
-        pub unsafe fn primitiveDataBuffer(&self)
-            -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn primitive_data_buffer(
+            &self,
+        ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setPrimitiveDataBuffer:)]
-        pub fn setPrimitiveDataBuffer(
+        pub fn set_primitive_data_buffer(
             &self,
             primitive_data_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(primitiveDataBufferOffset)]
-        pub unsafe fn primitiveDataBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn primitive_data_buffer_offset(&self) -> NSUInteger;
 
         #[method(setPrimitiveDataBufferOffset:)]
-        pub unsafe fn setPrimitiveDataBufferOffset(&self, primitive_data_buffer_offset: NSUInteger);
+        pub unsafe fn set_primitive_data_buffer_offset(
+            &self,
+            primitive_data_buffer_offset: NSUInteger,
+        );
 
         #[method(primitiveDataStride)]
-        pub unsafe fn primitiveDataStride(&self) -> NSUInteger;
+        pub unsafe fn primitive_data_stride(&self) -> NSUInteger;
 
         #[method(setPrimitiveDataStride:)]
-        pub fn setPrimitiveDataStride(&self, primitive_data_stride: NSUInteger);
+        pub fn set_primitive_data_stride(&self, primitive_data_stride: NSUInteger);
 
         #[method(primitiveDataElementSize)]
-        pub unsafe fn primitiveDataElementSize(&self) -> NSUInteger;
+        pub unsafe fn primitive_data_element_size(&self) -> NSUInteger;
 
         #[method(setPrimitiveDataElementSize:)]
-        pub fn setPrimitiveDataElementSize(&self, primitive_data_element_size: NSUInteger);
+        pub fn set_primitive_data_element_size(&self, primitive_data_element_size: NSUInteger);
     }
 );
 
@@ -213,48 +217,51 @@ unsafe impl NSObjectProtocol for MTLPrimitiveAccelerationStructureDescriptor {}
 extern_methods!(
     unsafe impl MTLPrimitiveAccelerationStructureDescriptor {
         #[method_id(@__retain_semantics Other geometryDescriptors)]
-        pub unsafe fn geometryDescriptors(
+        pub unsafe fn geometry_descriptors(
             &self,
         ) -> Option<Retained<NSArray<MTLAccelerationStructureGeometryDescriptor>>>;
 
         #[method(setGeometryDescriptors:)]
-        pub fn setGeometryDescriptors(
+        pub fn set_geometry_descriptors(
             &self,
             geometry_descriptors: Option<&NSArray<MTLAccelerationStructureGeometryDescriptor>>,
         );
 
         #[method(motionStartBorderMode)]
-        pub unsafe fn motionStartBorderMode(&self) -> MTLMotionBorderMode;
+        pub unsafe fn motion_start_border_mode(&self) -> MTLMotionBorderMode;
 
         #[method(setMotionStartBorderMode:)]
-        pub unsafe fn setMotionStartBorderMode(
+        pub unsafe fn set_motion_start_border_mode(
             &self,
             motion_start_border_mode: MTLMotionBorderMode,
         );
 
         #[method(motionEndBorderMode)]
-        pub unsafe fn motionEndBorderMode(&self) -> MTLMotionBorderMode;
+        pub unsafe fn motion_end_border_mode(&self) -> MTLMotionBorderMode;
 
         #[method(setMotionEndBorderMode:)]
-        pub unsafe fn setMotionEndBorderMode(&self, motion_end_border_mode: MTLMotionBorderMode);
+        pub unsafe fn set_motion_end_border_mode(
+            &self,
+            motion_end_border_mode: MTLMotionBorderMode,
+        );
 
         #[method(motionStartTime)]
-        pub unsafe fn motionStartTime(&self) -> c_float;
+        pub unsafe fn motion_start_time(&self) -> c_float;
 
         #[method(setMotionStartTime:)]
-        pub unsafe fn setMotionStartTime(&self, motion_start_time: c_float);
+        pub unsafe fn set_motion_start_time(&self, motion_start_time: c_float);
 
         #[method(motionEndTime)]
-        pub unsafe fn motionEndTime(&self) -> c_float;
+        pub unsafe fn motion_end_time(&self) -> c_float;
 
         #[method(setMotionEndTime:)]
-        pub unsafe fn setMotionEndTime(&self, motion_end_time: c_float);
+        pub unsafe fn set_motion_end_time(&self, motion_end_time: c_float);
 
         #[method(motionKeyframeCount)]
-        pub unsafe fn motionKeyframeCount(&self) -> NSUInteger;
+        pub unsafe fn motion_keyframe_count(&self) -> NSUInteger;
 
         #[method(setMotionKeyframeCount:)]
-        pub unsafe fn setMotionKeyframeCount(&self, motion_keyframe_count: NSUInteger);
+        pub unsafe fn set_motion_keyframe_count(&self, motion_keyframe_count: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub fn descriptor() -> Retained<Self>;
@@ -291,78 +298,78 @@ extern_methods!(
     unsafe impl MTLAccelerationStructureTriangleGeometryDescriptor {
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other vertexBuffer)]
-        pub unsafe fn vertexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn vertex_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setVertexBuffer:)]
-        pub fn setVertexBuffer(&self, vertex_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub fn set_vertex_buffer(&self, vertex_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(vertexBufferOffset)]
-        pub unsafe fn vertexBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn vertex_buffer_offset(&self) -> NSUInteger;
 
         #[method(setVertexBufferOffset:)]
-        pub unsafe fn setVertexBufferOffset(&self, vertex_buffer_offset: NSUInteger);
+        pub unsafe fn set_vertex_buffer_offset(&self, vertex_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(vertexFormat)]
-        pub unsafe fn vertexFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn vertex_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setVertexFormat:)]
-        pub unsafe fn setVertexFormat(&self, vertex_format: MTLAttributeFormat);
+        pub unsafe fn set_vertex_format(&self, vertex_format: MTLAttributeFormat);
 
         #[method(vertexStride)]
-        pub unsafe fn vertexStride(&self) -> NSUInteger;
+        pub unsafe fn vertex_stride(&self) -> NSUInteger;
 
         #[method(setVertexStride:)]
-        pub fn setVertexStride(&self, vertex_stride: NSUInteger);
+        pub fn set_vertex_stride(&self, vertex_stride: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other indexBuffer)]
-        pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn index_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setIndexBuffer:)]
-        pub fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub fn set_index_buffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(indexBufferOffset)]
-        pub unsafe fn indexBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn index_buffer_offset(&self) -> NSUInteger;
 
         #[method(setIndexBufferOffset:)]
-        pub unsafe fn setIndexBufferOffset(&self, index_buffer_offset: NSUInteger);
+        pub unsafe fn set_index_buffer_offset(&self, index_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(indexType)]
-        pub unsafe fn indexType(&self) -> MTLIndexType;
+        pub unsafe fn index_type(&self) -> MTLIndexType;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setIndexType:)]
-        pub unsafe fn setIndexType(&self, index_type: MTLIndexType);
+        pub unsafe fn set_index_type(&self, index_type: MTLIndexType);
 
         #[method(triangleCount)]
-        pub unsafe fn triangleCount(&self) -> NSUInteger;
+        pub unsafe fn triangle_count(&self) -> NSUInteger;
 
         #[method(setTriangleCount:)]
-        pub fn setTriangleCount(&self, triangle_count: NSUInteger);
+        pub fn set_triangle_count(&self, triangle_count: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other transformationMatrixBuffer)]
-        pub unsafe fn transformationMatrixBuffer(
+        pub unsafe fn transformation_matrix_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setTransformationMatrixBuffer:)]
-        pub unsafe fn setTransformationMatrixBuffer(
+        pub unsafe fn set_transformation_matrix_buffer(
             &self,
             transformation_matrix_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(transformationMatrixBufferOffset)]
-        pub unsafe fn transformationMatrixBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn transformation_matrix_buffer_offset(&self) -> NSUInteger;
 
         #[method(setTransformationMatrixBufferOffset:)]
-        pub unsafe fn setTransformationMatrixBufferOffset(
+        pub unsafe fn set_transformation_matrix_buffer_offset(
             &self,
             transformation_matrix_buffer_offset: NSUInteger,
         );
@@ -402,32 +409,33 @@ extern_methods!(
     unsafe impl MTLAccelerationStructureBoundingBoxGeometryDescriptor {
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other boundingBoxBuffer)]
-        pub unsafe fn boundingBoxBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn bounding_box_buffer(&self)
+            -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setBoundingBoxBuffer:)]
-        pub fn setBoundingBoxBuffer(
+        pub fn set_bounding_box_buffer(
             &self,
             bounding_box_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(boundingBoxBufferOffset)]
-        pub unsafe fn boundingBoxBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn bounding_box_buffer_offset(&self) -> NSUInteger;
 
         #[method(setBoundingBoxBufferOffset:)]
-        pub unsafe fn setBoundingBoxBufferOffset(&self, bounding_box_buffer_offset: NSUInteger);
+        pub unsafe fn set_bounding_box_buffer_offset(&self, bounding_box_buffer_offset: NSUInteger);
 
         #[method(boundingBoxStride)]
-        pub unsafe fn boundingBoxStride(&self) -> NSUInteger;
+        pub unsafe fn bounding_box_stride(&self) -> NSUInteger;
 
         #[method(setBoundingBoxStride:)]
-        pub unsafe fn setBoundingBoxStride(&self, bounding_box_stride: NSUInteger);
+        pub unsafe fn set_bounding_box_stride(&self, bounding_box_stride: NSUInteger);
 
         #[method(boundingBoxCount)]
-        pub unsafe fn boundingBoxCount(&self) -> NSUInteger;
+        pub unsafe fn bounding_box_count(&self) -> NSUInteger;
 
         #[method(setBoundingBoxCount:)]
-        pub fn setBoundingBoxCount(&self, bounding_box_count: NSUInteger);
+        pub fn set_bounding_box_count(&self, bounding_box_count: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub fn descriptor() -> Retained<Self>;
@@ -465,13 +473,13 @@ extern_methods!(
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setBuffer:)]
-        pub unsafe fn setBuffer(&self, buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub unsafe fn set_buffer(&self, buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(offset)]
         pub unsafe fn offset(&self) -> NSUInteger;
 
         #[method(setOffset:)]
-        pub unsafe fn setOffset(&self, offset: NSUInteger);
+        pub unsafe fn set_offset(&self, offset: NSUInteger);
 
         #[method_id(@__retain_semantics Other data)]
         pub unsafe fn data() -> Retained<Self>;
@@ -507,71 +515,71 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureMotionTriangleGeometryD
 extern_methods!(
     unsafe impl MTLAccelerationStructureMotionTriangleGeometryDescriptor {
         #[method_id(@__retain_semantics Other vertexBuffers)]
-        pub unsafe fn vertexBuffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
+        pub unsafe fn vertex_buffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
 
         #[method(setVertexBuffers:)]
-        pub unsafe fn setVertexBuffers(&self, vertex_buffers: &NSArray<MTLMotionKeyframeData>);
+        pub unsafe fn set_vertex_buffers(&self, vertex_buffers: &NSArray<MTLMotionKeyframeData>);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(vertexFormat)]
-        pub unsafe fn vertexFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn vertex_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setVertexFormat:)]
-        pub unsafe fn setVertexFormat(&self, vertex_format: MTLAttributeFormat);
+        pub unsafe fn set_vertex_format(&self, vertex_format: MTLAttributeFormat);
 
         #[method(vertexStride)]
-        pub unsafe fn vertexStride(&self) -> NSUInteger;
+        pub unsafe fn vertex_stride(&self) -> NSUInteger;
 
         #[method(setVertexStride:)]
-        pub unsafe fn setVertexStride(&self, vertex_stride: NSUInteger);
+        pub unsafe fn set_vertex_stride(&self, vertex_stride: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other indexBuffer)]
-        pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn index_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setIndexBuffer:)]
-        pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub unsafe fn set_index_buffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(indexBufferOffset)]
-        pub unsafe fn indexBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn index_buffer_offset(&self) -> NSUInteger;
 
         #[method(setIndexBufferOffset:)]
-        pub unsafe fn setIndexBufferOffset(&self, index_buffer_offset: NSUInteger);
+        pub unsafe fn set_index_buffer_offset(&self, index_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(indexType)]
-        pub unsafe fn indexType(&self) -> MTLIndexType;
+        pub unsafe fn index_type(&self) -> MTLIndexType;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setIndexType:)]
-        pub unsafe fn setIndexType(&self, index_type: MTLIndexType);
+        pub unsafe fn set_index_type(&self, index_type: MTLIndexType);
 
         #[method(triangleCount)]
-        pub unsafe fn triangleCount(&self) -> NSUInteger;
+        pub unsafe fn triangle_count(&self) -> NSUInteger;
 
         #[method(setTriangleCount:)]
-        pub unsafe fn setTriangleCount(&self, triangle_count: NSUInteger);
+        pub unsafe fn set_triangle_count(&self, triangle_count: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other transformationMatrixBuffer)]
-        pub unsafe fn transformationMatrixBuffer(
+        pub unsafe fn transformation_matrix_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setTransformationMatrixBuffer:)]
-        pub unsafe fn setTransformationMatrixBuffer(
+        pub unsafe fn set_transformation_matrix_buffer(
             &self,
             transformation_matrix_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(transformationMatrixBufferOffset)]
-        pub unsafe fn transformationMatrixBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn transformation_matrix_buffer_offset(&self) -> NSUInteger;
 
         #[method(setTransformationMatrixBufferOffset:)]
-        pub unsafe fn setTransformationMatrixBufferOffset(
+        pub unsafe fn set_transformation_matrix_buffer_offset(
             &self,
             transformation_matrix_buffer_offset: NSUInteger,
         );
@@ -610,25 +618,25 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureMotionBoundingBoxGeomet
 extern_methods!(
     unsafe impl MTLAccelerationStructureMotionBoundingBoxGeometryDescriptor {
         #[method_id(@__retain_semantics Other boundingBoxBuffers)]
-        pub unsafe fn boundingBoxBuffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
+        pub unsafe fn bounding_box_buffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
 
         #[method(setBoundingBoxBuffers:)]
-        pub unsafe fn setBoundingBoxBuffers(
+        pub unsafe fn set_bounding_box_buffers(
             &self,
             bounding_box_buffers: &NSArray<MTLMotionKeyframeData>,
         );
 
         #[method(boundingBoxStride)]
-        pub unsafe fn boundingBoxStride(&self) -> NSUInteger;
+        pub unsafe fn bounding_box_stride(&self) -> NSUInteger;
 
         #[method(setBoundingBoxStride:)]
-        pub unsafe fn setBoundingBoxStride(&self, bounding_box_stride: NSUInteger);
+        pub unsafe fn set_bounding_box_stride(&self, bounding_box_stride: NSUInteger);
 
         #[method(boundingBoxCount)]
-        pub unsafe fn boundingBoxCount(&self) -> NSUInteger;
+        pub unsafe fn bounding_box_count(&self) -> NSUInteger;
 
         #[method(setBoundingBoxCount:)]
-        pub unsafe fn setBoundingBoxCount(&self, bounding_box_count: NSUInteger);
+        pub unsafe fn set_bounding_box_count(&self, bounding_box_count: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub unsafe fn descriptor() -> Retained<Self>;
@@ -728,120 +736,131 @@ extern_methods!(
     unsafe impl MTLAccelerationStructureCurveGeometryDescriptor {
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other controlPointBuffer)]
-        pub unsafe fn controlPointBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn control_point_buffer(
+            &self,
+        ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setControlPointBuffer:)]
-        pub unsafe fn setControlPointBuffer(
+        pub unsafe fn set_control_point_buffer(
             &self,
             control_point_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(controlPointBufferOffset)]
-        pub unsafe fn controlPointBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn control_point_buffer_offset(&self) -> NSUInteger;
 
         #[method(setControlPointBufferOffset:)]
-        pub unsafe fn setControlPointBufferOffset(&self, control_point_buffer_offset: NSUInteger);
+        pub unsafe fn set_control_point_buffer_offset(
+            &self,
+            control_point_buffer_offset: NSUInteger,
+        );
 
         #[method(controlPointCount)]
-        pub unsafe fn controlPointCount(&self) -> NSUInteger;
+        pub unsafe fn control_point_count(&self) -> NSUInteger;
 
         #[method(setControlPointCount:)]
-        pub unsafe fn setControlPointCount(&self, control_point_count: NSUInteger);
+        pub unsafe fn set_control_point_count(&self, control_point_count: NSUInteger);
 
         #[method(controlPointStride)]
-        pub unsafe fn controlPointStride(&self) -> NSUInteger;
+        pub unsafe fn control_point_stride(&self) -> NSUInteger;
 
         #[method(setControlPointStride:)]
-        pub unsafe fn setControlPointStride(&self, control_point_stride: NSUInteger);
+        pub unsafe fn set_control_point_stride(&self, control_point_stride: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(controlPointFormat)]
-        pub unsafe fn controlPointFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn control_point_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setControlPointFormat:)]
-        pub unsafe fn setControlPointFormat(&self, control_point_format: MTLAttributeFormat);
+        pub unsafe fn set_control_point_format(&self, control_point_format: MTLAttributeFormat);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other radiusBuffer)]
-        pub unsafe fn radiusBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn radius_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setRadiusBuffer:)]
-        pub unsafe fn setRadiusBuffer(&self, radius_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub unsafe fn set_radius_buffer(
+            &self,
+            radius_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
+        );
 
         #[method(radiusBufferOffset)]
-        pub unsafe fn radiusBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn radius_buffer_offset(&self) -> NSUInteger;
 
         #[method(setRadiusBufferOffset:)]
-        pub unsafe fn setRadiusBufferOffset(&self, radius_buffer_offset: NSUInteger);
+        pub unsafe fn set_radius_buffer_offset(&self, radius_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(radiusFormat)]
-        pub unsafe fn radiusFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn radius_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setRadiusFormat:)]
-        pub unsafe fn setRadiusFormat(&self, radius_format: MTLAttributeFormat);
+        pub unsafe fn set_radius_format(&self, radius_format: MTLAttributeFormat);
 
         #[method(radiusStride)]
-        pub unsafe fn radiusStride(&self) -> NSUInteger;
+        pub unsafe fn radius_stride(&self) -> NSUInteger;
 
         #[method(setRadiusStride:)]
-        pub unsafe fn setRadiusStride(&self, radius_stride: NSUInteger);
+        pub unsafe fn set_radius_stride(&self, radius_stride: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other indexBuffer)]
-        pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn index_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setIndexBuffer:)]
-        pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub unsafe fn set_index_buffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(indexBufferOffset)]
-        pub unsafe fn indexBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn index_buffer_offset(&self) -> NSUInteger;
 
         #[method(setIndexBufferOffset:)]
-        pub unsafe fn setIndexBufferOffset(&self, index_buffer_offset: NSUInteger);
+        pub unsafe fn set_index_buffer_offset(&self, index_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(indexType)]
-        pub unsafe fn indexType(&self) -> MTLIndexType;
+        pub unsafe fn index_type(&self) -> MTLIndexType;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setIndexType:)]
-        pub unsafe fn setIndexType(&self, index_type: MTLIndexType);
+        pub unsafe fn set_index_type(&self, index_type: MTLIndexType);
 
         #[method(segmentCount)]
-        pub unsafe fn segmentCount(&self) -> NSUInteger;
+        pub unsafe fn segment_count(&self) -> NSUInteger;
 
         #[method(setSegmentCount:)]
-        pub unsafe fn setSegmentCount(&self, segment_count: NSUInteger);
+        pub unsafe fn set_segment_count(&self, segment_count: NSUInteger);
 
         #[method(segmentControlPointCount)]
-        pub unsafe fn segmentControlPointCount(&self) -> NSUInteger;
+        pub unsafe fn segment_control_point_count(&self) -> NSUInteger;
 
         #[method(setSegmentControlPointCount:)]
-        pub unsafe fn setSegmentControlPointCount(&self, segment_control_point_count: NSUInteger);
+        pub unsafe fn set_segment_control_point_count(
+            &self,
+            segment_control_point_count: NSUInteger,
+        );
 
         #[method(curveType)]
-        pub unsafe fn curveType(&self) -> MTLCurveType;
+        pub unsafe fn curve_type(&self) -> MTLCurveType;
 
         #[method(setCurveType:)]
-        pub unsafe fn setCurveType(&self, curve_type: MTLCurveType);
+        pub unsafe fn set_curve_type(&self, curve_type: MTLCurveType);
 
         #[method(curveBasis)]
-        pub unsafe fn curveBasis(&self) -> MTLCurveBasis;
+        pub unsafe fn curve_basis(&self) -> MTLCurveBasis;
 
         #[method(setCurveBasis:)]
-        pub unsafe fn setCurveBasis(&self, curve_basis: MTLCurveBasis);
+        pub unsafe fn set_curve_basis(&self, curve_basis: MTLCurveBasis);
 
         #[method(curveEndCaps)]
-        pub unsafe fn curveEndCaps(&self) -> MTLCurveEndCaps;
+        pub unsafe fn curve_end_caps(&self) -> MTLCurveEndCaps;
 
         #[method(setCurveEndCaps:)]
-        pub unsafe fn setCurveEndCaps(&self, curve_end_caps: MTLCurveEndCaps);
+        pub unsafe fn set_curve_end_caps(&self, curve_end_caps: MTLCurveEndCaps);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub unsafe fn descriptor() -> Retained<Self>;
@@ -877,105 +896,108 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureMotionCurveGeometryDesc
 extern_methods!(
     unsafe impl MTLAccelerationStructureMotionCurveGeometryDescriptor {
         #[method_id(@__retain_semantics Other controlPointBuffers)]
-        pub unsafe fn controlPointBuffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
+        pub unsafe fn control_point_buffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
 
         #[method(setControlPointBuffers:)]
-        pub unsafe fn setControlPointBuffers(
+        pub unsafe fn set_control_point_buffers(
             &self,
             control_point_buffers: &NSArray<MTLMotionKeyframeData>,
         );
 
         #[method(controlPointCount)]
-        pub unsafe fn controlPointCount(&self) -> NSUInteger;
+        pub unsafe fn control_point_count(&self) -> NSUInteger;
 
         #[method(setControlPointCount:)]
-        pub unsafe fn setControlPointCount(&self, control_point_count: NSUInteger);
+        pub unsafe fn set_control_point_count(&self, control_point_count: NSUInteger);
 
         #[method(controlPointStride)]
-        pub unsafe fn controlPointStride(&self) -> NSUInteger;
+        pub unsafe fn control_point_stride(&self) -> NSUInteger;
 
         #[method(setControlPointStride:)]
-        pub unsafe fn setControlPointStride(&self, control_point_stride: NSUInteger);
+        pub unsafe fn set_control_point_stride(&self, control_point_stride: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(controlPointFormat)]
-        pub unsafe fn controlPointFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn control_point_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setControlPointFormat:)]
-        pub unsafe fn setControlPointFormat(&self, control_point_format: MTLAttributeFormat);
+        pub unsafe fn set_control_point_format(&self, control_point_format: MTLAttributeFormat);
 
         #[method_id(@__retain_semantics Other radiusBuffers)]
-        pub unsafe fn radiusBuffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
+        pub unsafe fn radius_buffers(&self) -> Retained<NSArray<MTLMotionKeyframeData>>;
 
         #[method(setRadiusBuffers:)]
-        pub unsafe fn setRadiusBuffers(&self, radius_buffers: &NSArray<MTLMotionKeyframeData>);
+        pub unsafe fn set_radius_buffers(&self, radius_buffers: &NSArray<MTLMotionKeyframeData>);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(radiusFormat)]
-        pub unsafe fn radiusFormat(&self) -> MTLAttributeFormat;
+        pub unsafe fn radius_format(&self) -> MTLAttributeFormat;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setRadiusFormat:)]
-        pub unsafe fn setRadiusFormat(&self, radius_format: MTLAttributeFormat);
+        pub unsafe fn set_radius_format(&self, radius_format: MTLAttributeFormat);
 
         #[method(radiusStride)]
-        pub unsafe fn radiusStride(&self) -> NSUInteger;
+        pub unsafe fn radius_stride(&self) -> NSUInteger;
 
         #[method(setRadiusStride:)]
-        pub unsafe fn setRadiusStride(&self, radius_stride: NSUInteger);
+        pub unsafe fn set_radius_stride(&self, radius_stride: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other indexBuffer)]
-        pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn index_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setIndexBuffer:)]
-        pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
+        pub unsafe fn set_index_buffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
         #[method(indexBufferOffset)]
-        pub unsafe fn indexBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn index_buffer_offset(&self) -> NSUInteger;
 
         #[method(setIndexBufferOffset:)]
-        pub unsafe fn setIndexBufferOffset(&self, index_buffer_offset: NSUInteger);
+        pub unsafe fn set_index_buffer_offset(&self, index_buffer_offset: NSUInteger);
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(indexType)]
-        pub unsafe fn indexType(&self) -> MTLIndexType;
+        pub unsafe fn index_type(&self) -> MTLIndexType;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setIndexType:)]
-        pub unsafe fn setIndexType(&self, index_type: MTLIndexType);
+        pub unsafe fn set_index_type(&self, index_type: MTLIndexType);
 
         #[method(segmentCount)]
-        pub unsafe fn segmentCount(&self) -> NSUInteger;
+        pub unsafe fn segment_count(&self) -> NSUInteger;
 
         #[method(setSegmentCount:)]
-        pub unsafe fn setSegmentCount(&self, segment_count: NSUInteger);
+        pub unsafe fn set_segment_count(&self, segment_count: NSUInteger);
 
         #[method(segmentControlPointCount)]
-        pub unsafe fn segmentControlPointCount(&self) -> NSUInteger;
+        pub unsafe fn segment_control_point_count(&self) -> NSUInteger;
 
         #[method(setSegmentControlPointCount:)]
-        pub unsafe fn setSegmentControlPointCount(&self, segment_control_point_count: NSUInteger);
+        pub unsafe fn set_segment_control_point_count(
+            &self,
+            segment_control_point_count: NSUInteger,
+        );
 
         #[method(curveType)]
-        pub unsafe fn curveType(&self) -> MTLCurveType;
+        pub unsafe fn curve_type(&self) -> MTLCurveType;
 
         #[method(setCurveType:)]
-        pub unsafe fn setCurveType(&self, curve_type: MTLCurveType);
+        pub unsafe fn set_curve_type(&self, curve_type: MTLCurveType);
 
         #[method(curveBasis)]
-        pub unsafe fn curveBasis(&self) -> MTLCurveBasis;
+        pub unsafe fn curve_basis(&self) -> MTLCurveBasis;
 
         #[method(setCurveBasis:)]
-        pub unsafe fn setCurveBasis(&self, curve_basis: MTLCurveBasis);
+        pub unsafe fn set_curve_basis(&self, curve_basis: MTLCurveBasis);
 
         #[method(curveEndCaps)]
-        pub unsafe fn curveEndCaps(&self) -> MTLCurveEndCaps;
+        pub unsafe fn curve_end_caps(&self) -> MTLCurveEndCaps;
 
         #[method(setCurveEndCaps:)]
-        pub unsafe fn setCurveEndCaps(&self, curve_end_caps: MTLCurveEndCaps);
+        pub unsafe fn set_curve_end_caps(&self, curve_end_caps: MTLCurveEndCaps);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub unsafe fn descriptor() -> Retained<Self>;
@@ -1212,47 +1234,47 @@ extern_methods!(
     unsafe impl MTLInstanceAccelerationStructureDescriptor {
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other instanceDescriptorBuffer)]
-        pub unsafe fn instanceDescriptorBuffer(
+        pub unsafe fn instance_descriptor_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setInstanceDescriptorBuffer:)]
-        pub fn setInstanceDescriptorBuffer(
+        pub fn set_instance_descriptor_buffer(
             &self,
             instance_descriptor_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(instanceDescriptorBufferOffset)]
-        pub unsafe fn instanceDescriptorBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn instance_descriptor_buffer_offset(&self) -> NSUInteger;
 
         #[method(setInstanceDescriptorBufferOffset:)]
-        pub unsafe fn setInstanceDescriptorBufferOffset(
+        pub unsafe fn set_instance_descriptor_buffer_offset(
             &self,
             instance_descriptor_buffer_offset: NSUInteger,
         );
 
         #[method(instanceDescriptorStride)]
-        pub unsafe fn instanceDescriptorStride(&self) -> NSUInteger;
+        pub unsafe fn instance_descriptor_stride(&self) -> NSUInteger;
 
         #[method(setInstanceDescriptorStride:)]
-        pub unsafe fn setInstanceDescriptorStride(&self, instance_descriptor_stride: NSUInteger);
+        pub unsafe fn set_instance_descriptor_stride(&self, instance_descriptor_stride: NSUInteger);
 
         #[method(instanceCount)]
-        pub unsafe fn instanceCount(&self) -> NSUInteger;
+        pub unsafe fn instance_count(&self) -> NSUInteger;
 
         #[method(setInstanceCount:)]
-        pub fn setInstanceCount(&self, instance_count: NSUInteger);
+        pub fn set_instance_count(&self, instance_count: NSUInteger);
 
         #[cfg(feature = "MTLResource")]
         #[method_id(@__retain_semantics Other instancedAccelerationStructures)]
-        pub unsafe fn instancedAccelerationStructures(
+        pub unsafe fn instanced_acceleration_structures(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLAccelerationStructure>>>>;
 
         #[cfg(feature = "MTLResource")]
         #[method(setInstancedAccelerationStructures:)]
-        pub fn setInstancedAccelerationStructures(
+        pub fn set_instanced_acceleration_structures(
             &self,
             instanced_acceleration_structures: Option<
                 &NSArray<ProtocolObject<dyn MTLAccelerationStructure>>,
@@ -1260,43 +1282,43 @@ extern_methods!(
         );
 
         #[method(instanceDescriptorType)]
-        pub unsafe fn instanceDescriptorType(
+        pub unsafe fn instance_descriptor_type(
             &self,
         ) -> MTLAccelerationStructureInstanceDescriptorType;
 
         #[method(setInstanceDescriptorType:)]
-        pub unsafe fn setInstanceDescriptorType(
+        pub unsafe fn set_instance_descriptor_type(
             &self,
             instance_descriptor_type: MTLAccelerationStructureInstanceDescriptorType,
         );
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other motionTransformBuffer)]
-        pub unsafe fn motionTransformBuffer(
+        pub unsafe fn motion_transform_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setMotionTransformBuffer:)]
-        pub unsafe fn setMotionTransformBuffer(
+        pub unsafe fn set_motion_transform_buffer(
             &self,
             motion_transform_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(motionTransformBufferOffset)]
-        pub unsafe fn motionTransformBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn motion_transform_buffer_offset(&self) -> NSUInteger;
 
         #[method(setMotionTransformBufferOffset:)]
-        pub unsafe fn setMotionTransformBufferOffset(
+        pub unsafe fn set_motion_transform_buffer_offset(
             &self,
             motion_transform_buffer_offset: NSUInteger,
         );
 
         #[method(motionTransformCount)]
-        pub unsafe fn motionTransformCount(&self) -> NSUInteger;
+        pub unsafe fn motion_transform_count(&self) -> NSUInteger;
 
         #[method(setMotionTransformCount:)]
-        pub unsafe fn setMotionTransformCount(&self, motion_transform_count: NSUInteger);
+        pub unsafe fn set_motion_transform_count(&self, motion_transform_count: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub fn descriptor() -> Retained<Self>;
@@ -1333,113 +1355,117 @@ extern_methods!(
     unsafe impl MTLIndirectInstanceAccelerationStructureDescriptor {
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other instanceDescriptorBuffer)]
-        pub unsafe fn instanceDescriptorBuffer(
+        pub unsafe fn instance_descriptor_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setInstanceDescriptorBuffer:)]
-        pub unsafe fn setInstanceDescriptorBuffer(
+        pub unsafe fn set_instance_descriptor_buffer(
             &self,
             instance_descriptor_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(instanceDescriptorBufferOffset)]
-        pub unsafe fn instanceDescriptorBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn instance_descriptor_buffer_offset(&self) -> NSUInteger;
 
         #[method(setInstanceDescriptorBufferOffset:)]
-        pub unsafe fn setInstanceDescriptorBufferOffset(
+        pub unsafe fn set_instance_descriptor_buffer_offset(
             &self,
             instance_descriptor_buffer_offset: NSUInteger,
         );
 
         #[method(instanceDescriptorStride)]
-        pub unsafe fn instanceDescriptorStride(&self) -> NSUInteger;
+        pub unsafe fn instance_descriptor_stride(&self) -> NSUInteger;
 
         #[method(setInstanceDescriptorStride:)]
-        pub unsafe fn setInstanceDescriptorStride(&self, instance_descriptor_stride: NSUInteger);
+        pub unsafe fn set_instance_descriptor_stride(&self, instance_descriptor_stride: NSUInteger);
 
         #[method(maxInstanceCount)]
-        pub unsafe fn maxInstanceCount(&self) -> NSUInteger;
+        pub unsafe fn max_instance_count(&self) -> NSUInteger;
 
         #[method(setMaxInstanceCount:)]
-        pub unsafe fn setMaxInstanceCount(&self, max_instance_count: NSUInteger);
+        pub unsafe fn set_max_instance_count(&self, max_instance_count: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other instanceCountBuffer)]
-        pub unsafe fn instanceCountBuffer(&self)
-            -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub unsafe fn instance_count_buffer(
+            &self,
+        ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setInstanceCountBuffer:)]
-        pub unsafe fn setInstanceCountBuffer(
+        pub unsafe fn set_instance_count_buffer(
             &self,
             instance_count_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(instanceCountBufferOffset)]
-        pub unsafe fn instanceCountBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn instance_count_buffer_offset(&self) -> NSUInteger;
 
         #[method(setInstanceCountBufferOffset:)]
-        pub unsafe fn setInstanceCountBufferOffset(&self, instance_count_buffer_offset: NSUInteger);
+        pub unsafe fn set_instance_count_buffer_offset(
+            &self,
+            instance_count_buffer_offset: NSUInteger,
+        );
 
         #[method(instanceDescriptorType)]
-        pub unsafe fn instanceDescriptorType(
+        pub unsafe fn instance_descriptor_type(
             &self,
         ) -> MTLAccelerationStructureInstanceDescriptorType;
 
         #[method(setInstanceDescriptorType:)]
-        pub unsafe fn setInstanceDescriptorType(
+        pub unsafe fn set_instance_descriptor_type(
             &self,
             instance_descriptor_type: MTLAccelerationStructureInstanceDescriptorType,
         );
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other motionTransformBuffer)]
-        pub unsafe fn motionTransformBuffer(
+        pub unsafe fn motion_transform_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setMotionTransformBuffer:)]
-        pub unsafe fn setMotionTransformBuffer(
+        pub unsafe fn set_motion_transform_buffer(
             &self,
             motion_transform_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(motionTransformBufferOffset)]
-        pub unsafe fn motionTransformBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn motion_transform_buffer_offset(&self) -> NSUInteger;
 
         #[method(setMotionTransformBufferOffset:)]
-        pub unsafe fn setMotionTransformBufferOffset(
+        pub unsafe fn set_motion_transform_buffer_offset(
             &self,
             motion_transform_buffer_offset: NSUInteger,
         );
 
         #[method(maxMotionTransformCount)]
-        pub unsafe fn maxMotionTransformCount(&self) -> NSUInteger;
+        pub unsafe fn max_motion_transform_count(&self) -> NSUInteger;
 
         #[method(setMaxMotionTransformCount:)]
-        pub unsafe fn setMaxMotionTransformCount(&self, max_motion_transform_count: NSUInteger);
+        pub unsafe fn set_max_motion_transform_count(&self, max_motion_transform_count: NSUInteger);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other motionTransformCountBuffer)]
-        pub unsafe fn motionTransformCountBuffer(
+        pub unsafe fn motion_transform_count_buffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setMotionTransformCountBuffer:)]
-        pub unsafe fn setMotionTransformCountBuffer(
+        pub unsafe fn set_motion_transform_count_buffer(
             &self,
             motion_transform_count_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(motionTransformCountBufferOffset)]
-        pub unsafe fn motionTransformCountBufferOffset(&self) -> NSUInteger;
+        pub unsafe fn motion_transform_count_buffer_offset(&self) -> NSUInteger;
 
         #[method(setMotionTransformCountBufferOffset:)]
-        pub unsafe fn setMotionTransformCountBufferOffset(
+        pub unsafe fn set_motion_transform_count_buffer_offset(
             &self,
             motion_transform_count_buffer_offset: NSUInteger,
         );
@@ -1468,7 +1494,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
     }
 
     #[cfg(feature = "MTLResource")]

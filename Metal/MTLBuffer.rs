@@ -15,11 +15,11 @@ extern_protocol!(
         fn contents(&self) -> NonNull<c_void>;
 
         #[method(didModifyRange:)]
-        fn didModifyRange(&self, range: NSRange);
+        fn did_modify_range(&self, range: NSRange);
 
         #[cfg(feature = "MTLTexture")]
         #[method_id(@__retain_semantics New newTextureWithDescriptor:offset:bytesPerRow:)]
-        fn newTextureWithDescriptor_offset_bytesPerRow(
+        fn new_texture_with_descriptor_offset_bytes_per_row(
             &self,
             descriptor: &MTLTextureDescriptor,
             offset: NSUInteger,
@@ -27,23 +27,23 @@ extern_protocol!(
         ) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
 
         #[method(addDebugMarker:range:)]
-        fn addDebugMarker_range(&self, marker: &NSString, range: NSRange);
+        fn add_debug_marker_range(&self, marker: &NSString, range: NSRange);
 
         #[method(removeAllDebugMarkers)]
-        fn removeAllDebugMarkers(&self);
+        fn remove_all_debug_markers(&self);
 
         #[method_id(@__retain_semantics Other remoteStorageBuffer)]
-        fn remoteStorageBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        fn remote_storage_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics New newRemoteBufferViewForDevice:)]
-        fn newRemoteBufferViewForDevice(
+        fn new_remote_buffer_view_for_device(
             &self,
             device: &ProtocolObject<dyn MTLDevice>,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[method(gpuAddress)]
-        fn gpuAddress(&self) -> u64;
+        fn gpu_address(&self) -> u64;
     }
 
     #[cfg(feature = "MTLResource")]

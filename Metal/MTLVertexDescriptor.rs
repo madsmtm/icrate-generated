@@ -175,19 +175,19 @@ extern_methods!(
         pub fn stride(&self) -> NSUInteger;
 
         #[method(setStride:)]
-        pub unsafe fn setStride(&self, stride: NSUInteger);
+        pub unsafe fn set_stride(&self, stride: NSUInteger);
 
         #[method(stepFunction)]
-        pub fn stepFunction(&self) -> MTLVertexStepFunction;
+        pub fn step_function(&self) -> MTLVertexStepFunction;
 
         #[method(setStepFunction:)]
-        pub unsafe fn setStepFunction(&self, step_function: MTLVertexStepFunction);
+        pub unsafe fn set_step_function(&self, step_function: MTLVertexStepFunction);
 
         #[method(stepRate)]
-        pub fn stepRate(&self) -> NSUInteger;
+        pub fn step_rate(&self) -> NSUInteger;
 
         #[method(setStepRate:)]
-        pub unsafe fn setStepRate(&self, step_rate: NSUInteger);
+        pub unsafe fn set_step_rate(&self, step_rate: NSUInteger);
     }
 );
 
@@ -224,13 +224,13 @@ unsafe impl NSObjectProtocol for MTLVertexBufferLayoutDescriptorArray {}
 extern_methods!(
     unsafe impl MTLVertexBufferLayoutDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             index: NSUInteger,
         ) -> Retained<MTLVertexBufferLayoutDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             buffer_desc: Option<&MTLVertexBufferLayoutDescriptor>,
             index: NSUInteger,
@@ -269,19 +269,19 @@ extern_methods!(
         pub fn format(&self) -> MTLVertexFormat;
 
         #[method(setFormat:)]
-        pub fn setFormat(&self, format: MTLVertexFormat);
+        pub fn set_format(&self, format: MTLVertexFormat);
 
         #[method(offset)]
         pub fn offset(&self) -> NSUInteger;
 
         #[method(setOffset:)]
-        pub unsafe fn setOffset(&self, offset: NSUInteger);
+        pub unsafe fn set_offset(&self, offset: NSUInteger);
 
         #[method(bufferIndex)]
-        pub fn bufferIndex(&self) -> NSUInteger;
+        pub fn buffer_index(&self) -> NSUInteger;
 
         #[method(setBufferIndex:)]
-        pub unsafe fn setBufferIndex(&self, buffer_index: NSUInteger);
+        pub unsafe fn set_buffer_index(&self, buffer_index: NSUInteger);
     }
 );
 
@@ -318,13 +318,13 @@ unsafe impl NSObjectProtocol for MTLVertexAttributeDescriptorArray {}
 extern_methods!(
     unsafe impl MTLVertexAttributeDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             index: NSUInteger,
         ) -> Retained<MTLVertexAttributeDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attribute_desc: Option<&MTLVertexAttributeDescriptor>,
             index: NSUInteger,
@@ -360,7 +360,7 @@ unsafe impl NSObjectProtocol for MTLVertexDescriptor {}
 extern_methods!(
     unsafe impl MTLVertexDescriptor {
         #[method_id(@__retain_semantics Other vertexDescriptor)]
-        pub fn vertexDescriptor() -> Retained<MTLVertexDescriptor>;
+        pub fn vertex_descriptor() -> Retained<MTLVertexDescriptor>;
 
         #[method_id(@__retain_semantics Other layouts)]
         pub fn layouts(&self) -> Retained<MTLVertexBufferLayoutDescriptorArray>;

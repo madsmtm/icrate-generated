@@ -9,7 +9,7 @@ extern_protocol!(
     pub unsafe trait MTLFunctionHandle: NSObjectProtocol + IsRetainable {
         #[cfg(feature = "MTLLibrary")]
         #[method(functionType)]
-        fn functionType(&self) -> MTLFunctionType;
+        fn function_type(&self) -> MTLFunctionType;
 
         #[method_id(@__retain_semantics Other name)]
         fn name(&self) -> Retained<NSString>;

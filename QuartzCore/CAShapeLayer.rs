@@ -43,58 +43,58 @@ extern_methods!(
     #[cfg(feature = "CALayer")]
     unsafe impl CAShapeLayer {
         #[method_id(@__retain_semantics Other fillRule)]
-        pub unsafe fn fillRule(&self) -> Retained<CAShapeLayerFillRule>;
+        pub unsafe fn fill_rule(&self) -> Retained<CAShapeLayerFillRule>;
 
         #[method(setFillRule:)]
-        pub unsafe fn setFillRule(&self, fill_rule: &CAShapeLayerFillRule);
+        pub unsafe fn set_fill_rule(&self, fill_rule: &CAShapeLayerFillRule);
 
         #[method(strokeStart)]
-        pub unsafe fn strokeStart(&self) -> CGFloat;
+        pub unsafe fn stroke_start(&self) -> CGFloat;
 
         #[method(setStrokeStart:)]
-        pub unsafe fn setStrokeStart(&self, stroke_start: CGFloat);
+        pub unsafe fn set_stroke_start(&self, stroke_start: CGFloat);
 
         #[method(strokeEnd)]
-        pub unsafe fn strokeEnd(&self) -> CGFloat;
+        pub unsafe fn stroke_end(&self) -> CGFloat;
 
         #[method(setStrokeEnd:)]
-        pub unsafe fn setStrokeEnd(&self, stroke_end: CGFloat);
+        pub unsafe fn set_stroke_end(&self, stroke_end: CGFloat);
 
         #[method(lineWidth)]
-        pub unsafe fn lineWidth(&self) -> CGFloat;
+        pub unsafe fn line_width(&self) -> CGFloat;
 
         #[method(setLineWidth:)]
-        pub unsafe fn setLineWidth(&self, line_width: CGFloat);
+        pub unsafe fn set_line_width(&self, line_width: CGFloat);
 
         #[method(miterLimit)]
-        pub unsafe fn miterLimit(&self) -> CGFloat;
+        pub unsafe fn miter_limit(&self) -> CGFloat;
 
         #[method(setMiterLimit:)]
-        pub unsafe fn setMiterLimit(&self, miter_limit: CGFloat);
+        pub unsafe fn set_miter_limit(&self, miter_limit: CGFloat);
 
         #[method_id(@__retain_semantics Other lineCap)]
-        pub unsafe fn lineCap(&self) -> Retained<CAShapeLayerLineCap>;
+        pub unsafe fn line_cap(&self) -> Retained<CAShapeLayerLineCap>;
 
         #[method(setLineCap:)]
-        pub unsafe fn setLineCap(&self, line_cap: &CAShapeLayerLineCap);
+        pub unsafe fn set_line_cap(&self, line_cap: &CAShapeLayerLineCap);
 
         #[method_id(@__retain_semantics Other lineJoin)]
-        pub unsafe fn lineJoin(&self) -> Retained<CAShapeLayerLineJoin>;
+        pub unsafe fn line_join(&self) -> Retained<CAShapeLayerLineJoin>;
 
         #[method(setLineJoin:)]
-        pub unsafe fn setLineJoin(&self, line_join: &CAShapeLayerLineJoin);
+        pub unsafe fn set_line_join(&self, line_join: &CAShapeLayerLineJoin);
 
         #[method(lineDashPhase)]
-        pub unsafe fn lineDashPhase(&self) -> CGFloat;
+        pub unsafe fn line_dash_phase(&self) -> CGFloat;
 
         #[method(setLineDashPhase:)]
-        pub unsafe fn setLineDashPhase(&self, line_dash_phase: CGFloat);
+        pub unsafe fn set_line_dash_phase(&self, line_dash_phase: CGFloat);
 
         #[method_id(@__retain_semantics Other lineDashPattern)]
-        pub unsafe fn lineDashPattern(&self) -> Option<Retained<NSArray<NSNumber>>>;
+        pub unsafe fn line_dash_pattern(&self) -> Option<Retained<NSArray<NSNumber>>>;
 
         #[method(setLineDashPattern:)]
-        pub unsafe fn setLineDashPattern(&self, line_dash_pattern: Option<&NSArray<NSNumber>>);
+        pub unsafe fn set_line_dash_pattern(&self, line_dash_pattern: Option<&NSArray<NSNumber>>);
     }
 );
 
@@ -109,7 +109,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

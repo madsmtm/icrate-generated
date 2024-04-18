@@ -40,31 +40,31 @@ extern_methods!(
         pub unsafe fn colors(&self) -> Option<Retained<NSArray>>;
 
         #[method(setColors:)]
-        pub unsafe fn setColors(&self, colors: Option<&NSArray>);
+        pub unsafe fn set_colors(&self, colors: Option<&NSArray>);
 
         #[method_id(@__retain_semantics Other locations)]
         pub unsafe fn locations(&self) -> Option<Retained<NSArray<NSNumber>>>;
 
         #[method(setLocations:)]
-        pub unsafe fn setLocations(&self, locations: Option<&NSArray<NSNumber>>);
+        pub unsafe fn set_locations(&self, locations: Option<&NSArray<NSNumber>>);
 
         #[method(startPoint)]
-        pub unsafe fn startPoint(&self) -> CGPoint;
+        pub unsafe fn start_point(&self) -> CGPoint;
 
         #[method(setStartPoint:)]
-        pub unsafe fn setStartPoint(&self, start_point: CGPoint);
+        pub unsafe fn set_start_point(&self, start_point: CGPoint);
 
         #[method(endPoint)]
-        pub unsafe fn endPoint(&self) -> CGPoint;
+        pub unsafe fn end_point(&self) -> CGPoint;
 
         #[method(setEndPoint:)]
-        pub unsafe fn setEndPoint(&self, end_point: CGPoint);
+        pub unsafe fn set_end_point(&self, end_point: CGPoint);
 
         #[method_id(@__retain_semantics Other type)]
         pub unsafe fn r#type(&self) -> Retained<CAGradientLayerType>;
 
         #[method(setType:)]
-        pub unsafe fn setType(&self, r#type: &CAGradientLayerType);
+        pub unsafe fn set_type(&self, r#type: &CAGradientLayerType);
     }
 );
 
@@ -79,7 +79,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

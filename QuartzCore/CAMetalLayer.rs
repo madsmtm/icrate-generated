@@ -56,82 +56,83 @@ extern_methods!(
 
         #[cfg(feature = "objc2-metal")]
         #[method(setDevice:)]
-        pub unsafe fn setDevice(&self, device: Option<&ProtocolObject<dyn MTLDevice>>);
+        pub unsafe fn set_device(&self, device: Option<&ProtocolObject<dyn MTLDevice>>);
 
         #[cfg(feature = "objc2-metal")]
         #[method_id(@__retain_semantics Other preferredDevice)]
-        pub unsafe fn preferredDevice(&self) -> Option<Retained<ProtocolObject<dyn MTLDevice>>>;
+        pub unsafe fn preferred_device(&self) -> Option<Retained<ProtocolObject<dyn MTLDevice>>>;
 
         #[cfg(feature = "objc2-metal")]
         #[method(pixelFormat)]
-        pub unsafe fn pixelFormat(&self) -> MTLPixelFormat;
+        pub unsafe fn pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "objc2-metal")]
         #[method(setPixelFormat:)]
-        pub unsafe fn setPixelFormat(&self, pixel_format: MTLPixelFormat);
+        pub unsafe fn set_pixel_format(&self, pixel_format: MTLPixelFormat);
 
         #[method(framebufferOnly)]
-        pub unsafe fn framebufferOnly(&self) -> bool;
+        pub unsafe fn framebuffer_only(&self) -> bool;
 
         #[method(setFramebufferOnly:)]
-        pub unsafe fn setFramebufferOnly(&self, framebuffer_only: bool);
+        pub unsafe fn set_framebuffer_only(&self, framebuffer_only: bool);
 
         #[method(drawableSize)]
-        pub unsafe fn drawableSize(&self) -> CGSize;
+        pub unsafe fn drawable_size(&self) -> CGSize;
 
         #[method(setDrawableSize:)]
-        pub unsafe fn setDrawableSize(&self, drawable_size: CGSize);
+        pub unsafe fn set_drawable_size(&self, drawable_size: CGSize);
 
         #[cfg(feature = "objc2-metal")]
         #[method_id(@__retain_semantics Other nextDrawable)]
-        pub unsafe fn nextDrawable(&self) -> Option<Retained<ProtocolObject<dyn CAMetalDrawable>>>;
+        pub unsafe fn next_drawable(&self)
+            -> Option<Retained<ProtocolObject<dyn CAMetalDrawable>>>;
 
         #[method(maximumDrawableCount)]
-        pub unsafe fn maximumDrawableCount(&self) -> NSUInteger;
+        pub unsafe fn maximum_drawable_count(&self) -> NSUInteger;
 
         #[method(setMaximumDrawableCount:)]
-        pub unsafe fn setMaximumDrawableCount(&self, maximum_drawable_count: NSUInteger);
+        pub unsafe fn set_maximum_drawable_count(&self, maximum_drawable_count: NSUInteger);
 
         #[method(presentsWithTransaction)]
-        pub unsafe fn presentsWithTransaction(&self) -> bool;
+        pub unsafe fn presents_with_transaction(&self) -> bool;
 
         #[method(setPresentsWithTransaction:)]
-        pub unsafe fn setPresentsWithTransaction(&self, presents_with_transaction: bool);
+        pub unsafe fn set_presents_with_transaction(&self, presents_with_transaction: bool);
 
         #[method(wantsExtendedDynamicRangeContent)]
-        pub unsafe fn wantsExtendedDynamicRangeContent(&self) -> bool;
+        pub unsafe fn wants_extended_dynamic_range_content(&self) -> bool;
 
         #[method(setWantsExtendedDynamicRangeContent:)]
-        pub unsafe fn setWantsExtendedDynamicRangeContent(
+        pub unsafe fn set_wants_extended_dynamic_range_content(
             &self,
             wants_extended_dynamic_range_content: bool,
         );
 
         #[cfg(feature = "CAEDRMetadata")]
         #[method_id(@__retain_semantics Other EDRMetadata)]
-        pub unsafe fn EDRMetadata(&self) -> Option<Retained<CAEDRMetadata>>;
+        pub unsafe fn edr_metadata(&self) -> Option<Retained<CAEDRMetadata>>;
 
         #[cfg(feature = "CAEDRMetadata")]
         #[method(setEDRMetadata:)]
-        pub unsafe fn setEDRMetadata(&self, edr_metadata: Option<&CAEDRMetadata>);
+        pub unsafe fn set_edr_metadata(&self, edr_metadata: Option<&CAEDRMetadata>);
 
         #[method(displaySyncEnabled)]
-        pub unsafe fn displaySyncEnabled(&self) -> bool;
+        pub unsafe fn display_sync_enabled(&self) -> bool;
 
         #[method(setDisplaySyncEnabled:)]
-        pub unsafe fn setDisplaySyncEnabled(&self, display_sync_enabled: bool);
+        pub unsafe fn set_display_sync_enabled(&self, display_sync_enabled: bool);
 
         #[method(allowsNextDrawableTimeout)]
-        pub unsafe fn allowsNextDrawableTimeout(&self) -> bool;
+        pub unsafe fn allows_next_drawable_timeout(&self) -> bool;
 
         #[method(setAllowsNextDrawableTimeout:)]
-        pub unsafe fn setAllowsNextDrawableTimeout(&self, allows_next_drawable_timeout: bool);
+        pub unsafe fn set_allows_next_drawable_timeout(&self, allows_next_drawable_timeout: bool);
 
         #[method_id(@__retain_semantics Other developerHUDProperties)]
-        pub unsafe fn developerHUDProperties(&self) -> Option<Retained<NSDictionary>>;
+        pub unsafe fn developer_hud_properties(&self) -> Option<Retained<NSDictionary>>;
 
         #[method(setDeveloperHUDProperties:)]
-        pub unsafe fn setDeveloperHUDProperties(
+        pub unsafe fn set_developer_hud_properties(
             &self,
             developer_hud_properties: Option<&NSDictionary>,
         );
@@ -149,7 +150,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

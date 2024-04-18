@@ -43,37 +43,37 @@ extern_methods!(
         pub unsafe fn string(&self) -> Option<Retained<AnyObject>>;
 
         #[method(setString:)]
-        pub unsafe fn setString(&self, string: Option<&AnyObject>);
+        pub unsafe fn set_string(&self, string: Option<&AnyObject>);
 
         #[method(fontSize)]
-        pub unsafe fn fontSize(&self) -> CGFloat;
+        pub unsafe fn font_size(&self) -> CGFloat;
 
         #[method(setFontSize:)]
-        pub unsafe fn setFontSize(&self, font_size: CGFloat);
+        pub unsafe fn set_font_size(&self, font_size: CGFloat);
 
         #[method(isWrapped)]
-        pub unsafe fn isWrapped(&self) -> bool;
+        pub unsafe fn is_wrapped(&self) -> bool;
 
         #[method(setWrapped:)]
-        pub unsafe fn setWrapped(&self, wrapped: bool);
+        pub unsafe fn set_wrapped(&self, wrapped: bool);
 
         #[method_id(@__retain_semantics Other truncationMode)]
-        pub unsafe fn truncationMode(&self) -> Retained<CATextLayerTruncationMode>;
+        pub unsafe fn truncation_mode(&self) -> Retained<CATextLayerTruncationMode>;
 
         #[method(setTruncationMode:)]
-        pub unsafe fn setTruncationMode(&self, truncation_mode: &CATextLayerTruncationMode);
+        pub unsafe fn set_truncation_mode(&self, truncation_mode: &CATextLayerTruncationMode);
 
         #[method_id(@__retain_semantics Other alignmentMode)]
-        pub unsafe fn alignmentMode(&self) -> Retained<CATextLayerAlignmentMode>;
+        pub unsafe fn alignment_mode(&self) -> Retained<CATextLayerAlignmentMode>;
 
         #[method(setAlignmentMode:)]
-        pub unsafe fn setAlignmentMode(&self, alignment_mode: &CATextLayerAlignmentMode);
+        pub unsafe fn set_alignment_mode(&self, alignment_mode: &CATextLayerAlignmentMode);
 
         #[method(allowsFontSubpixelQuantization)]
-        pub unsafe fn allowsFontSubpixelQuantization(&self) -> bool;
+        pub unsafe fn allows_font_subpixel_quantization(&self) -> bool;
 
         #[method(setAllowsFontSubpixelQuantization:)]
-        pub unsafe fn setAllowsFontSubpixelQuantization(
+        pub unsafe fn set_allows_font_subpixel_quantization(
             &self,
             allows_font_subpixel_quantization: bool,
         );
@@ -91,7 +91,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

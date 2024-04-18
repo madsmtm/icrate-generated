@@ -54,7 +54,7 @@ extern_methods!(
         pub fn url(&self) -> Option<Retained<NSURL>>;
 
         #[method(setUrl:)]
-        pub fn setUrl(&self, url: Option<&NSURL>);
+        pub fn set_url(&self, url: Option<&NSURL>);
     }
 );
 
@@ -82,7 +82,7 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
@@ -90,31 +90,31 @@ extern_protocol!(
 
         #[cfg(feature = "MTLComputePipeline")]
         #[method(addComputePipelineFunctionsWithDescriptor:error:_)]
-        fn addComputePipelineFunctionsWithDescriptor_error(
+        fn add_compute_pipeline_functions_with_descriptor_error(
             &self,
             descriptor: &MTLComputePipelineDescriptor,
         ) -> Result<(), Retained<NSError>>;
 
         #[cfg(feature = "MTLRenderPipeline")]
         #[method(addRenderPipelineFunctionsWithDescriptor:error:_)]
-        fn addRenderPipelineFunctionsWithDescriptor_error(
+        fn add_render_pipeline_functions_with_descriptor_error(
             &self,
             descriptor: &MTLRenderPipelineDescriptor,
         ) -> Result<(), Retained<NSError>>;
 
         #[cfg(feature = "MTLRenderPipeline")]
         #[method(addTileRenderPipelineFunctionsWithDescriptor:error:_)]
-        unsafe fn addTileRenderPipelineFunctionsWithDescriptor_error(
+        unsafe fn add_tile_render_pipeline_functions_with_descriptor_error(
             &self,
             descriptor: &MTLTileRenderPipelineDescriptor,
         ) -> Result<(), Retained<NSError>>;
 
         #[method(serializeToURL:error:_)]
-        fn serializeToURL_error(&self, url: &NSURL) -> Result<(), Retained<NSError>>;
+        fn serialize_to_url_error(&self, url: &NSURL) -> Result<(), Retained<NSError>>;
 
         #[cfg(all(feature = "MTLFunctionDescriptor", feature = "MTLLibrary"))]
         #[method(addFunctionWithDescriptor:library:error:_)]
-        unsafe fn addFunctionWithDescriptor_library_error(
+        unsafe fn add_function_with_descriptor_library_error(
             &self,
             descriptor: &MTLFunctionDescriptor,
             library: &ProtocolObject<dyn MTLLibrary>,

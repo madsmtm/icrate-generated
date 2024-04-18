@@ -34,54 +34,54 @@ extern_methods!(
     #[cfg(feature = "CALayer")]
     unsafe impl CAReplicatorLayer {
         #[method(instanceCount)]
-        pub unsafe fn instanceCount(&self) -> NSInteger;
+        pub unsafe fn instance_count(&self) -> NSInteger;
 
         #[method(setInstanceCount:)]
-        pub unsafe fn setInstanceCount(&self, instance_count: NSInteger);
+        pub unsafe fn set_instance_count(&self, instance_count: NSInteger);
 
         #[method(preservesDepth)]
-        pub unsafe fn preservesDepth(&self) -> bool;
+        pub unsafe fn preserves_depth(&self) -> bool;
 
         #[method(setPreservesDepth:)]
-        pub unsafe fn setPreservesDepth(&self, preserves_depth: bool);
+        pub unsafe fn set_preserves_depth(&self, preserves_depth: bool);
 
         #[method(instanceDelay)]
-        pub unsafe fn instanceDelay(&self) -> CFTimeInterval;
+        pub unsafe fn instance_delay(&self) -> CFTimeInterval;
 
         #[method(setInstanceDelay:)]
-        pub unsafe fn setInstanceDelay(&self, instance_delay: CFTimeInterval);
+        pub unsafe fn set_instance_delay(&self, instance_delay: CFTimeInterval);
 
         #[cfg(feature = "CATransform3D")]
         #[method(instanceTransform)]
-        pub unsafe fn instanceTransform(&self) -> CATransform3D;
+        pub unsafe fn instance_transform(&self) -> CATransform3D;
 
         #[cfg(feature = "CATransform3D")]
         #[method(setInstanceTransform:)]
-        pub unsafe fn setInstanceTransform(&self, instance_transform: CATransform3D);
+        pub unsafe fn set_instance_transform(&self, instance_transform: CATransform3D);
 
         #[method(instanceRedOffset)]
-        pub unsafe fn instanceRedOffset(&self) -> c_float;
+        pub unsafe fn instance_red_offset(&self) -> c_float;
 
         #[method(setInstanceRedOffset:)]
-        pub unsafe fn setInstanceRedOffset(&self, instance_red_offset: c_float);
+        pub unsafe fn set_instance_red_offset(&self, instance_red_offset: c_float);
 
         #[method(instanceGreenOffset)]
-        pub unsafe fn instanceGreenOffset(&self) -> c_float;
+        pub unsafe fn instance_green_offset(&self) -> c_float;
 
         #[method(setInstanceGreenOffset:)]
-        pub unsafe fn setInstanceGreenOffset(&self, instance_green_offset: c_float);
+        pub unsafe fn set_instance_green_offset(&self, instance_green_offset: c_float);
 
         #[method(instanceBlueOffset)]
-        pub unsafe fn instanceBlueOffset(&self) -> c_float;
+        pub unsafe fn instance_blue_offset(&self) -> c_float;
 
         #[method(setInstanceBlueOffset:)]
-        pub unsafe fn setInstanceBlueOffset(&self, instance_blue_offset: c_float);
+        pub unsafe fn set_instance_blue_offset(&self, instance_blue_offset: c_float);
 
         #[method(instanceAlphaOffset)]
-        pub unsafe fn instanceAlphaOffset(&self) -> c_float;
+        pub unsafe fn instance_alpha_offset(&self) -> c_float;
 
         #[method(setInstanceAlphaOffset:)]
-        pub unsafe fn setInstanceAlphaOffset(&self, instance_alpha_offset: c_float);
+        pub unsafe fn set_instance_alpha_offset(&self, instance_alpha_offset: c_float);
     }
 );
 
@@ -96,7 +96,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

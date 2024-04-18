@@ -37,16 +37,16 @@ extern_methods!(
     #[cfg(feature = "CALayer")]
     unsafe impl CAScrollLayer {
         #[method(scrollToPoint:)]
-        pub unsafe fn scrollToPoint(&self, p: CGPoint);
+        pub unsafe fn scroll_to_point(&self, p: CGPoint);
 
         #[method(scrollToRect:)]
-        pub unsafe fn scrollToRect(&self, r: CGRect);
+        pub unsafe fn scroll_to_rect(&self, r: CGRect);
 
         #[method_id(@__retain_semantics Other scrollMode)]
-        pub unsafe fn scrollMode(&self) -> Retained<CAScrollLayerScrollMode>;
+        pub unsafe fn scroll_mode(&self) -> Retained<CAScrollLayerScrollMode>;
 
         #[method(setScrollMode:)]
-        pub unsafe fn setScrollMode(&self, scroll_mode: &CAScrollLayerScrollMode);
+        pub unsafe fn set_scroll_mode(&self, scroll_mode: &CAScrollLayerScrollMode);
     }
 );
 
@@ -61,7 +61,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 
@@ -79,13 +79,13 @@ extern_methods!(
     #[cfg(feature = "CALayer")]
     unsafe impl CALayer {
         #[method(scrollPoint:)]
-        pub unsafe fn scrollPoint(&self, p: CGPoint);
+        pub unsafe fn scroll_point(&self, p: CGPoint);
 
         #[method(scrollRectToVisible:)]
-        pub unsafe fn scrollRectToVisible(&self, r: CGRect);
+        pub unsafe fn scroll_rect_to_visible(&self, r: CGRect);
 
         #[method(visibleRect)]
-        pub unsafe fn visibleRect(&self) -> CGRect;
+        pub unsafe fn visible_rect(&self) -> CGRect;
     }
 );
 

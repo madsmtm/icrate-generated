@@ -8,16 +8,16 @@ use crate::*;
 extern_protocol!(
     pub unsafe trait MTLCaptureScope: NSObjectProtocol + IsRetainable {
         #[method(beginScope)]
-        fn beginScope(&self);
+        fn begin_scope(&self);
 
         #[method(endScope)]
-        fn endScope(&self);
+        fn end_scope(&self);
 
         #[method_id(@__retain_semantics Other label)]
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        unsafe fn setLabel(&self, label: Option<&NSString>);
+        unsafe fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
@@ -25,7 +25,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLCommandQueue")]
         #[method_id(@__retain_semantics Other commandQueue)]
-        unsafe fn commandQueue(&self) -> Option<Retained<ProtocolObject<dyn MTLCommandQueue>>>;
+        unsafe fn command_queue(&self) -> Option<Retained<ProtocolObject<dyn MTLCommandQueue>>>;
     }
 
     unsafe impl ProtocolType for dyn MTLCaptureScope {}

@@ -14,20 +14,20 @@ extern_protocol!(
         fn present(&self);
 
         #[method(presentAtTime:)]
-        unsafe fn presentAtTime(&self, presentation_time: CFTimeInterval);
+        unsafe fn present_at_time(&self, presentation_time: CFTimeInterval);
 
         #[method(presentAfterMinimumDuration:)]
-        unsafe fn presentAfterMinimumDuration(&self, duration: CFTimeInterval);
+        unsafe fn present_after_minimum_duration(&self, duration: CFTimeInterval);
 
         #[cfg(feature = "block2")]
         #[method(addPresentedHandler:)]
-        unsafe fn addPresentedHandler(&self, block: MTLDrawablePresentedHandler);
+        unsafe fn add_presented_handler(&self, block: MTLDrawablePresentedHandler);
 
         #[method(presentedTime)]
-        unsafe fn presentedTime(&self) -> CFTimeInterval;
+        unsafe fn presented_time(&self) -> CFTimeInterval;
 
         #[method(drawableID)]
-        fn drawableID(&self) -> NSUInteger;
+        fn drawable_id(&self) -> NSUInteger;
     }
 
     unsafe impl ProtocolType for dyn MTLDrawable {}

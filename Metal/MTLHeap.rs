@@ -46,53 +46,53 @@ extern_methods!(
         pub fn size(&self) -> NSUInteger;
 
         #[method(setSize:)]
-        pub fn setSize(&self, size: NSUInteger);
+        pub fn set_size(&self, size: NSUInteger);
 
         #[cfg(feature = "MTLResource")]
         #[method(storageMode)]
-        pub fn storageMode(&self) -> MTLStorageMode;
+        pub fn storage_mode(&self) -> MTLStorageMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(setStorageMode:)]
-        pub fn setStorageMode(&self, storage_mode: MTLStorageMode);
+        pub fn set_storage_mode(&self, storage_mode: MTLStorageMode);
 
         #[cfg(feature = "MTLResource")]
         #[method(cpuCacheMode)]
-        pub fn cpuCacheMode(&self) -> MTLCPUCacheMode;
+        pub fn cpu_cache_mode(&self) -> MTLCPUCacheMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(setCpuCacheMode:)]
-        pub fn setCpuCacheMode(&self, cpu_cache_mode: MTLCPUCacheMode);
+        pub fn set_cpu_cache_mode(&self, cpu_cache_mode: MTLCPUCacheMode);
 
         #[cfg(feature = "MTLDevice")]
         #[method(sparsePageSize)]
-        pub unsafe fn sparsePageSize(&self) -> MTLSparsePageSize;
+        pub unsafe fn sparse_page_size(&self) -> MTLSparsePageSize;
 
         #[cfg(feature = "MTLDevice")]
         #[method(setSparsePageSize:)]
-        pub unsafe fn setSparsePageSize(&self, sparse_page_size: MTLSparsePageSize);
+        pub unsafe fn set_sparse_page_size(&self, sparse_page_size: MTLSparsePageSize);
 
         #[cfg(feature = "MTLResource")]
         #[method(hazardTrackingMode)]
-        pub fn hazardTrackingMode(&self) -> MTLHazardTrackingMode;
+        pub fn hazard_tracking_mode(&self) -> MTLHazardTrackingMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(setHazardTrackingMode:)]
-        pub fn setHazardTrackingMode(&self, hazard_tracking_mode: MTLHazardTrackingMode);
+        pub fn set_hazard_tracking_mode(&self, hazard_tracking_mode: MTLHazardTrackingMode);
 
         #[cfg(feature = "MTLResource")]
         #[method(resourceOptions)]
-        pub fn resourceOptions(&self) -> MTLResourceOptions;
+        pub fn resource_options(&self) -> MTLResourceOptions;
 
         #[cfg(feature = "MTLResource")]
         #[method(setResourceOptions:)]
-        pub fn setResourceOptions(&self, resource_options: MTLResourceOptions);
+        pub fn set_resource_options(&self, resource_options: MTLResourceOptions);
 
         #[method(type)]
         pub unsafe fn r#type(&self) -> MTLHeapType;
 
         #[method(setType:)]
-        pub fn setType(&self, r#type: MTLHeapType);
+        pub fn set_type(&self, r#type: MTLHeapType);
     }
 );
 
@@ -113,7 +113,7 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
@@ -121,35 +121,35 @@ extern_protocol!(
 
         #[cfg(feature = "MTLResource")]
         #[method(storageMode)]
-        fn storageMode(&self) -> MTLStorageMode;
+        fn storage_mode(&self) -> MTLStorageMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(cpuCacheMode)]
-        fn cpuCacheMode(&self) -> MTLCPUCacheMode;
+        fn cpu_cache_mode(&self) -> MTLCPUCacheMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(hazardTrackingMode)]
-        fn hazardTrackingMode(&self) -> MTLHazardTrackingMode;
+        fn hazard_tracking_mode(&self) -> MTLHazardTrackingMode;
 
         #[cfg(feature = "MTLResource")]
         #[method(resourceOptions)]
-        fn resourceOptions(&self) -> MTLResourceOptions;
+        fn resource_options(&self) -> MTLResourceOptions;
 
         #[method(size)]
         fn size(&self) -> NSUInteger;
 
         #[method(usedSize)]
-        fn usedSize(&self) -> NSUInteger;
+        fn used_size(&self) -> NSUInteger;
 
         #[method(currentAllocatedSize)]
-        fn currentAllocatedSize(&self) -> NSUInteger;
+        fn current_allocated_size(&self) -> NSUInteger;
 
         #[method(maxAvailableSizeWithAlignment:)]
-        fn maxAvailableSizeWithAlignment(&self, alignment: NSUInteger) -> NSUInteger;
+        fn max_available_size_with_alignment(&self, alignment: NSUInteger) -> NSUInteger;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newBufferWithLength:options:)]
-        fn newBufferWithLength_options(
+        fn new_buffer_with_length_options(
             &self,
             length: NSUInteger,
             options: MTLResourceOptions,
@@ -157,21 +157,21 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method_id(@__retain_semantics New newTextureWithDescriptor:)]
-        fn newTextureWithDescriptor(
+        fn new_texture_with_descriptor(
             &self,
             descriptor: &MTLTextureDescriptor,
         ) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
 
         #[cfg(feature = "MTLResource")]
         #[method(setPurgeableState:)]
-        fn setPurgeableState(&self, state: MTLPurgeableState) -> MTLPurgeableState;
+        fn set_purgeable_state(&self, state: MTLPurgeableState) -> MTLPurgeableState;
 
         #[method(type)]
         unsafe fn r#type(&self) -> MTLHeapType;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newBufferWithLength:options:offset:)]
-        unsafe fn newBufferWithLength_options_offset(
+        unsafe fn new_buffer_with_length_options_offset(
             &self,
             length: NSUInteger,
             options: MTLResourceOptions,
@@ -180,7 +180,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method_id(@__retain_semantics New newTextureWithDescriptor:offset:)]
-        unsafe fn newTextureWithDescriptor_offset(
+        unsafe fn new_texture_with_descriptor_offset(
             &self,
             descriptor: &MTLTextureDescriptor,
             offset: NSUInteger,
@@ -188,21 +188,21 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newAccelerationStructureWithSize:)]
-        unsafe fn newAccelerationStructureWithSize(
+        unsafe fn new_acceleration_structure_with_size(
             &self,
             size: NSUInteger,
         ) -> Option<Retained<ProtocolObject<dyn MTLAccelerationStructure>>>;
 
         #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newAccelerationStructureWithDescriptor:)]
-        unsafe fn newAccelerationStructureWithDescriptor(
+        unsafe fn new_acceleration_structure_with_descriptor(
             &self,
             descriptor: &MTLAccelerationStructureDescriptor,
         ) -> Option<Retained<ProtocolObject<dyn MTLAccelerationStructure>>>;
 
         #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newAccelerationStructureWithSize:offset:)]
-        unsafe fn newAccelerationStructureWithSize_offset(
+        unsafe fn new_acceleration_structure_with_size_offset(
             &self,
             size: NSUInteger,
             offset: NSUInteger,
@@ -210,7 +210,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newAccelerationStructureWithDescriptor:offset:)]
-        unsafe fn newAccelerationStructureWithDescriptor_offset(
+        unsafe fn new_acceleration_structure_with_descriptor_offset(
             &self,
             descriptor: &MTLAccelerationStructureDescriptor,
             offset: NSUInteger,

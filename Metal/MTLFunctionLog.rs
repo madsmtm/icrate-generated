@@ -31,10 +31,10 @@ extern_protocol!(
 extern_protocol!(
     pub unsafe trait MTLFunctionLogDebugLocation: NSObjectProtocol + IsRetainable {
         #[method_id(@__retain_semantics Other functionName)]
-        unsafe fn functionName(&self) -> Option<Retained<NSString>>;
+        unsafe fn function_name(&self) -> Option<Retained<NSString>>;
 
         #[method_id(@__retain_semantics Other URL)]
-        unsafe fn URL(&self) -> Option<Retained<NSURL>>;
+        unsafe fn url(&self) -> Option<Retained<NSURL>>;
 
         #[method(line)]
         unsafe fn line(&self) -> NSUInteger;
@@ -52,14 +52,14 @@ extern_protocol!(
         unsafe fn r#type(&self) -> MTLFunctionLogType;
 
         #[method_id(@__retain_semantics Other encoderLabel)]
-        unsafe fn encoderLabel(&self) -> Option<Retained<NSString>>;
+        unsafe fn encoder_label(&self) -> Option<Retained<NSString>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other function)]
         unsafe fn function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[method_id(@__retain_semantics Other debugLocation)]
-        unsafe fn debugLocation(
+        unsafe fn debug_location(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLFunctionLogDebugLocation>>>;
     }

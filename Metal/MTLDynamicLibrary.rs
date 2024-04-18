@@ -42,17 +42,17 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
         fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method_id(@__retain_semantics Other installName)]
-        fn installName(&self) -> Retained<NSString>;
+        fn install_name(&self) -> Retained<NSString>;
 
         #[method(serializeToURL:error:_)]
-        fn serializeToURL_error(&self, url: &NSURL) -> Result<(), Retained<NSError>>;
+        fn serialize_to_url_error(&self, url: &NSURL) -> Result<(), Retained<NSError>>;
     }
 
     unsafe impl ProtocolType for dyn MTLDynamicLibrary {}

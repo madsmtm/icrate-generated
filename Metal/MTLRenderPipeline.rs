@@ -237,62 +237,65 @@ extern_methods!(
     unsafe impl MTLRenderPipelineColorAttachmentDescriptor {
         #[cfg(feature = "MTLPixelFormat")]
         #[method(pixelFormat)]
-        pub fn pixelFormat(&self) -> MTLPixelFormat;
+        pub fn pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setPixelFormat:)]
-        pub fn setPixelFormat(&self, pixel_format: MTLPixelFormat);
+        pub fn set_pixel_format(&self, pixel_format: MTLPixelFormat);
 
         #[method(isBlendingEnabled)]
-        pub fn isBlendingEnabled(&self) -> bool;
+        pub fn is_blending_enabled(&self) -> bool;
 
         #[method(setBlendingEnabled:)]
-        pub fn setBlendingEnabled(&self, blending_enabled: bool);
+        pub fn set_blending_enabled(&self, blending_enabled: bool);
 
         #[method(sourceRGBBlendFactor)]
-        pub fn sourceRGBBlendFactor(&self) -> MTLBlendFactor;
+        pub fn source_rgb_blend_factor(&self) -> MTLBlendFactor;
 
         #[method(setSourceRGBBlendFactor:)]
-        pub fn setSourceRGBBlendFactor(&self, source_rgb_blend_factor: MTLBlendFactor);
+        pub fn set_source_rgb_blend_factor(&self, source_rgb_blend_factor: MTLBlendFactor);
 
         #[method(destinationRGBBlendFactor)]
-        pub fn destinationRGBBlendFactor(&self) -> MTLBlendFactor;
+        pub fn destination_rgb_blend_factor(&self) -> MTLBlendFactor;
 
         #[method(setDestinationRGBBlendFactor:)]
-        pub fn setDestinationRGBBlendFactor(&self, destination_rgb_blend_factor: MTLBlendFactor);
+        pub fn set_destination_rgb_blend_factor(
+            &self,
+            destination_rgb_blend_factor: MTLBlendFactor,
+        );
 
         #[method(rgbBlendOperation)]
-        pub fn rgbBlendOperation(&self) -> MTLBlendOperation;
+        pub fn rgb_blend_operation(&self) -> MTLBlendOperation;
 
         #[method(setRgbBlendOperation:)]
-        pub fn setRgbBlendOperation(&self, rgb_blend_operation: MTLBlendOperation);
+        pub fn set_rgb_blend_operation(&self, rgb_blend_operation: MTLBlendOperation);
 
         #[method(sourceAlphaBlendFactor)]
-        pub fn sourceAlphaBlendFactor(&self) -> MTLBlendFactor;
+        pub fn source_alpha_blend_factor(&self) -> MTLBlendFactor;
 
         #[method(setSourceAlphaBlendFactor:)]
-        pub fn setSourceAlphaBlendFactor(&self, source_alpha_blend_factor: MTLBlendFactor);
+        pub fn set_source_alpha_blend_factor(&self, source_alpha_blend_factor: MTLBlendFactor);
 
         #[method(destinationAlphaBlendFactor)]
-        pub fn destinationAlphaBlendFactor(&self) -> MTLBlendFactor;
+        pub fn destination_alpha_blend_factor(&self) -> MTLBlendFactor;
 
         #[method(setDestinationAlphaBlendFactor:)]
-        pub fn setDestinationAlphaBlendFactor(
+        pub fn set_destination_alpha_blend_factor(
             &self,
             destination_alpha_blend_factor: MTLBlendFactor,
         );
 
         #[method(alphaBlendOperation)]
-        pub fn alphaBlendOperation(&self) -> MTLBlendOperation;
+        pub fn alpha_blend_operation(&self) -> MTLBlendOperation;
 
         #[method(setAlphaBlendOperation:)]
-        pub fn setAlphaBlendOperation(&self, alpha_blend_operation: MTLBlendOperation);
+        pub fn set_alpha_blend_operation(&self, alpha_blend_operation: MTLBlendOperation);
 
         #[method(writeMask)]
-        pub fn writeMask(&self) -> MTLColorWriteMask;
+        pub fn write_mask(&self) -> MTLColorWriteMask;
 
         #[method(setWriteMask:)]
-        pub fn setWriteMask(&self, write_mask: MTLColorWriteMask);
+        pub fn set_write_mask(&self, write_mask: MTLColorWriteMask);
     }
 );
 
@@ -323,38 +326,39 @@ extern_methods!(
     unsafe impl MTLRenderPipelineReflection {
         #[cfg(feature = "MTLArgument")]
         #[method_id(@__retain_semantics Other vertexBindings)]
-        pub unsafe fn vertexBindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
+        pub unsafe fn vertex_bindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[method_id(@__retain_semantics Other fragmentBindings)]
-        pub unsafe fn fragmentBindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
+        pub unsafe fn fragment_bindings(&self)
+            -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[method_id(@__retain_semantics Other tileBindings)]
-        pub unsafe fn tileBindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
+        pub unsafe fn tile_bindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[method_id(@__retain_semantics Other objectBindings)]
-        pub unsafe fn objectBindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
+        pub unsafe fn object_bindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[method_id(@__retain_semantics Other meshBindings)]
-        pub unsafe fn meshBindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
+        pub unsafe fn mesh_bindings(&self) -> Retained<NSArray<ProtocolObject<dyn MTLBinding>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[deprecated]
         #[method_id(@__retain_semantics Other vertexArguments)]
-        pub fn vertexArguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
+        pub fn vertex_arguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[deprecated]
         #[method_id(@__retain_semantics Other fragmentArguments)]
-        pub fn fragmentArguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
+        pub fn fragment_arguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
 
         #[cfg(feature = "MTLArgument")]
         #[deprecated]
         #[method_id(@__retain_semantics Other tileArguments)]
-        pub fn tileArguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
+        pub fn tile_arguments(&self) -> Option<Retained<NSArray<MTLArgument>>>;
     }
 );
 
@@ -389,271 +393,282 @@ extern_methods!(
         pub fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub fn setLabel(&self, label: Option<&NSString>);
+        pub fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other vertexFunction)]
-        pub fn vertexFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub fn vertex_function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setVertexFunction:)]
-        pub fn setVertexFunction(&self, vertex_function: Option<&ProtocolObject<dyn MTLFunction>>);
+        pub fn set_vertex_function(
+            &self,
+            vertex_function: Option<&ProtocolObject<dyn MTLFunction>>,
+        );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other fragmentFunction)]
-        pub fn fragmentFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub fn fragment_function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setFragmentFunction:)]
-        pub fn setFragmentFunction(
+        pub fn set_fragment_function(
             &self,
             fragment_function: Option<&ProtocolObject<dyn MTLFunction>>,
         );
 
         #[cfg(feature = "MTLVertexDescriptor")]
         #[method_id(@__retain_semantics Other vertexDescriptor)]
-        pub fn vertexDescriptor(&self) -> Option<Retained<MTLVertexDescriptor>>;
+        pub fn vertex_descriptor(&self) -> Option<Retained<MTLVertexDescriptor>>;
 
         #[cfg(feature = "MTLVertexDescriptor")]
         #[method(setVertexDescriptor:)]
-        pub fn setVertexDescriptor(&self, vertex_descriptor: Option<&MTLVertexDescriptor>);
+        pub fn set_vertex_descriptor(&self, vertex_descriptor: Option<&MTLVertexDescriptor>);
 
         #[deprecated]
         #[method(sampleCount)]
-        pub fn sampleCount(&self) -> NSUInteger;
+        pub fn sample_count(&self) -> NSUInteger;
 
         #[deprecated]
         #[method(setSampleCount:)]
-        pub fn setSampleCount(&self, sample_count: NSUInteger);
+        pub fn set_sample_count(&self, sample_count: NSUInteger);
 
         #[method(rasterSampleCount)]
-        pub fn rasterSampleCount(&self) -> NSUInteger;
+        pub fn raster_sample_count(&self) -> NSUInteger;
 
         #[method(setRasterSampleCount:)]
-        pub fn setRasterSampleCount(&self, raster_sample_count: NSUInteger);
+        pub fn set_raster_sample_count(&self, raster_sample_count: NSUInteger);
 
         #[method(isAlphaToCoverageEnabled)]
-        pub fn isAlphaToCoverageEnabled(&self) -> bool;
+        pub fn is_alpha_to_coverage_enabled(&self) -> bool;
 
         #[method(setAlphaToCoverageEnabled:)]
-        pub fn setAlphaToCoverageEnabled(&self, alpha_to_coverage_enabled: bool);
+        pub fn set_alpha_to_coverage_enabled(&self, alpha_to_coverage_enabled: bool);
 
         #[method(isAlphaToOneEnabled)]
-        pub fn isAlphaToOneEnabled(&self) -> bool;
+        pub fn is_alpha_to_one_enabled(&self) -> bool;
 
         #[method(setAlphaToOneEnabled:)]
-        pub fn setAlphaToOneEnabled(&self, alpha_to_one_enabled: bool);
+        pub fn set_alpha_to_one_enabled(&self, alpha_to_one_enabled: bool);
 
         #[method(isRasterizationEnabled)]
-        pub fn isRasterizationEnabled(&self) -> bool;
+        pub fn is_rasterization_enabled(&self) -> bool;
 
         #[method(setRasterizationEnabled:)]
-        pub fn setRasterizationEnabled(&self, rasterization_enabled: bool);
+        pub fn set_rasterization_enabled(&self, rasterization_enabled: bool);
 
         #[method(maxVertexAmplificationCount)]
-        pub fn maxVertexAmplificationCount(&self) -> NSUInteger;
+        pub fn max_vertex_amplification_count(&self) -> NSUInteger;
 
         #[method(setMaxVertexAmplificationCount:)]
-        pub unsafe fn setMaxVertexAmplificationCount(
+        pub unsafe fn set_max_vertex_amplification_count(
             &self,
             max_vertex_amplification_count: NSUInteger,
         );
 
         #[method_id(@__retain_semantics Other colorAttachments)]
-        pub fn colorAttachments(&self)
-            -> Retained<MTLRenderPipelineColorAttachmentDescriptorArray>;
+        pub fn color_attachments(
+            &self,
+        ) -> Retained<MTLRenderPipelineColorAttachmentDescriptorArray>;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(depthAttachmentPixelFormat)]
-        pub fn depthAttachmentPixelFormat(&self) -> MTLPixelFormat;
+        pub fn depth_attachment_pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setDepthAttachmentPixelFormat:)]
-        pub fn setDepthAttachmentPixelFormat(&self, depth_attachment_pixel_format: MTLPixelFormat);
+        pub fn set_depth_attachment_pixel_format(
+            &self,
+            depth_attachment_pixel_format: MTLPixelFormat,
+        );
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(stencilAttachmentPixelFormat)]
-        pub fn stencilAttachmentPixelFormat(&self) -> MTLPixelFormat;
+        pub fn stencil_attachment_pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setStencilAttachmentPixelFormat:)]
-        pub fn setStencilAttachmentPixelFormat(
+        pub fn set_stencil_attachment_pixel_format(
             &self,
             stencil_attachment_pixel_format: MTLPixelFormat,
         );
 
         #[method(inputPrimitiveTopology)]
-        pub fn inputPrimitiveTopology(&self) -> MTLPrimitiveTopologyClass;
+        pub fn input_primitive_topology(&self) -> MTLPrimitiveTopologyClass;
 
         #[method(setInputPrimitiveTopology:)]
-        pub unsafe fn setInputPrimitiveTopology(
+        pub unsafe fn set_input_primitive_topology(
             &self,
             input_primitive_topology: MTLPrimitiveTopologyClass,
         );
 
         #[method(tessellationPartitionMode)]
-        pub fn tessellationPartitionMode(&self) -> MTLTessellationPartitionMode;
+        pub fn tessellation_partition_mode(&self) -> MTLTessellationPartitionMode;
 
         #[method(setTessellationPartitionMode:)]
-        pub unsafe fn setTessellationPartitionMode(
+        pub unsafe fn set_tessellation_partition_mode(
             &self,
             tessellation_partition_mode: MTLTessellationPartitionMode,
         );
 
         #[method(maxTessellationFactor)]
-        pub fn maxTessellationFactor(&self) -> NSUInteger;
+        pub fn max_tessellation_factor(&self) -> NSUInteger;
 
         #[method(setMaxTessellationFactor:)]
-        pub unsafe fn setMaxTessellationFactor(&self, max_tessellation_factor: NSUInteger);
+        pub unsafe fn set_max_tessellation_factor(&self, max_tessellation_factor: NSUInteger);
 
         #[method(isTessellationFactorScaleEnabled)]
-        pub fn isTessellationFactorScaleEnabled(&self) -> bool;
+        pub fn is_tessellation_factor_scale_enabled(&self) -> bool;
 
         #[method(setTessellationFactorScaleEnabled:)]
-        pub fn setTessellationFactorScaleEnabled(&self, tessellation_factor_scale_enabled: bool);
+        pub fn set_tessellation_factor_scale_enabled(
+            &self,
+            tessellation_factor_scale_enabled: bool,
+        );
 
         #[method(tessellationFactorFormat)]
-        pub fn tessellationFactorFormat(&self) -> MTLTessellationFactorFormat;
+        pub fn tessellation_factor_format(&self) -> MTLTessellationFactorFormat;
 
         #[method(setTessellationFactorFormat:)]
-        pub fn setTessellationFactorFormat(
+        pub fn set_tessellation_factor_format(
             &self,
             tessellation_factor_format: MTLTessellationFactorFormat,
         );
 
         #[method(tessellationControlPointIndexType)]
-        pub fn tessellationControlPointIndexType(&self) -> MTLTessellationControlPointIndexType;
+        pub fn tessellation_control_point_index_type(&self)
+            -> MTLTessellationControlPointIndexType;
 
         #[method(setTessellationControlPointIndexType:)]
-        pub unsafe fn setTessellationControlPointIndexType(
+        pub unsafe fn set_tessellation_control_point_index_type(
             &self,
             tessellation_control_point_index_type: MTLTessellationControlPointIndexType,
         );
 
         #[method(tessellationFactorStepFunction)]
-        pub fn tessellationFactorStepFunction(&self) -> MTLTessellationFactorStepFunction;
+        pub fn tessellation_factor_step_function(&self) -> MTLTessellationFactorStepFunction;
 
         #[method(setTessellationFactorStepFunction:)]
-        pub fn setTessellationFactorStepFunction(
+        pub fn set_tessellation_factor_step_function(
             &self,
             tessellation_factor_step_function: MTLTessellationFactorStepFunction,
         );
 
         #[cfg(feature = "MTLRenderCommandEncoder")]
         #[method(tessellationOutputWindingOrder)]
-        pub fn tessellationOutputWindingOrder(&self) -> MTLWinding;
+        pub fn tessellation_output_winding_order(&self) -> MTLWinding;
 
         #[cfg(feature = "MTLRenderCommandEncoder")]
         #[method(setTessellationOutputWindingOrder:)]
-        pub fn setTessellationOutputWindingOrder(
+        pub fn set_tessellation_output_winding_order(
             &self,
             tessellation_output_winding_order: MTLWinding,
         );
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other vertexBuffers)]
-        pub fn vertexBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub fn vertex_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other fragmentBuffers)]
-        pub fn fragmentBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub fn fragment_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[method(supportIndirectCommandBuffers)]
-        pub fn supportIndirectCommandBuffers(&self) -> bool;
+        pub fn support_indirect_command_buffers(&self) -> bool;
 
         #[method(setSupportIndirectCommandBuffers:)]
-        pub fn setSupportIndirectCommandBuffers(&self, support_indirect_command_buffers: bool);
+        pub fn set_support_indirect_command_buffers(&self, support_indirect_command_buffers: bool);
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method_id(@__retain_semantics Other binaryArchives)]
-        pub fn binaryArchives(
+        pub fn binary_archives(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLBinaryArchive>>>>;
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method(setBinaryArchives:)]
-        pub fn setBinaryArchives(
+        pub fn set_binary_archives(
             &self,
             binary_archives: Option<&NSArray<ProtocolObject<dyn MTLBinaryArchive>>>,
         );
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method_id(@__retain_semantics Other vertexPreloadedLibraries)]
-        pub fn vertexPreloadedLibraries(
+        pub fn vertex_preloaded_libraries(
             &self,
         ) -> Retained<NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>;
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method(setVertexPreloadedLibraries:)]
-        pub fn setVertexPreloadedLibraries(
+        pub fn set_vertex_preloaded_libraries(
             &self,
             vertex_preloaded_libraries: &NSArray<ProtocolObject<dyn MTLDynamicLibrary>>,
         );
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method_id(@__retain_semantics Other fragmentPreloadedLibraries)]
-        pub fn fragmentPreloadedLibraries(
+        pub fn fragment_preloaded_libraries(
             &self,
         ) -> Retained<NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>;
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method(setFragmentPreloadedLibraries:)]
-        pub fn setFragmentPreloadedLibraries(
+        pub fn set_fragment_preloaded_libraries(
             &self,
             fragment_preloaded_libraries: &NSArray<ProtocolObject<dyn MTLDynamicLibrary>>,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other vertexLinkedFunctions)]
-        pub fn vertexLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub fn vertex_linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setVertexLinkedFunctions:)]
-        pub fn setVertexLinkedFunctions(
+        pub fn set_vertex_linked_functions(
             &self,
             vertex_linked_functions: Option<&MTLLinkedFunctions>,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other fragmentLinkedFunctions)]
-        pub fn fragmentLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub fn fragment_linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setFragmentLinkedFunctions:)]
-        pub fn setFragmentLinkedFunctions(
+        pub fn set_fragment_linked_functions(
             &self,
             fragment_linked_functions: Option<&MTLLinkedFunctions>,
         );
 
         #[method(supportAddingVertexBinaryFunctions)]
-        pub fn supportAddingVertexBinaryFunctions(&self) -> bool;
+        pub fn support_adding_vertex_binary_functions(&self) -> bool;
 
         #[method(setSupportAddingVertexBinaryFunctions:)]
-        pub fn setSupportAddingVertexBinaryFunctions(
+        pub fn set_support_adding_vertex_binary_functions(
             &self,
             support_adding_vertex_binary_functions: bool,
         );
 
         #[method(supportAddingFragmentBinaryFunctions)]
-        pub fn supportAddingFragmentBinaryFunctions(&self) -> bool;
+        pub fn support_adding_fragment_binary_functions(&self) -> bool;
 
         #[method(setSupportAddingFragmentBinaryFunctions:)]
-        pub fn setSupportAddingFragmentBinaryFunctions(
+        pub fn set_support_adding_fragment_binary_functions(
             &self,
             support_adding_fragment_binary_functions: bool,
         );
 
         #[method(maxVertexCallStackDepth)]
-        pub fn maxVertexCallStackDepth(&self) -> NSUInteger;
+        pub fn max_vertex_call_stack_depth(&self) -> NSUInteger;
 
         #[method(setMaxVertexCallStackDepth:)]
-        pub fn setMaxVertexCallStackDepth(&self, max_vertex_call_stack_depth: NSUInteger);
+        pub fn set_max_vertex_call_stack_depth(&self, max_vertex_call_stack_depth: NSUInteger);
 
         #[method(maxFragmentCallStackDepth)]
-        pub fn maxFragmentCallStackDepth(&self) -> NSUInteger;
+        pub fn max_fragment_call_stack_depth(&self) -> NSUInteger;
 
         #[method(setMaxFragmentCallStackDepth:)]
-        pub fn setMaxFragmentCallStackDepth(&self, max_fragment_call_stack_depth: NSUInteger);
+        pub fn set_max_fragment_call_stack_depth(&self, max_fragment_call_stack_depth: NSUInteger);
 
         #[method(reset)]
         pub fn reset(&self);
@@ -696,39 +711,39 @@ extern_methods!(
     unsafe impl MTLRenderPipelineFunctionsDescriptor {
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other vertexAdditionalBinaryFunctions)]
-        pub unsafe fn vertexAdditionalBinaryFunctions(
+        pub unsafe fn vertex_additional_binary_functions(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setVertexAdditionalBinaryFunctions:)]
-        pub unsafe fn setVertexAdditionalBinaryFunctions(
+        pub unsafe fn set_vertex_additional_binary_functions(
             &self,
             vertex_additional_binary_functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>,
         );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other fragmentAdditionalBinaryFunctions)]
-        pub unsafe fn fragmentAdditionalBinaryFunctions(
+        pub unsafe fn fragment_additional_binary_functions(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setFragmentAdditionalBinaryFunctions:)]
-        pub unsafe fn setFragmentAdditionalBinaryFunctions(
+        pub unsafe fn set_fragment_additional_binary_functions(
             &self,
             fragment_additional_binary_functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>,
         );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other tileAdditionalBinaryFunctions)]
-        pub unsafe fn tileAdditionalBinaryFunctions(
+        pub unsafe fn tile_additional_binary_functions(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLFunction>>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setTileAdditionalBinaryFunctions:)]
-        pub unsafe fn setTileAdditionalBinaryFunctions(
+        pub unsafe fn set_tile_additional_binary_functions(
             &self,
             tile_additional_binary_functions: Option<&NSArray<ProtocolObject<dyn MTLFunction>>>,
         );
@@ -756,42 +771,42 @@ extern_protocol!(
         unsafe fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method(maxTotalThreadsPerThreadgroup)]
-        unsafe fn maxTotalThreadsPerThreadgroup(&self) -> NSUInteger;
+        unsafe fn max_total_threads_per_threadgroup(&self) -> NSUInteger;
 
         #[method(threadgroupSizeMatchesTileSize)]
-        unsafe fn threadgroupSizeMatchesTileSize(&self) -> bool;
+        unsafe fn threadgroup_size_matches_tile_size(&self) -> bool;
 
         #[method(imageblockSampleLength)]
-        unsafe fn imageblockSampleLength(&self) -> NSUInteger;
+        unsafe fn imageblock_sample_length(&self) -> NSUInteger;
 
         #[cfg(feature = "MTLTypes")]
         #[method(imageblockMemoryLengthForDimensions:)]
-        unsafe fn imageblockMemoryLengthForDimensions(
+        unsafe fn imageblock_memory_length_for_dimensions(
             &self,
             imageblock_dimensions: MTLSize,
         ) -> NSUInteger;
 
         #[method(supportIndirectCommandBuffers)]
-        unsafe fn supportIndirectCommandBuffers(&self) -> bool;
+        unsafe fn support_indirect_command_buffers(&self) -> bool;
 
         #[method(maxTotalThreadsPerObjectThreadgroup)]
-        unsafe fn maxTotalThreadsPerObjectThreadgroup(&self) -> NSUInteger;
+        unsafe fn max_total_threads_per_object_threadgroup(&self) -> NSUInteger;
 
         #[method(maxTotalThreadsPerMeshThreadgroup)]
-        unsafe fn maxTotalThreadsPerMeshThreadgroup(&self) -> NSUInteger;
+        unsafe fn max_total_threads_per_mesh_threadgroup(&self) -> NSUInteger;
 
         #[method(objectThreadExecutionWidth)]
-        unsafe fn objectThreadExecutionWidth(&self) -> NSUInteger;
+        unsafe fn object_thread_execution_width(&self) -> NSUInteger;
 
         #[method(meshThreadExecutionWidth)]
-        unsafe fn meshThreadExecutionWidth(&self) -> NSUInteger;
+        unsafe fn mesh_thread_execution_width(&self) -> NSUInteger;
 
         #[method(maxTotalThreadgroupsPerMeshGrid)]
-        unsafe fn maxTotalThreadgroupsPerMeshGrid(&self) -> NSUInteger;
+        unsafe fn max_total_threadgroups_per_mesh_grid(&self) -> NSUInteger;
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
 
         #[cfg(all(
             feature = "MTLFunctionHandle",
@@ -799,7 +814,7 @@ extern_protocol!(
             feature = "MTLRenderCommandEncoder"
         ))]
         #[method_id(@__retain_semantics Other functionHandleWithFunction:stage:)]
-        unsafe fn functionHandleWithFunction_stage(
+        unsafe fn function_handle_with_function_stage(
             &self,
             function: &ProtocolObject<dyn MTLFunction>,
             stage: MTLRenderStages,
@@ -811,7 +826,7 @@ extern_protocol!(
             feature = "MTLVisibleFunctionTable"
         ))]
         #[method_id(@__retain_semantics New newVisibleFunctionTableWithDescriptor:stage:)]
-        unsafe fn newVisibleFunctionTableWithDescriptor_stage(
+        unsafe fn new_visible_function_table_with_descriptor_stage(
             &self,
             descriptor: &MTLVisibleFunctionTableDescriptor,
             stage: MTLRenderStages,
@@ -823,14 +838,14 @@ extern_protocol!(
             feature = "MTLResource"
         ))]
         #[method_id(@__retain_semantics New newIntersectionFunctionTableWithDescriptor:stage:)]
-        unsafe fn newIntersectionFunctionTableWithDescriptor_stage(
+        unsafe fn new_intersection_function_table_with_descriptor_stage(
             &self,
             descriptor: &MTLIntersectionFunctionTableDescriptor,
             stage: MTLRenderStages,
         ) -> Option<Retained<ProtocolObject<dyn MTLIntersectionFunctionTable>>>;
 
         #[method_id(@__retain_semantics New newRenderPipelineStateWithAdditionalBinaryFunctions:error:_)]
-        unsafe fn newRenderPipelineStateWithAdditionalBinaryFunctions_error(
+        unsafe fn new_render_pipeline_state_with_additional_binary_functions_error(
             &self,
             additional_binary_functions: &MTLRenderPipelineFunctionsDescriptor,
         ) -> Result<Retained<ProtocolObject<dyn MTLRenderPipelineState>>, Retained<NSError>>;
@@ -854,13 +869,13 @@ unsafe impl NSObjectProtocol for MTLRenderPipelineColorAttachmentDescriptorArray
 extern_methods!(
     unsafe impl MTLRenderPipelineColorAttachmentDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             attachment_index: NSUInteger,
         ) -> Retained<MTLRenderPipelineColorAttachmentDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attachment: Option<&MTLRenderPipelineColorAttachmentDescriptor>,
             attachment_index: NSUInteger,
@@ -897,11 +912,11 @@ extern_methods!(
     unsafe impl MTLTileRenderPipelineColorAttachmentDescriptor {
         #[cfg(feature = "MTLPixelFormat")]
         #[method(pixelFormat)]
-        pub unsafe fn pixelFormat(&self) -> MTLPixelFormat;
+        pub unsafe fn pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setPixelFormat:)]
-        pub unsafe fn setPixelFormat(&self, pixel_format: MTLPixelFormat);
+        pub unsafe fn set_pixel_format(&self, pixel_format: MTLPixelFormat);
     }
 );
 
@@ -931,13 +946,13 @@ unsafe impl NSObjectProtocol for MTLTileRenderPipelineColorAttachmentDescriptorA
 extern_methods!(
     unsafe impl MTLTileRenderPipelineColorAttachmentDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             attachment_index: NSUInteger,
         ) -> Retained<MTLTileRenderPipelineColorAttachmentDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attachment: &MTLTileRenderPipelineColorAttachmentDescriptor,
             attachment_index: NSUInteger,
@@ -976,94 +991,97 @@ extern_methods!(
         pub unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub unsafe fn setLabel(&self, label: Option<&NSString>);
+        pub unsafe fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other tileFunction)]
-        pub unsafe fn tileFunction(&self) -> Retained<ProtocolObject<dyn MTLFunction>>;
+        pub unsafe fn tile_function(&self) -> Retained<ProtocolObject<dyn MTLFunction>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setTileFunction:)]
-        pub unsafe fn setTileFunction(&self, tile_function: &ProtocolObject<dyn MTLFunction>);
+        pub unsafe fn set_tile_function(&self, tile_function: &ProtocolObject<dyn MTLFunction>);
 
         #[method(rasterSampleCount)]
-        pub unsafe fn rasterSampleCount(&self) -> NSUInteger;
+        pub unsafe fn raster_sample_count(&self) -> NSUInteger;
 
         #[method(setRasterSampleCount:)]
-        pub unsafe fn setRasterSampleCount(&self, raster_sample_count: NSUInteger);
+        pub unsafe fn set_raster_sample_count(&self, raster_sample_count: NSUInteger);
 
         #[method_id(@__retain_semantics Other colorAttachments)]
-        pub unsafe fn colorAttachments(
+        pub unsafe fn color_attachments(
             &self,
         ) -> Retained<MTLTileRenderPipelineColorAttachmentDescriptorArray>;
 
         #[method(threadgroupSizeMatchesTileSize)]
-        pub unsafe fn threadgroupSizeMatchesTileSize(&self) -> bool;
+        pub unsafe fn threadgroup_size_matches_tile_size(&self) -> bool;
 
         #[method(setThreadgroupSizeMatchesTileSize:)]
-        pub unsafe fn setThreadgroupSizeMatchesTileSize(
+        pub unsafe fn set_threadgroup_size_matches_tile_size(
             &self,
             threadgroup_size_matches_tile_size: bool,
         );
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other tileBuffers)]
-        pub unsafe fn tileBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub unsafe fn tile_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[method(maxTotalThreadsPerThreadgroup)]
-        pub unsafe fn maxTotalThreadsPerThreadgroup(&self) -> NSUInteger;
+        pub unsafe fn max_total_threads_per_threadgroup(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadsPerThreadgroup:)]
-        pub unsafe fn setMaxTotalThreadsPerThreadgroup(
+        pub unsafe fn set_max_total_threads_per_threadgroup(
             &self,
             max_total_threads_per_threadgroup: NSUInteger,
         );
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method_id(@__retain_semantics Other binaryArchives)]
-        pub unsafe fn binaryArchives(
+        pub unsafe fn binary_archives(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLBinaryArchive>>>>;
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method(setBinaryArchives:)]
-        pub unsafe fn setBinaryArchives(
+        pub unsafe fn set_binary_archives(
             &self,
             binary_archives: Option<&NSArray<ProtocolObject<dyn MTLBinaryArchive>>>,
         );
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method_id(@__retain_semantics Other preloadedLibraries)]
-        pub unsafe fn preloadedLibraries(
+        pub unsafe fn preloaded_libraries(
             &self,
         ) -> Retained<NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>;
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method(setPreloadedLibraries:)]
-        pub unsafe fn setPreloadedLibraries(
+        pub unsafe fn set_preloaded_libraries(
             &self,
             preloaded_libraries: &NSArray<ProtocolObject<dyn MTLDynamicLibrary>>,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other linkedFunctions)]
-        pub unsafe fn linkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub unsafe fn linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setLinkedFunctions:)]
-        pub unsafe fn setLinkedFunctions(&self, linked_functions: Option<&MTLLinkedFunctions>);
+        pub unsafe fn set_linked_functions(&self, linked_functions: Option<&MTLLinkedFunctions>);
 
         #[method(supportAddingBinaryFunctions)]
-        pub unsafe fn supportAddingBinaryFunctions(&self) -> bool;
+        pub unsafe fn support_adding_binary_functions(&self) -> bool;
 
         #[method(setSupportAddingBinaryFunctions:)]
-        pub unsafe fn setSupportAddingBinaryFunctions(&self, support_adding_binary_functions: bool);
+        pub unsafe fn set_support_adding_binary_functions(
+            &self,
+            support_adding_binary_functions: bool,
+        );
 
         #[method(maxCallStackDepth)]
-        pub unsafe fn maxCallStackDepth(&self) -> NSUInteger;
+        pub unsafe fn max_call_stack_depth(&self) -> NSUInteger;
 
         #[method(setMaxCallStackDepth:)]
-        pub unsafe fn setMaxCallStackDepth(&self, max_call_stack_depth: NSUInteger);
+        pub unsafe fn set_max_call_stack_depth(&self, max_call_stack_depth: NSUInteger);
 
         #[method(reset)]
         pub unsafe fn reset(&self);
@@ -1101,202 +1119,203 @@ extern_methods!(
         pub unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub unsafe fn setLabel(&self, label: Option<&NSString>);
+        pub unsafe fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other objectFunction)]
-        pub unsafe fn objectFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub unsafe fn object_function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setObjectFunction:)]
-        pub unsafe fn setObjectFunction(
+        pub unsafe fn set_object_function(
             &self,
             object_function: Option<&ProtocolObject<dyn MTLFunction>>,
         );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other meshFunction)]
-        pub unsafe fn meshFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub unsafe fn mesh_function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setMeshFunction:)]
-        pub unsafe fn setMeshFunction(
+        pub unsafe fn set_mesh_function(
             &self,
             mesh_function: Option<&ProtocolObject<dyn MTLFunction>>,
         );
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other fragmentFunction)]
-        pub unsafe fn fragmentFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub unsafe fn fragment_function(&self)
+            -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setFragmentFunction:)]
-        pub unsafe fn setFragmentFunction(
+        pub unsafe fn set_fragment_function(
             &self,
             fragment_function: Option<&ProtocolObject<dyn MTLFunction>>,
         );
 
         #[method(maxTotalThreadsPerObjectThreadgroup)]
-        pub unsafe fn maxTotalThreadsPerObjectThreadgroup(&self) -> NSUInteger;
+        pub unsafe fn max_total_threads_per_object_threadgroup(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadsPerObjectThreadgroup:)]
-        pub unsafe fn setMaxTotalThreadsPerObjectThreadgroup(
+        pub unsafe fn set_max_total_threads_per_object_threadgroup(
             &self,
             max_total_threads_per_object_threadgroup: NSUInteger,
         );
 
         #[method(maxTotalThreadsPerMeshThreadgroup)]
-        pub unsafe fn maxTotalThreadsPerMeshThreadgroup(&self) -> NSUInteger;
+        pub unsafe fn max_total_threads_per_mesh_threadgroup(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadsPerMeshThreadgroup:)]
-        pub unsafe fn setMaxTotalThreadsPerMeshThreadgroup(
+        pub unsafe fn set_max_total_threads_per_mesh_threadgroup(
             &self,
             max_total_threads_per_mesh_threadgroup: NSUInteger,
         );
 
         #[method(objectThreadgroupSizeIsMultipleOfThreadExecutionWidth)]
-        pub unsafe fn objectThreadgroupSizeIsMultipleOfThreadExecutionWidth(&self) -> bool;
+        pub unsafe fn object_threadgroup_size_is_multiple_of_thread_execution_width(&self) -> bool;
 
         #[method(setObjectThreadgroupSizeIsMultipleOfThreadExecutionWidth:)]
-        pub unsafe fn setObjectThreadgroupSizeIsMultipleOfThreadExecutionWidth(
+        pub unsafe fn set_object_threadgroup_size_is_multiple_of_thread_execution_width(
             &self,
             object_threadgroup_size_is_multiple_of_thread_execution_width: bool,
         );
 
         #[method(meshThreadgroupSizeIsMultipleOfThreadExecutionWidth)]
-        pub unsafe fn meshThreadgroupSizeIsMultipleOfThreadExecutionWidth(&self) -> bool;
+        pub unsafe fn mesh_threadgroup_size_is_multiple_of_thread_execution_width(&self) -> bool;
 
         #[method(setMeshThreadgroupSizeIsMultipleOfThreadExecutionWidth:)]
-        pub unsafe fn setMeshThreadgroupSizeIsMultipleOfThreadExecutionWidth(
+        pub unsafe fn set_mesh_threadgroup_size_is_multiple_of_thread_execution_width(
             &self,
             mesh_threadgroup_size_is_multiple_of_thread_execution_width: bool,
         );
 
         #[method(payloadMemoryLength)]
-        pub unsafe fn payloadMemoryLength(&self) -> NSUInteger;
+        pub unsafe fn payload_memory_length(&self) -> NSUInteger;
 
         #[method(setPayloadMemoryLength:)]
-        pub unsafe fn setPayloadMemoryLength(&self, payload_memory_length: NSUInteger);
+        pub unsafe fn set_payload_memory_length(&self, payload_memory_length: NSUInteger);
 
         #[method(maxTotalThreadgroupsPerMeshGrid)]
-        pub unsafe fn maxTotalThreadgroupsPerMeshGrid(&self) -> NSUInteger;
+        pub unsafe fn max_total_threadgroups_per_mesh_grid(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadgroupsPerMeshGrid:)]
-        pub unsafe fn setMaxTotalThreadgroupsPerMeshGrid(
+        pub unsafe fn set_max_total_threadgroups_per_mesh_grid(
             &self,
             max_total_threadgroups_per_mesh_grid: NSUInteger,
         );
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other objectBuffers)]
-        pub unsafe fn objectBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub unsafe fn object_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other meshBuffers)]
-        pub unsafe fn meshBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub unsafe fn mesh_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[cfg(feature = "MTLPipeline")]
         #[method_id(@__retain_semantics Other fragmentBuffers)]
-        pub unsafe fn fragmentBuffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
+        pub unsafe fn fragment_buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[method(rasterSampleCount)]
-        pub unsafe fn rasterSampleCount(&self) -> NSUInteger;
+        pub unsafe fn raster_sample_count(&self) -> NSUInteger;
 
         #[method(setRasterSampleCount:)]
-        pub unsafe fn setRasterSampleCount(&self, raster_sample_count: NSUInteger);
+        pub unsafe fn set_raster_sample_count(&self, raster_sample_count: NSUInteger);
 
         #[method(isAlphaToCoverageEnabled)]
-        pub unsafe fn isAlphaToCoverageEnabled(&self) -> bool;
+        pub unsafe fn is_alpha_to_coverage_enabled(&self) -> bool;
 
         #[method(setAlphaToCoverageEnabled:)]
-        pub unsafe fn setAlphaToCoverageEnabled(&self, alpha_to_coverage_enabled: bool);
+        pub unsafe fn set_alpha_to_coverage_enabled(&self, alpha_to_coverage_enabled: bool);
 
         #[method(isAlphaToOneEnabled)]
-        pub unsafe fn isAlphaToOneEnabled(&self) -> bool;
+        pub unsafe fn is_alpha_to_one_enabled(&self) -> bool;
 
         #[method(setAlphaToOneEnabled:)]
-        pub unsafe fn setAlphaToOneEnabled(&self, alpha_to_one_enabled: bool);
+        pub unsafe fn set_alpha_to_one_enabled(&self, alpha_to_one_enabled: bool);
 
         #[method(isRasterizationEnabled)]
-        pub unsafe fn isRasterizationEnabled(&self) -> bool;
+        pub unsafe fn is_rasterization_enabled(&self) -> bool;
 
         #[method(setRasterizationEnabled:)]
-        pub unsafe fn setRasterizationEnabled(&self, rasterization_enabled: bool);
+        pub unsafe fn set_rasterization_enabled(&self, rasterization_enabled: bool);
 
         #[method(maxVertexAmplificationCount)]
-        pub unsafe fn maxVertexAmplificationCount(&self) -> NSUInteger;
+        pub unsafe fn max_vertex_amplification_count(&self) -> NSUInteger;
 
         #[method(setMaxVertexAmplificationCount:)]
-        pub unsafe fn setMaxVertexAmplificationCount(
+        pub unsafe fn set_max_vertex_amplification_count(
             &self,
             max_vertex_amplification_count: NSUInteger,
         );
 
         #[method_id(@__retain_semantics Other colorAttachments)]
-        pub unsafe fn colorAttachments(
+        pub unsafe fn color_attachments(
             &self,
         ) -> Retained<MTLRenderPipelineColorAttachmentDescriptorArray>;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(depthAttachmentPixelFormat)]
-        pub unsafe fn depthAttachmentPixelFormat(&self) -> MTLPixelFormat;
+        pub unsafe fn depth_attachment_pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setDepthAttachmentPixelFormat:)]
-        pub unsafe fn setDepthAttachmentPixelFormat(
+        pub unsafe fn set_depth_attachment_pixel_format(
             &self,
             depth_attachment_pixel_format: MTLPixelFormat,
         );
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(stencilAttachmentPixelFormat)]
-        pub unsafe fn stencilAttachmentPixelFormat(&self) -> MTLPixelFormat;
+        pub unsafe fn stencil_attachment_pixel_format(&self) -> MTLPixelFormat;
 
         #[cfg(feature = "MTLPixelFormat")]
         #[method(setStencilAttachmentPixelFormat:)]
-        pub unsafe fn setStencilAttachmentPixelFormat(
+        pub unsafe fn set_stencil_attachment_pixel_format(
             &self,
             stencil_attachment_pixel_format: MTLPixelFormat,
         );
 
         #[method(supportIndirectCommandBuffers)]
-        pub unsafe fn supportIndirectCommandBuffers(&self) -> bool;
+        pub unsafe fn support_indirect_command_buffers(&self) -> bool;
 
         #[method(setSupportIndirectCommandBuffers:)]
-        pub unsafe fn setSupportIndirectCommandBuffers(
+        pub unsafe fn set_support_indirect_command_buffers(
             &self,
             support_indirect_command_buffers: bool,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other objectLinkedFunctions)]
-        pub unsafe fn objectLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub unsafe fn object_linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setObjectLinkedFunctions:)]
-        pub unsafe fn setObjectLinkedFunctions(
+        pub unsafe fn set_object_linked_functions(
             &self,
             object_linked_functions: Option<&MTLLinkedFunctions>,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other meshLinkedFunctions)]
-        pub unsafe fn meshLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub unsafe fn mesh_linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setMeshLinkedFunctions:)]
-        pub unsafe fn setMeshLinkedFunctions(
+        pub unsafe fn set_mesh_linked_functions(
             &self,
             mesh_linked_functions: Option<&MTLLinkedFunctions>,
         );
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other fragmentLinkedFunctions)]
-        pub unsafe fn fragmentLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
+        pub unsafe fn fragment_linked_functions(&self) -> Retained<MTLLinkedFunctions>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setFragmentLinkedFunctions:)]
-        pub unsafe fn setFragmentLinkedFunctions(
+        pub unsafe fn set_fragment_linked_functions(
             &self,
             fragment_linked_functions: Option<&MTLLinkedFunctions>,
         );

@@ -36,11 +36,11 @@ extern_protocol!(
     pub unsafe trait MTLIOCommandBuffer: NSObjectProtocol + IsRetainable {
         #[cfg(feature = "block2")]
         #[method(addCompletedHandler:)]
-        unsafe fn addCompletedHandler(&self, block: MTLIOCommandBufferHandler);
+        unsafe fn add_completed_handler(&self, block: MTLIOCommandBufferHandler);
 
         #[cfg(feature = "MTLIOCommandQueue")]
         #[method(loadBytes:size:sourceHandle:sourceHandleOffset:)]
-        unsafe fn loadBytes_size_sourceHandle_sourceHandleOffset(
+        unsafe fn load_bytes_size_source_handle_source_handle_offset(
             &self,
             pointer: NonNull<c_void>,
             size: NSUInteger,
@@ -54,7 +54,7 @@ extern_protocol!(
             feature = "MTLResource"
         ))]
         #[method(loadBuffer:offset:size:sourceHandle:sourceHandleOffset:)]
-        unsafe fn loadBuffer_offset_size_sourceHandle_sourceHandleOffset(
+        unsafe fn load_buffer_offset_size_source_handle_source_handle_offset(
             &self,
             buffer: &ProtocolObject<dyn MTLBuffer>,
             offset: NSUInteger,
@@ -70,7 +70,7 @@ extern_protocol!(
             feature = "MTLTypes"
         ))]
         #[method(loadTexture:slice:level:size:sourceBytesPerRow:sourceBytesPerImage:destinationOrigin:sourceHandle:sourceHandleOffset:)]
-        unsafe fn loadTexture_slice_level_size_sourceBytesPerRow_sourceBytesPerImage_destinationOrigin_sourceHandle_sourceHandleOffset(
+        unsafe fn load_texture_slice_level_size_source_bytes_per_row_source_bytes_per_image_destination_origin_source_handle_source_handle_offset(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             slice: NSUInteger,
@@ -85,7 +85,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(copyStatusToBuffer:offset:)]
-        unsafe fn copyStatusToBuffer_offset(
+        unsafe fn copy_status_to_buffer_offset(
             &self,
             buffer: &ProtocolObject<dyn MTLBuffer>,
             offset: NSUInteger,
@@ -95,36 +95,40 @@ extern_protocol!(
         unsafe fn commit(&self);
 
         #[method(waitUntilCompleted)]
-        unsafe fn waitUntilCompleted(&self);
+        unsafe fn wait_until_completed(&self);
 
         #[method(tryCancel)]
-        unsafe fn tryCancel(&self);
+        unsafe fn try_cancel(&self);
 
         #[method(addBarrier)]
-        unsafe fn addBarrier(&self);
+        unsafe fn add_barrier(&self);
 
         #[method(pushDebugGroup:)]
-        unsafe fn pushDebugGroup(&self, string: &NSString);
+        unsafe fn push_debug_group(&self, string: &NSString);
 
         #[method(popDebugGroup)]
-        unsafe fn popDebugGroup(&self);
+        unsafe fn pop_debug_group(&self);
 
         #[method(enqueue)]
         unsafe fn enqueue(&self);
 
         #[cfg(feature = "MTLEvent")]
         #[method(waitForEvent:value:)]
-        unsafe fn waitForEvent_value(&self, event: &ProtocolObject<dyn MTLSharedEvent>, value: u64);
+        unsafe fn wait_for_event_value(
+            &self,
+            event: &ProtocolObject<dyn MTLSharedEvent>,
+            value: u64,
+        );
 
         #[cfg(feature = "MTLEvent")]
         #[method(signalEvent:value:)]
-        unsafe fn signalEvent_value(&self, event: &ProtocolObject<dyn MTLSharedEvent>, value: u64);
+        unsafe fn signal_event_value(&self, event: &ProtocolObject<dyn MTLSharedEvent>, value: u64);
 
         #[method_id(@__retain_semantics Other label)]
         unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        unsafe fn setLabel(&self, label: Option<&NSString>);
+        unsafe fn set_label(&self, label: Option<&NSString>);
 
         #[method(status)]
         unsafe fn status(&self) -> MTLIOStatus;

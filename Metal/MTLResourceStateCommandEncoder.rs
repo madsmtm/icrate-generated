@@ -64,7 +64,7 @@ extern_protocol!(
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture", feature = "MTLTypes"))]
         #[optional]
         #[method(updateTextureMappings:mode:regions:mipLevels:slices:numRegions:)]
-        unsafe fn updateTextureMappings_mode_regions_mipLevels_slices_numRegions(
+        unsafe fn update_texture_mappings_mode_regions_mip_levels_slices_num_regions(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             mode: MTLSparseTextureMappingMode,
@@ -77,7 +77,7 @@ extern_protocol!(
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture", feature = "MTLTypes"))]
         #[optional]
         #[method(updateTextureMapping:mode:region:mipLevel:slice:)]
-        unsafe fn updateTextureMapping_mode_region_mipLevel_slice(
+        unsafe fn update_texture_mapping_mode_region_mip_level_slice(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             mode: MTLSparseTextureMappingMode,
@@ -89,7 +89,7 @@ extern_protocol!(
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource", feature = "MTLTexture"))]
         #[optional]
         #[method(updateTextureMapping:mode:indirectBuffer:indirectBufferOffset:)]
-        unsafe fn updateTextureMapping_mode_indirectBuffer_indirectBufferOffset(
+        unsafe fn update_texture_mapping_mode_indirect_buffer_indirect_buffer_offset(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             mode: MTLSparseTextureMappingMode,
@@ -100,17 +100,17 @@ extern_protocol!(
         #[cfg(feature = "MTLFence")]
         #[optional]
         #[method(updateFence:)]
-        unsafe fn updateFence(&self, fence: &ProtocolObject<dyn MTLFence>);
+        unsafe fn update_fence(&self, fence: &ProtocolObject<dyn MTLFence>);
 
         #[cfg(feature = "MTLFence")]
         #[optional]
         #[method(waitForFence:)]
-        unsafe fn waitForFence(&self, fence: &ProtocolObject<dyn MTLFence>);
+        unsafe fn wait_for_fence(&self, fence: &ProtocolObject<dyn MTLFence>);
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture", feature = "MTLTypes"))]
         #[optional]
         #[method(moveTextureMappingsFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:)]
-        unsafe fn moveTextureMappingsFromTexture_sourceSlice_sourceLevel_sourceOrigin_sourceSize_toTexture_destinationSlice_destinationLevel_destinationOrigin(
+        unsafe fn move_texture_mappings_from_texture_source_slice_source_level_source_origin_source_size_to_texture_destination_slice_destination_level_destination_origin(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             source_slice: NSUInteger,

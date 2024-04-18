@@ -34,25 +34,25 @@ extern_methods!(
     #[cfg(feature = "CALayer")]
     unsafe impl CATiledLayer {
         #[method(fadeDuration)]
-        pub unsafe fn fadeDuration() -> CFTimeInterval;
+        pub unsafe fn fade_duration() -> CFTimeInterval;
 
         #[method(levelsOfDetail)]
-        pub unsafe fn levelsOfDetail(&self) -> usize;
+        pub unsafe fn levels_of_detail(&self) -> usize;
 
         #[method(setLevelsOfDetail:)]
-        pub unsafe fn setLevelsOfDetail(&self, levels_of_detail: usize);
+        pub unsafe fn set_levels_of_detail(&self, levels_of_detail: usize);
 
         #[method(levelsOfDetailBias)]
-        pub unsafe fn levelsOfDetailBias(&self) -> usize;
+        pub unsafe fn levels_of_detail_bias(&self) -> usize;
 
         #[method(setLevelsOfDetailBias:)]
-        pub unsafe fn setLevelsOfDetailBias(&self, levels_of_detail_bias: usize);
+        pub unsafe fn set_levels_of_detail_bias(&self, levels_of_detail_bias: usize);
 
         #[method(tileSize)]
-        pub unsafe fn tileSize(&self) -> CGSize;
+        pub unsafe fn tile_size(&self) -> CGSize;
 
         #[method(setTileSize:)]
-        pub unsafe fn setTileSize(&self, tile_size: CGSize);
+        pub unsafe fn set_tile_size(&self, tile_size: CGSize);
     }
 );
 
@@ -67,7 +67,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

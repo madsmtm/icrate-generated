@@ -121,69 +121,69 @@ extern_methods!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(setTexture:)]
-        pub fn setTexture(&self, texture: Option<&ProtocolObject<dyn MTLTexture>>);
+        pub fn set_texture(&self, texture: Option<&ProtocolObject<dyn MTLTexture>>);
 
         #[method(level)]
         pub fn level(&self) -> NSUInteger;
 
         #[method(setLevel:)]
-        pub fn setLevel(&self, level: NSUInteger);
+        pub fn set_level(&self, level: NSUInteger);
 
         #[method(slice)]
         pub fn slice(&self) -> NSUInteger;
 
         #[method(setSlice:)]
-        pub fn setSlice(&self, slice: NSUInteger);
+        pub fn set_slice(&self, slice: NSUInteger);
 
         #[method(depthPlane)]
-        pub fn depthPlane(&self) -> NSUInteger;
+        pub fn depth_plane(&self) -> NSUInteger;
 
         #[method(setDepthPlane:)]
-        pub fn setDepthPlane(&self, depth_plane: NSUInteger);
+        pub fn set_depth_plane(&self, depth_plane: NSUInteger);
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method_id(@__retain_semantics Other resolveTexture)]
-        pub fn resolveTexture(&self) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
+        pub fn resolve_texture(&self) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(setResolveTexture:)]
-        pub fn setResolveTexture(&self, resolve_texture: Option<&ProtocolObject<dyn MTLTexture>>);
+        pub fn set_resolve_texture(&self, resolve_texture: Option<&ProtocolObject<dyn MTLTexture>>);
 
         #[method(resolveLevel)]
-        pub fn resolveLevel(&self) -> NSUInteger;
+        pub fn resolve_level(&self) -> NSUInteger;
 
         #[method(setResolveLevel:)]
-        pub fn setResolveLevel(&self, resolve_level: NSUInteger);
+        pub fn set_resolve_level(&self, resolve_level: NSUInteger);
 
         #[method(resolveSlice)]
-        pub fn resolveSlice(&self) -> NSUInteger;
+        pub fn resolve_slice(&self) -> NSUInteger;
 
         #[method(setResolveSlice:)]
-        pub fn setResolveSlice(&self, resolve_slice: NSUInteger);
+        pub fn set_resolve_slice(&self, resolve_slice: NSUInteger);
 
         #[method(resolveDepthPlane)]
-        pub fn resolveDepthPlane(&self) -> NSUInteger;
+        pub fn resolve_depth_plane(&self) -> NSUInteger;
 
         #[method(setResolveDepthPlane:)]
-        pub fn setResolveDepthPlane(&self, resolve_depth_plane: NSUInteger);
+        pub fn set_resolve_depth_plane(&self, resolve_depth_plane: NSUInteger);
 
         #[method(loadAction)]
-        pub fn loadAction(&self) -> MTLLoadAction;
+        pub fn load_action(&self) -> MTLLoadAction;
 
         #[method(setLoadAction:)]
-        pub fn setLoadAction(&self, load_action: MTLLoadAction);
+        pub fn set_load_action(&self, load_action: MTLLoadAction);
 
         #[method(storeAction)]
-        pub fn storeAction(&self) -> MTLStoreAction;
+        pub fn store_action(&self) -> MTLStoreAction;
 
         #[method(setStoreAction:)]
-        pub fn setStoreAction(&self, store_action: MTLStoreAction);
+        pub fn set_store_action(&self, store_action: MTLStoreAction);
 
         #[method(storeActionOptions)]
-        pub fn storeActionOptions(&self) -> MTLStoreActionOptions;
+        pub fn store_action_options(&self) -> MTLStoreActionOptions;
 
         #[method(setStoreActionOptions:)]
-        pub fn setStoreActionOptions(&self, store_action_options: MTLStoreActionOptions);
+        pub fn set_store_action_options(&self, store_action_options: MTLStoreActionOptions);
     }
 );
 
@@ -216,10 +216,10 @@ unsafe impl NSObjectProtocol for MTLRenderPassColorAttachmentDescriptor {}
 extern_methods!(
     unsafe impl MTLRenderPassColorAttachmentDescriptor {
         #[method(clearColor)]
-        pub fn clearColor(&self) -> MTLClearColor;
+        pub fn clear_color(&self) -> MTLClearColor;
 
         #[method(setClearColor:)]
-        pub fn setClearColor(&self, clear_color: MTLClearColor);
+        pub fn set_clear_color(&self, clear_color: MTLClearColor);
     }
 );
 
@@ -280,16 +280,19 @@ unsafe impl NSObjectProtocol for MTLRenderPassDepthAttachmentDescriptor {}
 extern_methods!(
     unsafe impl MTLRenderPassDepthAttachmentDescriptor {
         #[method(clearDepth)]
-        pub fn clearDepth(&self) -> c_double;
+        pub fn clear_depth(&self) -> c_double;
 
         #[method(setClearDepth:)]
-        pub fn setClearDepth(&self, clear_depth: c_double);
+        pub fn set_clear_depth(&self, clear_depth: c_double);
 
         #[method(depthResolveFilter)]
-        pub fn depthResolveFilter(&self) -> MTLMultisampleDepthResolveFilter;
+        pub fn depth_resolve_filter(&self) -> MTLMultisampleDepthResolveFilter;
 
         #[method(setDepthResolveFilter:)]
-        pub fn setDepthResolveFilter(&self, depth_resolve_filter: MTLMultisampleDepthResolveFilter);
+        pub fn set_depth_resolve_filter(
+            &self,
+            depth_resolve_filter: MTLMultisampleDepthResolveFilter,
+        );
     }
 );
 
@@ -341,16 +344,16 @@ unsafe impl NSObjectProtocol for MTLRenderPassStencilAttachmentDescriptor {}
 extern_methods!(
     unsafe impl MTLRenderPassStencilAttachmentDescriptor {
         #[method(clearStencil)]
-        pub fn clearStencil(&self) -> u32;
+        pub fn clear_stencil(&self) -> u32;
 
         #[method(setClearStencil:)]
-        pub fn setClearStencil(&self, clear_stencil: u32);
+        pub fn set_clear_stencil(&self, clear_stencil: u32);
 
         #[method(stencilResolveFilter)]
-        pub fn stencilResolveFilter(&self) -> MTLMultisampleStencilResolveFilter;
+        pub fn stencil_resolve_filter(&self) -> MTLMultisampleStencilResolveFilter;
 
         #[method(setStencilResolveFilter:)]
-        pub fn setStencilResolveFilter(
+        pub fn set_stencil_resolve_filter(
             &self,
             stencil_resolve_filter: MTLMultisampleStencilResolveFilter,
         );
@@ -383,13 +386,13 @@ unsafe impl NSObjectProtocol for MTLRenderPassColorAttachmentDescriptorArray {}
 extern_methods!(
     unsafe impl MTLRenderPassColorAttachmentDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             attachment_index: NSUInteger,
         ) -> Retained<MTLRenderPassColorAttachmentDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attachment: Option<&MTLRenderPassColorAttachmentDescriptor>,
             attachment_index: NSUInteger,
@@ -426,41 +429,48 @@ extern_methods!(
     unsafe impl MTLRenderPassSampleBufferAttachmentDescriptor {
         #[cfg(feature = "MTLCounters")]
         #[method_id(@__retain_semantics Other sampleBuffer)]
-        pub fn sampleBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLCounterSampleBuffer>>>;
+        pub fn sample_buffer(&self)
+            -> Option<Retained<ProtocolObject<dyn MTLCounterSampleBuffer>>>;
 
         #[cfg(feature = "MTLCounters")]
         #[method(setSampleBuffer:)]
-        pub fn setSampleBuffer(
+        pub fn set_sample_buffer(
             &self,
             sample_buffer: Option<&ProtocolObject<dyn MTLCounterSampleBuffer>>,
         );
 
         #[method(startOfVertexSampleIndex)]
-        pub fn startOfVertexSampleIndex(&self) -> NSUInteger;
+        pub fn start_of_vertex_sample_index(&self) -> NSUInteger;
 
         #[method(setStartOfVertexSampleIndex:)]
-        pub unsafe fn setStartOfVertexSampleIndex(&self, start_of_vertex_sample_index: NSUInteger);
+        pub unsafe fn set_start_of_vertex_sample_index(
+            &self,
+            start_of_vertex_sample_index: NSUInteger,
+        );
 
         #[method(endOfVertexSampleIndex)]
-        pub fn endOfVertexSampleIndex(&self) -> NSUInteger;
+        pub fn end_of_vertex_sample_index(&self) -> NSUInteger;
 
         #[method(setEndOfVertexSampleIndex:)]
-        pub unsafe fn setEndOfVertexSampleIndex(&self, end_of_vertex_sample_index: NSUInteger);
+        pub unsafe fn set_end_of_vertex_sample_index(&self, end_of_vertex_sample_index: NSUInteger);
 
         #[method(startOfFragmentSampleIndex)]
-        pub fn startOfFragmentSampleIndex(&self) -> NSUInteger;
+        pub fn start_of_fragment_sample_index(&self) -> NSUInteger;
 
         #[method(setStartOfFragmentSampleIndex:)]
-        pub unsafe fn setStartOfFragmentSampleIndex(
+        pub unsafe fn set_start_of_fragment_sample_index(
             &self,
             start_of_fragment_sample_index: NSUInteger,
         );
 
         #[method(endOfFragmentSampleIndex)]
-        pub fn endOfFragmentSampleIndex(&self) -> NSUInteger;
+        pub fn end_of_fragment_sample_index(&self) -> NSUInteger;
 
         #[method(setEndOfFragmentSampleIndex:)]
-        pub unsafe fn setEndOfFragmentSampleIndex(&self, end_of_fragment_sample_index: NSUInteger);
+        pub unsafe fn set_end_of_fragment_sample_index(
+            &self,
+            end_of_fragment_sample_index: NSUInteger,
+        );
     }
 );
 
@@ -490,13 +500,13 @@ unsafe impl NSObjectProtocol for MTLRenderPassSampleBufferAttachmentDescriptorAr
 extern_methods!(
     unsafe impl MTLRenderPassSampleBufferAttachmentDescriptorArray {
         #[method_id(@__retain_semantics Other objectAtIndexedSubscript:)]
-        pub unsafe fn objectAtIndexedSubscript(
+        pub unsafe fn object_at_indexed_subscript(
             &self,
             attachment_index: NSUInteger,
         ) -> Retained<MTLRenderPassSampleBufferAttachmentDescriptor>;
 
         #[method(setObject:atIndexedSubscript:)]
-        pub unsafe fn setObject_atIndexedSubscript(
+        pub unsafe fn set_object_at_indexed_subscript(
             &self,
             attachment: Option<&MTLRenderPassSampleBufferAttachmentDescriptor>,
             attachment_index: NSUInteger,
@@ -532,91 +542,91 @@ unsafe impl NSObjectProtocol for MTLRenderPassDescriptor {}
 extern_methods!(
     unsafe impl MTLRenderPassDescriptor {
         #[method_id(@__retain_semantics Other renderPassDescriptor)]
-        pub fn renderPassDescriptor() -> Retained<MTLRenderPassDescriptor>;
+        pub fn render_pass_descriptor() -> Retained<MTLRenderPassDescriptor>;
 
         #[method_id(@__retain_semantics Other colorAttachments)]
-        pub fn colorAttachments(&self) -> Retained<MTLRenderPassColorAttachmentDescriptorArray>;
+        pub fn color_attachments(&self) -> Retained<MTLRenderPassColorAttachmentDescriptorArray>;
 
         #[method_id(@__retain_semantics Other depthAttachment)]
-        pub fn depthAttachment(&self) -> Retained<MTLRenderPassDepthAttachmentDescriptor>;
+        pub fn depth_attachment(&self) -> Retained<MTLRenderPassDepthAttachmentDescriptor>;
 
         #[method(setDepthAttachment:)]
-        pub fn setDepthAttachment(
+        pub fn set_depth_attachment(
             &self,
             depth_attachment: Option<&MTLRenderPassDepthAttachmentDescriptor>,
         );
 
         #[method_id(@__retain_semantics Other stencilAttachment)]
-        pub fn stencilAttachment(&self) -> Retained<MTLRenderPassStencilAttachmentDescriptor>;
+        pub fn stencil_attachment(&self) -> Retained<MTLRenderPassStencilAttachmentDescriptor>;
 
         #[method(setStencilAttachment:)]
-        pub fn setStencilAttachment(
+        pub fn set_stencil_attachment(
             &self,
             stencil_attachment: Option<&MTLRenderPassStencilAttachmentDescriptor>,
         );
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other visibilityResultBuffer)]
-        pub fn visibilityResultBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
+        pub fn visibility_result_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(setVisibilityResultBuffer:)]
-        pub fn setVisibilityResultBuffer(
+        pub fn set_visibility_result_buffer(
             &self,
             visibility_result_buffer: Option<&ProtocolObject<dyn MTLBuffer>>,
         );
 
         #[method(renderTargetArrayLength)]
-        pub fn renderTargetArrayLength(&self) -> NSUInteger;
+        pub fn render_target_array_length(&self) -> NSUInteger;
 
         #[method(setRenderTargetArrayLength:)]
-        pub unsafe fn setRenderTargetArrayLength(&self, render_target_array_length: NSUInteger);
+        pub unsafe fn set_render_target_array_length(&self, render_target_array_length: NSUInteger);
 
         #[method(imageblockSampleLength)]
-        pub fn imageblockSampleLength(&self) -> NSUInteger;
+        pub fn imageblock_sample_length(&self) -> NSUInteger;
 
         #[method(setImageblockSampleLength:)]
-        pub unsafe fn setImageblockSampleLength(&self, imageblock_sample_length: NSUInteger);
+        pub unsafe fn set_imageblock_sample_length(&self, imageblock_sample_length: NSUInteger);
 
         #[method(threadgroupMemoryLength)]
-        pub fn threadgroupMemoryLength(&self) -> NSUInteger;
+        pub fn threadgroup_memory_length(&self) -> NSUInteger;
 
         #[method(setThreadgroupMemoryLength:)]
-        pub unsafe fn setThreadgroupMemoryLength(&self, threadgroup_memory_length: NSUInteger);
+        pub unsafe fn set_threadgroup_memory_length(&self, threadgroup_memory_length: NSUInteger);
 
         #[method(tileWidth)]
-        pub fn tileWidth(&self) -> NSUInteger;
+        pub fn tile_width(&self) -> NSUInteger;
 
         #[method(setTileWidth:)]
-        pub fn setTileWidth(&self, tile_width: NSUInteger);
+        pub fn set_tile_width(&self, tile_width: NSUInteger);
 
         #[method(tileHeight)]
-        pub fn tileHeight(&self) -> NSUInteger;
+        pub fn tile_height(&self) -> NSUInteger;
 
         #[method(setTileHeight:)]
-        pub fn setTileHeight(&self, tile_height: NSUInteger);
+        pub fn set_tile_height(&self, tile_height: NSUInteger);
 
         #[method(defaultRasterSampleCount)]
-        pub fn defaultRasterSampleCount(&self) -> NSUInteger;
+        pub fn default_raster_sample_count(&self) -> NSUInteger;
 
         #[method(setDefaultRasterSampleCount:)]
-        pub fn setDefaultRasterSampleCount(&self, default_raster_sample_count: NSUInteger);
+        pub fn set_default_raster_sample_count(&self, default_raster_sample_count: NSUInteger);
 
         #[method(renderTargetWidth)]
-        pub fn renderTargetWidth(&self) -> NSUInteger;
+        pub fn render_target_width(&self) -> NSUInteger;
 
         #[method(setRenderTargetWidth:)]
-        pub fn setRenderTargetWidth(&self, render_target_width: NSUInteger);
+        pub fn set_render_target_width(&self, render_target_width: NSUInteger);
 
         #[method(renderTargetHeight)]
-        pub fn renderTargetHeight(&self) -> NSUInteger;
+        pub fn render_target_height(&self) -> NSUInteger;
 
         #[method(setRenderTargetHeight:)]
-        pub fn setRenderTargetHeight(&self, render_target_height: NSUInteger);
+        pub fn set_render_target_height(&self, render_target_height: NSUInteger);
 
         #[cfg(feature = "MTLTypes")]
         #[method(setSamplePositions:count:)]
-        pub unsafe fn setSamplePositions_count(
+        pub unsafe fn set_sample_positions_count(
             &self,
             positions: *mut MTLSamplePosition,
             count: NSUInteger,
@@ -624,7 +634,7 @@ extern_methods!(
 
         #[cfg(feature = "MTLTypes")]
         #[method(getSamplePositions:count:)]
-        pub unsafe fn getSamplePositions_count(
+        pub unsafe fn get_sample_positions_count(
             &self,
             positions: *mut MTLSamplePosition,
             count: NSUInteger,
@@ -632,19 +642,19 @@ extern_methods!(
 
         #[cfg(feature = "MTLRasterizationRate")]
         #[method_id(@__retain_semantics Other rasterizationRateMap)]
-        pub fn rasterizationRateMap(
+        pub fn rasterization_rate_map(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLRasterizationRateMap>>>;
 
         #[cfg(feature = "MTLRasterizationRate")]
         #[method(setRasterizationRateMap:)]
-        pub fn setRasterizationRateMap(
+        pub fn set_rasterization_rate_map(
             &self,
             rasterization_rate_map: Option<&ProtocolObject<dyn MTLRasterizationRateMap>>,
         );
 
         #[method_id(@__retain_semantics Other sampleBufferAttachments)]
-        pub fn sampleBufferAttachments(
+        pub fn sample_buffer_attachments(
             &self,
         ) -> Retained<MTLRenderPassSampleBufferAttachmentDescriptorArray>;
     }

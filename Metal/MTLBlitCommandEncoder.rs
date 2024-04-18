@@ -35,11 +35,11 @@ extern_protocol!(
     pub unsafe trait MTLBlitCommandEncoder: MTLCommandEncoder + IsRetainable {
         #[cfg(feature = "MTLResource")]
         #[method(synchronizeResource:)]
-        fn synchronizeResource(&self, resource: &ProtocolObject<dyn MTLResource>);
+        fn synchronize_resource(&self, resource: &ProtocolObject<dyn MTLResource>);
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(synchronizeTexture:slice:level:)]
-        unsafe fn synchronizeTexture_slice_level(
+        unsafe fn synchronize_texture_slice_level(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             slice: NSUInteger,
@@ -48,7 +48,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture", feature = "MTLTypes"))]
         #[method(copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:)]
-        unsafe fn copyFromTexture_sourceSlice_sourceLevel_sourceOrigin_sourceSize_toTexture_destinationSlice_destinationLevel_destinationOrigin(
+        unsafe fn copy_from_texture_source_slice_source_level_source_origin_source_size_to_texture_destination_slice_destination_level_destination_origin(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             source_slice: NSUInteger,
@@ -68,7 +68,7 @@ extern_protocol!(
             feature = "MTLTypes"
         ))]
         #[method(copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:)]
-        unsafe fn copyFromBuffer_sourceOffset_sourceBytesPerRow_sourceBytesPerImage_sourceSize_toTexture_destinationSlice_destinationLevel_destinationOrigin(
+        unsafe fn copy_from_buffer_source_offset_source_bytes_per_row_source_bytes_per_image_source_size_to_texture_destination_slice_destination_level_destination_origin(
             &self,
             source_buffer: &ProtocolObject<dyn MTLBuffer>,
             source_offset: NSUInteger,
@@ -88,7 +88,7 @@ extern_protocol!(
             feature = "MTLTypes"
         ))]
         #[method(copyFromBuffer:sourceOffset:sourceBytesPerRow:sourceBytesPerImage:sourceSize:toTexture:destinationSlice:destinationLevel:destinationOrigin:options:)]
-        unsafe fn copyFromBuffer_sourceOffset_sourceBytesPerRow_sourceBytesPerImage_sourceSize_toTexture_destinationSlice_destinationLevel_destinationOrigin_options(
+        unsafe fn copy_from_buffer_source_offset_source_bytes_per_row_source_bytes_per_image_source_size_to_texture_destination_slice_destination_level_destination_origin_options(
             &self,
             source_buffer: &ProtocolObject<dyn MTLBuffer>,
             source_offset: NSUInteger,
@@ -109,7 +109,7 @@ extern_protocol!(
             feature = "MTLTypes"
         ))]
         #[method(copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:)]
-        unsafe fn copyFromTexture_sourceSlice_sourceLevel_sourceOrigin_sourceSize_toBuffer_destinationOffset_destinationBytesPerRow_destinationBytesPerImage(
+        unsafe fn copy_from_texture_source_slice_source_level_source_origin_source_size_to_buffer_destination_offset_destination_bytes_per_row_destination_bytes_per_image(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             source_slice: NSUInteger,
@@ -129,7 +129,7 @@ extern_protocol!(
             feature = "MTLTypes"
         ))]
         #[method(copyFromTexture:sourceSlice:sourceLevel:sourceOrigin:sourceSize:toBuffer:destinationOffset:destinationBytesPerRow:destinationBytesPerImage:options:)]
-        unsafe fn copyFromTexture_sourceSlice_sourceLevel_sourceOrigin_sourceSize_toBuffer_destinationOffset_destinationBytesPerRow_destinationBytesPerImage_options(
+        unsafe fn copy_from_texture_source_slice_source_level_source_origin_source_size_to_buffer_destination_offset_destination_bytes_per_row_destination_bytes_per_image_options(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             source_slice: NSUInteger,
@@ -145,11 +145,11 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(generateMipmapsForTexture:)]
-        fn generateMipmapsForTexture(&self, texture: &ProtocolObject<dyn MTLTexture>);
+        fn generate_mipmaps_for_texture(&self, texture: &ProtocolObject<dyn MTLTexture>);
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(fillBuffer:range:value:)]
-        fn fillBuffer_range_value(
+        fn fill_buffer_range_value(
             &self,
             buffer: &ProtocolObject<dyn MTLBuffer>,
             range: NSRange,
@@ -158,7 +158,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(copyFromTexture:sourceSlice:sourceLevel:toTexture:destinationSlice:destinationLevel:sliceCount:levelCount:)]
-        unsafe fn copyFromTexture_sourceSlice_sourceLevel_toTexture_destinationSlice_destinationLevel_sliceCount_levelCount(
+        unsafe fn copy_from_texture_source_slice_source_level_to_texture_destination_slice_destination_level_slice_count_level_count(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             source_slice: NSUInteger,
@@ -172,7 +172,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(copyFromTexture:toTexture:)]
-        unsafe fn copyFromTexture_toTexture(
+        unsafe fn copy_from_texture_to_texture(
             &self,
             source_texture: &ProtocolObject<dyn MTLTexture>,
             destination_texture: &ProtocolObject<dyn MTLTexture>,
@@ -180,7 +180,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
         #[method(copyFromBuffer:sourceOffset:toBuffer:destinationOffset:size:)]
-        unsafe fn copyFromBuffer_sourceOffset_toBuffer_destinationOffset_size(
+        unsafe fn copy_from_buffer_source_offset_to_buffer_destination_offset_size(
             &self,
             source_buffer: &ProtocolObject<dyn MTLBuffer>,
             source_offset: NSUInteger,
@@ -191,11 +191,11 @@ extern_protocol!(
 
         #[cfg(feature = "MTLFence")]
         #[method(updateFence:)]
-        fn updateFence(&self, fence: &ProtocolObject<dyn MTLFence>);
+        fn update_fence(&self, fence: &ProtocolObject<dyn MTLFence>);
 
         #[cfg(feature = "MTLFence")]
         #[method(waitForFence:)]
-        fn waitForFence(&self, fence: &ProtocolObject<dyn MTLFence>);
+        fn wait_for_fence(&self, fence: &ProtocolObject<dyn MTLFence>);
 
         #[cfg(all(
             feature = "MTLBuffer",
@@ -205,7 +205,7 @@ extern_protocol!(
         ))]
         #[optional]
         #[method(getTextureAccessCounters:region:mipLevel:slice:resetCounters:countersBuffer:countersBufferOffset:)]
-        unsafe fn getTextureAccessCounters_region_mipLevel_slice_resetCounters_countersBuffer_countersBufferOffset(
+        unsafe fn get_texture_access_counters_region_mip_level_slice_reset_counters_counters_buffer_counters_buffer_offset(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             region: MTLRegion,
@@ -219,7 +219,7 @@ extern_protocol!(
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture", feature = "MTLTypes"))]
         #[optional]
         #[method(resetTextureAccessCounters:region:mipLevel:slice:)]
-        unsafe fn resetTextureAccessCounters_region_mipLevel_slice(
+        unsafe fn reset_texture_access_counters_region_mip_level_slice(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             region: MTLRegion,
@@ -229,11 +229,11 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(optimizeContentsForGPUAccess:)]
-        fn optimizeContentsForGPUAccess(&self, texture: &ProtocolObject<dyn MTLTexture>);
+        fn optimize_contents_for_gpu_access(&self, texture: &ProtocolObject<dyn MTLTexture>);
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(optimizeContentsForGPUAccess:slice:level:)]
-        unsafe fn optimizeContentsForGPUAccess_slice_level(
+        unsafe fn optimize_contents_for_gpu_access_slice_level(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             slice: NSUInteger,
@@ -242,11 +242,11 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(optimizeContentsForCPUAccess:)]
-        unsafe fn optimizeContentsForCPUAccess(&self, texture: &ProtocolObject<dyn MTLTexture>);
+        unsafe fn optimize_contents_for_cpu_access(&self, texture: &ProtocolObject<dyn MTLTexture>);
 
         #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
         #[method(optimizeContentsForCPUAccess:slice:level:)]
-        unsafe fn optimizeContentsForCPUAccess_slice_level(
+        unsafe fn optimize_contents_for_cpu_access_slice_level(
             &self,
             texture: &ProtocolObject<dyn MTLTexture>,
             slice: NSUInteger,
@@ -255,7 +255,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLIndirectCommandBuffer", feature = "MTLResource"))]
         #[method(resetCommandsInBuffer:withRange:)]
-        unsafe fn resetCommandsInBuffer_withRange(
+        unsafe fn reset_commands_in_buffer_with_range(
             &self,
             buffer: &ProtocolObject<dyn MTLIndirectCommandBuffer>,
             range: NSRange,
@@ -263,7 +263,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLIndirectCommandBuffer", feature = "MTLResource"))]
         #[method(copyIndirectCommandBuffer:sourceRange:destination:destinationIndex:)]
-        unsafe fn copyIndirectCommandBuffer_sourceRange_destination_destinationIndex(
+        unsafe fn copy_indirect_command_buffer_source_range_destination_destination_index(
             &self,
             source: &ProtocolObject<dyn MTLIndirectCommandBuffer>,
             source_range: NSRange,
@@ -273,7 +273,7 @@ extern_protocol!(
 
         #[cfg(all(feature = "MTLIndirectCommandBuffer", feature = "MTLResource"))]
         #[method(optimizeIndirectCommandBuffer:withRange:)]
-        unsafe fn optimizeIndirectCommandBuffer_withRange(
+        unsafe fn optimize_indirect_command_buffer_with_range(
             &self,
             indirect_command_buffer: &ProtocolObject<dyn MTLIndirectCommandBuffer>,
             range: NSRange,
@@ -281,7 +281,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLCounters")]
         #[method(sampleCountersInBuffer:atSampleIndex:withBarrier:)]
-        unsafe fn sampleCountersInBuffer_atSampleIndex_withBarrier(
+        unsafe fn sample_counters_in_buffer_at_sample_index_with_barrier(
             &self,
             sample_buffer: &ProtocolObject<dyn MTLCounterSampleBuffer>,
             sample_index: NSUInteger,
@@ -294,7 +294,7 @@ extern_protocol!(
             feature = "MTLResource"
         ))]
         #[method(resolveCounters:inRange:destinationBuffer:destinationOffset:)]
-        unsafe fn resolveCounters_inRange_destinationBuffer_destinationOffset(
+        unsafe fn resolve_counters_in_range_destination_buffer_destination_offset(
             &self,
             sample_buffer: &ProtocolObject<dyn MTLCounterSampleBuffer>,
             range: NSRange,

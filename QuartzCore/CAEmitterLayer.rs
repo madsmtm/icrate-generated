@@ -44,95 +44,95 @@ extern_methods!(
     unsafe impl CAEmitterLayer {
         #[cfg(feature = "CAEmitterCell")]
         #[method_id(@__retain_semantics Other emitterCells)]
-        pub unsafe fn emitterCells(&self) -> Option<Retained<NSArray<CAEmitterCell>>>;
+        pub unsafe fn emitter_cells(&self) -> Option<Retained<NSArray<CAEmitterCell>>>;
 
         #[cfg(feature = "CAEmitterCell")]
         #[method(setEmitterCells:)]
-        pub unsafe fn setEmitterCells(&self, emitter_cells: Option<&NSArray<CAEmitterCell>>);
+        pub unsafe fn set_emitter_cells(&self, emitter_cells: Option<&NSArray<CAEmitterCell>>);
 
         #[method(birthRate)]
-        pub unsafe fn birthRate(&self) -> c_float;
+        pub unsafe fn birth_rate(&self) -> c_float;
 
         #[method(setBirthRate:)]
-        pub unsafe fn setBirthRate(&self, birth_rate: c_float);
+        pub unsafe fn set_birth_rate(&self, birth_rate: c_float);
 
         #[method(lifetime)]
         pub unsafe fn lifetime(&self) -> c_float;
 
         #[method(setLifetime:)]
-        pub unsafe fn setLifetime(&self, lifetime: c_float);
+        pub unsafe fn set_lifetime(&self, lifetime: c_float);
 
         #[method(emitterPosition)]
-        pub unsafe fn emitterPosition(&self) -> CGPoint;
+        pub unsafe fn emitter_position(&self) -> CGPoint;
 
         #[method(setEmitterPosition:)]
-        pub unsafe fn setEmitterPosition(&self, emitter_position: CGPoint);
+        pub unsafe fn set_emitter_position(&self, emitter_position: CGPoint);
 
         #[method(emitterZPosition)]
-        pub unsafe fn emitterZPosition(&self) -> CGFloat;
+        pub unsafe fn emitter_z_position(&self) -> CGFloat;
 
         #[method(setEmitterZPosition:)]
-        pub unsafe fn setEmitterZPosition(&self, emitter_z_position: CGFloat);
+        pub unsafe fn set_emitter_z_position(&self, emitter_z_position: CGFloat);
 
         #[method(emitterSize)]
-        pub unsafe fn emitterSize(&self) -> CGSize;
+        pub unsafe fn emitter_size(&self) -> CGSize;
 
         #[method(setEmitterSize:)]
-        pub unsafe fn setEmitterSize(&self, emitter_size: CGSize);
+        pub unsafe fn set_emitter_size(&self, emitter_size: CGSize);
 
         #[method(emitterDepth)]
-        pub unsafe fn emitterDepth(&self) -> CGFloat;
+        pub unsafe fn emitter_depth(&self) -> CGFloat;
 
         #[method(setEmitterDepth:)]
-        pub unsafe fn setEmitterDepth(&self, emitter_depth: CGFloat);
+        pub unsafe fn set_emitter_depth(&self, emitter_depth: CGFloat);
 
         #[method_id(@__retain_semantics Other emitterShape)]
-        pub unsafe fn emitterShape(&self) -> Retained<CAEmitterLayerEmitterShape>;
+        pub unsafe fn emitter_shape(&self) -> Retained<CAEmitterLayerEmitterShape>;
 
         #[method(setEmitterShape:)]
-        pub unsafe fn setEmitterShape(&self, emitter_shape: &CAEmitterLayerEmitterShape);
+        pub unsafe fn set_emitter_shape(&self, emitter_shape: &CAEmitterLayerEmitterShape);
 
         #[method_id(@__retain_semantics Other emitterMode)]
-        pub unsafe fn emitterMode(&self) -> Retained<CAEmitterLayerEmitterMode>;
+        pub unsafe fn emitter_mode(&self) -> Retained<CAEmitterLayerEmitterMode>;
 
         #[method(setEmitterMode:)]
-        pub unsafe fn setEmitterMode(&self, emitter_mode: &CAEmitterLayerEmitterMode);
+        pub unsafe fn set_emitter_mode(&self, emitter_mode: &CAEmitterLayerEmitterMode);
 
         #[method_id(@__retain_semantics Other renderMode)]
-        pub unsafe fn renderMode(&self) -> Retained<CAEmitterLayerRenderMode>;
+        pub unsafe fn render_mode(&self) -> Retained<CAEmitterLayerRenderMode>;
 
         #[method(setRenderMode:)]
-        pub unsafe fn setRenderMode(&self, render_mode: &CAEmitterLayerRenderMode);
+        pub unsafe fn set_render_mode(&self, render_mode: &CAEmitterLayerRenderMode);
 
         #[method(preservesDepth)]
-        pub unsafe fn preservesDepth(&self) -> bool;
+        pub unsafe fn preserves_depth(&self) -> bool;
 
         #[method(setPreservesDepth:)]
-        pub unsafe fn setPreservesDepth(&self, preserves_depth: bool);
+        pub unsafe fn set_preserves_depth(&self, preserves_depth: bool);
 
         #[method(velocity)]
         pub unsafe fn velocity(&self) -> c_float;
 
         #[method(setVelocity:)]
-        pub unsafe fn setVelocity(&self, velocity: c_float);
+        pub unsafe fn set_velocity(&self, velocity: c_float);
 
         #[method(scale)]
         pub unsafe fn scale(&self) -> c_float;
 
         #[method(setScale:)]
-        pub unsafe fn setScale(&self, scale: c_float);
+        pub unsafe fn set_scale(&self, scale: c_float);
 
         #[method(spin)]
         pub unsafe fn spin(&self) -> c_float;
 
         #[method(setSpin:)]
-        pub unsafe fn setSpin(&self, spin: c_float);
+        pub unsafe fn set_spin(&self, spin: c_float);
 
         #[method(seed)]
         pub unsafe fn seed(&self) -> c_uint;
 
         #[method(setSeed:)]
-        pub unsafe fn setSeed(&self, seed: c_uint);
+        pub unsafe fn set_seed(&self, seed: c_uint);
     }
 );
 
@@ -147,7 +147,7 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
         #[method_id(@__retain_semantics Init initWithLayer:)]
-        pub unsafe fn initWithLayer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
+        pub unsafe fn init_with_layer(this: Allocated<Self>, layer: &AnyObject) -> Retained<Self>;
     }
 );
 

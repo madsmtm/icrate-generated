@@ -20,16 +20,20 @@ unsafe impl NSObjectProtocol for CADisplayLink {}
 extern_methods!(
     unsafe impl CADisplayLink {
         #[method_id(@__retain_semantics Other displayLinkWithTarget:selector:)]
-        pub unsafe fn displayLinkWithTarget_selector(
+        pub unsafe fn display_link_with_target_selector(
             target: &AnyObject,
             sel: Sel,
         ) -> Retained<CADisplayLink>;
 
         #[method(addToRunLoop:forMode:)]
-        pub unsafe fn addToRunLoop_forMode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
+        pub unsafe fn add_to_run_loop_for_mode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
 
         #[method(removeFromRunLoop:forMode:)]
-        pub unsafe fn removeFromRunLoop_forMode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
+        pub unsafe fn remove_from_run_loop_for_mode(
+            &self,
+            runloop: &NSRunLoop,
+            mode: &NSRunLoopMode,
+        );
 
         #[method(invalidate)]
         pub unsafe fn invalidate(&self);
@@ -41,37 +45,40 @@ extern_methods!(
         pub unsafe fn duration(&self) -> CFTimeInterval;
 
         #[method(targetTimestamp)]
-        pub unsafe fn targetTimestamp(&self) -> CFTimeInterval;
+        pub unsafe fn target_timestamp(&self) -> CFTimeInterval;
 
         #[method(isPaused)]
-        pub unsafe fn isPaused(&self) -> bool;
+        pub unsafe fn is_paused(&self) -> bool;
 
         #[method(setPaused:)]
-        pub unsafe fn setPaused(&self, paused: bool);
+        pub unsafe fn set_paused(&self, paused: bool);
 
         #[deprecated = "preferredFramesPerSecond"]
         #[method(frameInterval)]
-        pub unsafe fn frameInterval(&self) -> NSInteger;
+        pub unsafe fn frame_interval(&self) -> NSInteger;
 
         #[deprecated = "preferredFramesPerSecond"]
         #[method(setFrameInterval:)]
-        pub unsafe fn setFrameInterval(&self, frame_interval: NSInteger);
+        pub unsafe fn set_frame_interval(&self, frame_interval: NSInteger);
 
         #[deprecated]
         #[method(preferredFramesPerSecond)]
-        pub unsafe fn preferredFramesPerSecond(&self) -> NSInteger;
+        pub unsafe fn preferred_frames_per_second(&self) -> NSInteger;
 
         #[deprecated]
         #[method(setPreferredFramesPerSecond:)]
-        pub unsafe fn setPreferredFramesPerSecond(&self, preferred_frames_per_second: NSInteger);
+        pub unsafe fn set_preferred_frames_per_second(
+            &self,
+            preferred_frames_per_second: NSInteger,
+        );
 
         #[cfg(feature = "CAFrameRateRange")]
         #[method(preferredFrameRateRange)]
-        pub unsafe fn preferredFrameRateRange(&self) -> CAFrameRateRange;
+        pub unsafe fn preferred_frame_rate_range(&self) -> CAFrameRateRange;
 
         #[cfg(feature = "CAFrameRateRange")]
         #[method(setPreferredFrameRateRange:)]
-        pub unsafe fn setPreferredFrameRateRange(
+        pub unsafe fn set_preferred_frame_rate_range(
             &self,
             preferred_frame_rate_range: CAFrameRateRange,
         );

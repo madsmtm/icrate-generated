@@ -84,43 +84,43 @@ unsafe impl NSObjectProtocol for MTLStencilDescriptor {}
 extern_methods!(
     unsafe impl MTLStencilDescriptor {
         #[method(stencilCompareFunction)]
-        pub fn stencilCompareFunction(&self) -> MTLCompareFunction;
+        pub fn stencil_compare_function(&self) -> MTLCompareFunction;
 
         #[method(setStencilCompareFunction:)]
-        pub fn setStencilCompareFunction(&self, stencil_compare_function: MTLCompareFunction);
+        pub fn set_stencil_compare_function(&self, stencil_compare_function: MTLCompareFunction);
 
         #[method(stencilFailureOperation)]
-        pub fn stencilFailureOperation(&self) -> MTLStencilOperation;
+        pub fn stencil_failure_operation(&self) -> MTLStencilOperation;
 
         #[method(setStencilFailureOperation:)]
-        pub fn setStencilFailureOperation(&self, stencil_failure_operation: MTLStencilOperation);
+        pub fn set_stencil_failure_operation(&self, stencil_failure_operation: MTLStencilOperation);
 
         #[method(depthFailureOperation)]
-        pub fn depthFailureOperation(&self) -> MTLStencilOperation;
+        pub fn depth_failure_operation(&self) -> MTLStencilOperation;
 
         #[method(setDepthFailureOperation:)]
-        pub fn setDepthFailureOperation(&self, depth_failure_operation: MTLStencilOperation);
+        pub fn set_depth_failure_operation(&self, depth_failure_operation: MTLStencilOperation);
 
         #[method(depthStencilPassOperation)]
-        pub fn depthStencilPassOperation(&self) -> MTLStencilOperation;
+        pub fn depth_stencil_pass_operation(&self) -> MTLStencilOperation;
 
         #[method(setDepthStencilPassOperation:)]
-        pub fn setDepthStencilPassOperation(
+        pub fn set_depth_stencil_pass_operation(
             &self,
             depth_stencil_pass_operation: MTLStencilOperation,
         );
 
         #[method(readMask)]
-        pub fn readMask(&self) -> u32;
+        pub fn read_mask(&self) -> u32;
 
         #[method(setReadMask:)]
-        pub fn setReadMask(&self, read_mask: u32);
+        pub fn set_read_mask(&self, read_mask: u32);
 
         #[method(writeMask)]
-        pub fn writeMask(&self) -> u32;
+        pub fn write_mask(&self) -> u32;
 
         #[method(setWriteMask:)]
-        pub fn setWriteMask(&self, write_mask: u32);
+        pub fn set_write_mask(&self, write_mask: u32);
     }
 );
 
@@ -152,34 +152,34 @@ unsafe impl NSObjectProtocol for MTLDepthStencilDescriptor {}
 extern_methods!(
     unsafe impl MTLDepthStencilDescriptor {
         #[method(depthCompareFunction)]
-        pub fn depthCompareFunction(&self) -> MTLCompareFunction;
+        pub fn depth_compare_function(&self) -> MTLCompareFunction;
 
         #[method(setDepthCompareFunction:)]
-        pub fn setDepthCompareFunction(&self, depth_compare_function: MTLCompareFunction);
+        pub fn set_depth_compare_function(&self, depth_compare_function: MTLCompareFunction);
 
         #[method(isDepthWriteEnabled)]
-        pub fn isDepthWriteEnabled(&self) -> bool;
+        pub fn is_depth_write_enabled(&self) -> bool;
 
         #[method(setDepthWriteEnabled:)]
-        pub fn setDepthWriteEnabled(&self, depth_write_enabled: bool);
+        pub fn set_depth_write_enabled(&self, depth_write_enabled: bool);
 
         #[method_id(@__retain_semantics Other frontFaceStencil)]
-        pub fn frontFaceStencil(&self) -> Retained<MTLStencilDescriptor>;
+        pub fn front_face_stencil(&self) -> Retained<MTLStencilDescriptor>;
 
         #[method(setFrontFaceStencil:)]
-        pub fn setFrontFaceStencil(&self, front_face_stencil: Option<&MTLStencilDescriptor>);
+        pub fn set_front_face_stencil(&self, front_face_stencil: Option<&MTLStencilDescriptor>);
 
         #[method_id(@__retain_semantics Other backFaceStencil)]
-        pub fn backFaceStencil(&self) -> Retained<MTLStencilDescriptor>;
+        pub fn back_face_stencil(&self) -> Retained<MTLStencilDescriptor>;
 
         #[method(setBackFaceStencil:)]
-        pub fn setBackFaceStencil(&self, back_face_stencil: Option<&MTLStencilDescriptor>);
+        pub fn set_back_face_stencil(&self, back_face_stencil: Option<&MTLStencilDescriptor>);
 
         #[method_id(@__retain_semantics Other label)]
         pub fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub fn setLabel(&self, label: Option<&NSString>);
+        pub fn set_label(&self, label: Option<&NSString>);
     }
 );
 

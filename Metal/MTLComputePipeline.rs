@@ -61,44 +61,44 @@ extern_methods!(
         pub fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub fn setLabel(&self, label: Option<&NSString>);
+        pub fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics Other computeFunction)]
-        pub fn computeFunction(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
+        pub fn compute_function(&self) -> Option<Retained<ProtocolObject<dyn MTLFunction>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method(setComputeFunction:)]
-        pub fn setComputeFunction(
+        pub fn set_compute_function(
             &self,
             compute_function: Option<&ProtocolObject<dyn MTLFunction>>,
         );
 
         #[method(threadGroupSizeIsMultipleOfThreadExecutionWidth)]
-        pub fn threadGroupSizeIsMultipleOfThreadExecutionWidth(&self) -> bool;
+        pub fn thread_group_size_is_multiple_of_thread_execution_width(&self) -> bool;
 
         #[method(setThreadGroupSizeIsMultipleOfThreadExecutionWidth:)]
-        pub unsafe fn setThreadGroupSizeIsMultipleOfThreadExecutionWidth(
+        pub unsafe fn set_thread_group_size_is_multiple_of_thread_execution_width(
             &self,
             thread_group_size_is_multiple_of_thread_execution_width: bool,
         );
 
         #[method(maxTotalThreadsPerThreadgroup)]
-        pub fn maxTotalThreadsPerThreadgroup(&self) -> NSUInteger;
+        pub fn max_total_threads_per_threadgroup(&self) -> NSUInteger;
 
         #[method(setMaxTotalThreadsPerThreadgroup:)]
-        pub fn setMaxTotalThreadsPerThreadgroup(
+        pub fn set_max_total_threads_per_threadgroup(
             &self,
             max_total_threads_per_threadgroup: NSUInteger,
         );
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method_id(@__retain_semantics Other stageInputDescriptor)]
-        pub fn stageInputDescriptor(&self) -> Option<Retained<MTLStageInputOutputDescriptor>>;
+        pub fn stage_input_descriptor(&self) -> Option<Retained<MTLStageInputOutputDescriptor>>;
 
         #[cfg(feature = "MTLStageInputOutputDescriptor")]
         #[method(setStageInputDescriptor:)]
-        pub fn setStageInputDescriptor(
+        pub fn set_stage_input_descriptor(
             &self,
             stage_input_descriptor: Option<&MTLStageInputOutputDescriptor>,
         );
@@ -108,48 +108,48 @@ extern_methods!(
         pub fn buffers(&self) -> Retained<MTLPipelineBufferDescriptorArray>;
 
         #[method(supportIndirectCommandBuffers)]
-        pub fn supportIndirectCommandBuffers(&self) -> bool;
+        pub fn support_indirect_command_buffers(&self) -> bool;
 
         #[method(setSupportIndirectCommandBuffers:)]
-        pub fn setSupportIndirectCommandBuffers(&self, support_indirect_command_buffers: bool);
+        pub fn set_support_indirect_command_buffers(&self, support_indirect_command_buffers: bool);
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[deprecated]
         #[method_id(@__retain_semantics Other insertLibraries)]
-        pub fn insertLibraries(
+        pub fn insert_libraries(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>>;
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[deprecated]
         #[method(setInsertLibraries:)]
-        pub fn setInsertLibraries(
+        pub fn set_insert_libraries(
             &self,
             insert_libraries: Option<&NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>,
         );
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method_id(@__retain_semantics Other preloadedLibraries)]
-        pub fn preloadedLibraries(
+        pub fn preloaded_libraries(
             &self,
         ) -> Retained<NSArray<ProtocolObject<dyn MTLDynamicLibrary>>>;
 
         #[cfg(feature = "MTLDynamicLibrary")]
         #[method(setPreloadedLibraries:)]
-        pub fn setPreloadedLibraries(
+        pub fn set_preloaded_libraries(
             &self,
             preloaded_libraries: &NSArray<ProtocolObject<dyn MTLDynamicLibrary>>,
         );
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method_id(@__retain_semantics Other binaryArchives)]
-        pub fn binaryArchives(
+        pub fn binary_archives(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLBinaryArchive>>>>;
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method(setBinaryArchives:)]
-        pub fn setBinaryArchives(
+        pub fn set_binary_archives(
             &self,
             binary_archives: Option<&NSArray<ProtocolObject<dyn MTLBinaryArchive>>>,
         );
@@ -159,23 +159,23 @@ extern_methods!(
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other linkedFunctions)]
-        pub fn linkedFunctions(&self) -> Option<Retained<MTLLinkedFunctions>>;
+        pub fn linked_functions(&self) -> Option<Retained<MTLLinkedFunctions>>;
 
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method(setLinkedFunctions:)]
-        pub fn setLinkedFunctions(&self, linked_functions: Option<&MTLLinkedFunctions>);
+        pub fn set_linked_functions(&self, linked_functions: Option<&MTLLinkedFunctions>);
 
         #[method(supportAddingBinaryFunctions)]
-        pub fn supportAddingBinaryFunctions(&self) -> bool;
+        pub fn support_adding_binary_functions(&self) -> bool;
 
         #[method(setSupportAddingBinaryFunctions:)]
-        pub fn setSupportAddingBinaryFunctions(&self, support_adding_binary_functions: bool);
+        pub fn set_support_adding_binary_functions(&self, support_adding_binary_functions: bool);
 
         #[method(maxCallStackDepth)]
-        pub fn maxCallStackDepth(&self) -> NSUInteger;
+        pub fn max_call_stack_depth(&self) -> NSUInteger;
 
         #[method(setMaxCallStackDepth:)]
-        pub fn setMaxCallStackDepth(&self, max_call_stack_depth: NSUInteger);
+        pub fn set_max_call_stack_depth(&self, max_call_stack_depth: NSUInteger);
     }
 );
 
@@ -207,52 +207,52 @@ extern_protocol!(
         fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method(maxTotalThreadsPerThreadgroup)]
-        fn maxTotalThreadsPerThreadgroup(&self) -> NSUInteger;
+        fn max_total_threads_per_threadgroup(&self) -> NSUInteger;
 
         #[method(threadExecutionWidth)]
-        fn threadExecutionWidth(&self) -> NSUInteger;
+        fn thread_execution_width(&self) -> NSUInteger;
 
         #[method(staticThreadgroupMemoryLength)]
-        fn staticThreadgroupMemoryLength(&self) -> NSUInteger;
+        fn static_threadgroup_memory_length(&self) -> NSUInteger;
 
         #[cfg(feature = "MTLTypes")]
         #[method(imageblockMemoryLengthForDimensions:)]
-        unsafe fn imageblockMemoryLengthForDimensions(
+        unsafe fn imageblock_memory_length_for_dimensions(
             &self,
             imageblock_dimensions: MTLSize,
         ) -> NSUInteger;
 
         #[method(supportIndirectCommandBuffers)]
-        fn supportIndirectCommandBuffers(&self) -> bool;
+        fn support_indirect_command_buffers(&self) -> bool;
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
 
         #[cfg(all(feature = "MTLFunctionHandle", feature = "MTLLibrary"))]
         #[method_id(@__retain_semantics Other functionHandleWithFunction:)]
-        fn functionHandleWithFunction(
+        fn function_handle_with_function(
             &self,
             function: &ProtocolObject<dyn MTLFunction>,
         ) -> Option<Retained<ProtocolObject<dyn MTLFunctionHandle>>>;
 
         #[cfg(feature = "MTLLibrary")]
         #[method_id(@__retain_semantics New newComputePipelineStateWithAdditionalBinaryFunctions:error:_)]
-        fn newComputePipelineStateWithAdditionalBinaryFunctions_error(
+        fn new_compute_pipeline_state_with_additional_binary_functions_error(
             &self,
             functions: &NSArray<ProtocolObject<dyn MTLFunction>>,
         ) -> Result<Retained<ProtocolObject<dyn MTLComputePipelineState>>, Retained<NSError>>;
 
         #[cfg(all(feature = "MTLResource", feature = "MTLVisibleFunctionTable"))]
         #[method_id(@__retain_semantics New newVisibleFunctionTableWithDescriptor:)]
-        fn newVisibleFunctionTableWithDescriptor(
+        fn new_visible_function_table_with_descriptor(
             &self,
             descriptor: &MTLVisibleFunctionTableDescriptor,
         ) -> Option<Retained<ProtocolObject<dyn MTLVisibleFunctionTable>>>;
 
         #[cfg(all(feature = "MTLIntersectionFunctionTable", feature = "MTLResource"))]
         #[method_id(@__retain_semantics New newIntersectionFunctionTableWithDescriptor:)]
-        fn newIntersectionFunctionTableWithDescriptor(
+        fn new_intersection_function_table_with_descriptor(
             &self,
             descriptor: &MTLIntersectionFunctionTableDescriptor,
         ) -> Option<Retained<ProtocolObject<dyn MTLIntersectionFunctionTable>>>;

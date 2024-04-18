@@ -71,15 +71,15 @@ unsafe impl RefEncode for MTLIOError {
 extern_protocol!(
     pub unsafe trait MTLIOCommandQueue: NSObjectProtocol + IsRetainable {
         #[method(enqueueBarrier)]
-        unsafe fn enqueueBarrier(&self);
+        unsafe fn enqueue_barrier(&self);
 
         #[cfg(feature = "MTLIOCommandBuffer")]
         #[method_id(@__retain_semantics Other commandBuffer)]
-        unsafe fn commandBuffer(&self) -> Retained<ProtocolObject<dyn MTLIOCommandBuffer>>;
+        unsafe fn command_buffer(&self) -> Retained<ProtocolObject<dyn MTLIOCommandBuffer>>;
 
         #[cfg(feature = "MTLIOCommandBuffer")]
         #[method_id(@__retain_semantics Other commandBufferWithUnretainedReferences)]
-        unsafe fn commandBufferWithUnretainedReferences(
+        unsafe fn command_buffer_with_unretained_references(
             &self,
         ) -> Retained<ProtocolObject<dyn MTLIOCommandBuffer>>;
 
@@ -87,7 +87,7 @@ extern_protocol!(
         unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        unsafe fn setLabel(&self, label: Option<&NSString>);
+        unsafe fn set_label(&self, label: Option<&NSString>);
     }
 
     unsafe impl ProtocolType for dyn MTLIOCommandQueue {}
@@ -106,7 +106,7 @@ extern_protocol!(
 extern_protocol!(
     pub unsafe trait MTLIOScratchBufferAllocator: NSObjectProtocol + IsRetainable {
         #[method_id(@__retain_semantics New newScratchBufferWithMinimumSize:)]
-        unsafe fn newScratchBufferWithMinimumSize(
+        unsafe fn new_scratch_buffer_with_minimum_size(
             &self,
             minimum_size: NSUInteger,
         ) -> Option<Retained<ProtocolObject<dyn MTLIOScratchBuffer>>>;
@@ -132,36 +132,36 @@ unsafe impl NSObjectProtocol for MTLIOCommandQueueDescriptor {}
 extern_methods!(
     unsafe impl MTLIOCommandQueueDescriptor {
         #[method(maxCommandBufferCount)]
-        pub unsafe fn maxCommandBufferCount(&self) -> NSUInteger;
+        pub unsafe fn max_command_buffer_count(&self) -> NSUInteger;
 
         #[method(setMaxCommandBufferCount:)]
-        pub unsafe fn setMaxCommandBufferCount(&self, max_command_buffer_count: NSUInteger);
+        pub unsafe fn set_max_command_buffer_count(&self, max_command_buffer_count: NSUInteger);
 
         #[method(priority)]
         pub unsafe fn priority(&self) -> MTLIOPriority;
 
         #[method(setPriority:)]
-        pub unsafe fn setPriority(&self, priority: MTLIOPriority);
+        pub unsafe fn set_priority(&self, priority: MTLIOPriority);
 
         #[method(type)]
         pub unsafe fn r#type(&self) -> MTLIOCommandQueueType;
 
         #[method(setType:)]
-        pub unsafe fn setType(&self, r#type: MTLIOCommandQueueType);
+        pub unsafe fn set_type(&self, r#type: MTLIOCommandQueueType);
 
         #[method(maxCommandsInFlight)]
-        pub unsafe fn maxCommandsInFlight(&self) -> NSUInteger;
+        pub unsafe fn max_commands_in_flight(&self) -> NSUInteger;
 
         #[method(setMaxCommandsInFlight:)]
-        pub unsafe fn setMaxCommandsInFlight(&self, max_commands_in_flight: NSUInteger);
+        pub unsafe fn set_max_commands_in_flight(&self, max_commands_in_flight: NSUInteger);
 
         #[method_id(@__retain_semantics Other scratchBufferAllocator)]
-        pub unsafe fn scratchBufferAllocator(
+        pub unsafe fn scratch_buffer_allocator(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLIOScratchBufferAllocator>>>;
 
         #[method(setScratchBufferAllocator:)]
-        pub unsafe fn setScratchBufferAllocator(
+        pub unsafe fn set_scratch_buffer_allocator(
             &self,
             scratch_buffer_allocator: Option<&ProtocolObject<dyn MTLIOScratchBufferAllocator>>,
         );
@@ -185,7 +185,7 @@ extern_protocol!(
         unsafe fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        unsafe fn setLabel(&self, label: Option<&NSString>);
+        unsafe fn set_label(&self, label: Option<&NSString>);
     }
 
     unsafe impl ProtocolType for dyn MTLIOFileHandle {}

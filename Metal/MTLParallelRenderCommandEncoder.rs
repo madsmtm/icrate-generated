@@ -11,13 +11,13 @@ extern_protocol!(
     {
         #[cfg(feature = "MTLRenderCommandEncoder")]
         #[method_id(@__retain_semantics Other renderCommandEncoder)]
-        fn renderCommandEncoder(
+        fn render_command_encoder(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLRenderCommandEncoder>>>;
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setColorStoreAction:atIndex:)]
-        unsafe fn setColorStoreAction_atIndex(
+        unsafe fn set_color_store_action_at_index(
             &self,
             store_action: MTLStoreAction,
             color_attachment_index: NSUInteger,
@@ -25,15 +25,15 @@ extern_protocol!(
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setDepthStoreAction:)]
-        unsafe fn setDepthStoreAction(&self, store_action: MTLStoreAction);
+        unsafe fn set_depth_store_action(&self, store_action: MTLStoreAction);
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setStencilStoreAction:)]
-        unsafe fn setStencilStoreAction(&self, store_action: MTLStoreAction);
+        unsafe fn set_stencil_store_action(&self, store_action: MTLStoreAction);
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setColorStoreActionOptions:atIndex:)]
-        unsafe fn setColorStoreActionOptions_atIndex(
+        unsafe fn set_color_store_action_options_at_index(
             &self,
             store_action_options: MTLStoreActionOptions,
             color_attachment_index: NSUInteger,
@@ -41,11 +41,17 @@ extern_protocol!(
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setDepthStoreActionOptions:)]
-        unsafe fn setDepthStoreActionOptions(&self, store_action_options: MTLStoreActionOptions);
+        unsafe fn set_depth_store_action_options(
+            &self,
+            store_action_options: MTLStoreActionOptions,
+        );
 
         #[cfg(feature = "MTLRenderPass")]
         #[method(setStencilStoreActionOptions:)]
-        unsafe fn setStencilStoreActionOptions(&self, store_action_options: MTLStoreActionOptions);
+        unsafe fn set_stencil_store_action_options(
+            &self,
+            store_action_options: MTLStoreActionOptions,
+        );
     }
 
     #[cfg(feature = "MTLCommandEncoder")]

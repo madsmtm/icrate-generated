@@ -127,42 +127,42 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
         fn device(&self) -> Retained<ProtocolObject<dyn MTLDevice>>;
 
         #[method(cpuCacheMode)]
-        fn cpuCacheMode(&self) -> MTLCPUCacheMode;
+        fn cpu_cache_mode(&self) -> MTLCPUCacheMode;
 
         #[method(storageMode)]
-        fn storageMode(&self) -> MTLStorageMode;
+        fn storage_mode(&self) -> MTLStorageMode;
 
         #[method(hazardTrackingMode)]
-        fn hazardTrackingMode(&self) -> MTLHazardTrackingMode;
+        fn hazard_tracking_mode(&self) -> MTLHazardTrackingMode;
 
         #[method(resourceOptions)]
-        fn resourceOptions(&self) -> MTLResourceOptions;
+        fn resource_options(&self) -> MTLResourceOptions;
 
         #[method(setPurgeableState:)]
-        fn setPurgeableState(&self, state: MTLPurgeableState) -> MTLPurgeableState;
+        fn set_purgeable_state(&self, state: MTLPurgeableState) -> MTLPurgeableState;
 
         #[cfg(feature = "MTLHeap")]
         #[method_id(@__retain_semantics Other heap)]
         fn heap(&self) -> Option<Retained<ProtocolObject<dyn MTLHeap>>>;
 
         #[method(heapOffset)]
-        fn heapOffset(&self) -> NSUInteger;
+        fn heap_offset(&self) -> NSUInteger;
 
         #[method(allocatedSize)]
-        fn allocatedSize(&self) -> NSUInteger;
+        fn allocated_size(&self) -> NSUInteger;
 
         #[method(makeAliasable)]
-        unsafe fn makeAliasable(&self);
+        unsafe fn make_aliasable(&self);
 
         #[method(isAliasable)]
-        fn isAliasable(&self) -> bool;
+        fn is_aliasable(&self) -> bool;
     }
 
     unsafe impl ProtocolType for dyn MTLResource {}

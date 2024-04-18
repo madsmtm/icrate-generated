@@ -110,96 +110,96 @@ unsafe impl NSObjectProtocol for MTLSamplerDescriptor {}
 extern_methods!(
     unsafe impl MTLSamplerDescriptor {
         #[method(minFilter)]
-        pub fn minFilter(&self) -> MTLSamplerMinMagFilter;
+        pub fn min_filter(&self) -> MTLSamplerMinMagFilter;
 
         #[method(setMinFilter:)]
-        pub fn setMinFilter(&self, min_filter: MTLSamplerMinMagFilter);
+        pub fn set_min_filter(&self, min_filter: MTLSamplerMinMagFilter);
 
         #[method(magFilter)]
-        pub fn magFilter(&self) -> MTLSamplerMinMagFilter;
+        pub fn mag_filter(&self) -> MTLSamplerMinMagFilter;
 
         #[method(setMagFilter:)]
-        pub fn setMagFilter(&self, mag_filter: MTLSamplerMinMagFilter);
+        pub fn set_mag_filter(&self, mag_filter: MTLSamplerMinMagFilter);
 
         #[method(mipFilter)]
-        pub fn mipFilter(&self) -> MTLSamplerMipFilter;
+        pub fn mip_filter(&self) -> MTLSamplerMipFilter;
 
         #[method(setMipFilter:)]
-        pub fn setMipFilter(&self, mip_filter: MTLSamplerMipFilter);
+        pub fn set_mip_filter(&self, mip_filter: MTLSamplerMipFilter);
 
         #[method(maxAnisotropy)]
-        pub fn maxAnisotropy(&self) -> NSUInteger;
+        pub fn max_anisotropy(&self) -> NSUInteger;
 
         #[method(setMaxAnisotropy:)]
-        pub fn setMaxAnisotropy(&self, max_anisotropy: NSUInteger);
+        pub fn set_max_anisotropy(&self, max_anisotropy: NSUInteger);
 
         #[method(sAddressMode)]
-        pub fn sAddressMode(&self) -> MTLSamplerAddressMode;
+        pub fn s_address_mode(&self) -> MTLSamplerAddressMode;
 
         #[method(setSAddressMode:)]
-        pub fn setSAddressMode(&self, s_address_mode: MTLSamplerAddressMode);
+        pub fn set_s_address_mode(&self, s_address_mode: MTLSamplerAddressMode);
 
         #[method(tAddressMode)]
-        pub fn tAddressMode(&self) -> MTLSamplerAddressMode;
+        pub fn t_address_mode(&self) -> MTLSamplerAddressMode;
 
         #[method(setTAddressMode:)]
-        pub fn setTAddressMode(&self, t_address_mode: MTLSamplerAddressMode);
+        pub fn set_t_address_mode(&self, t_address_mode: MTLSamplerAddressMode);
 
         #[method(rAddressMode)]
-        pub fn rAddressMode(&self) -> MTLSamplerAddressMode;
+        pub fn r_address_mode(&self) -> MTLSamplerAddressMode;
 
         #[method(setRAddressMode:)]
-        pub fn setRAddressMode(&self, r_address_mode: MTLSamplerAddressMode);
+        pub fn set_r_address_mode(&self, r_address_mode: MTLSamplerAddressMode);
 
         #[method(borderColor)]
-        pub fn borderColor(&self) -> MTLSamplerBorderColor;
+        pub fn border_color(&self) -> MTLSamplerBorderColor;
 
         #[method(setBorderColor:)]
-        pub fn setBorderColor(&self, border_color: MTLSamplerBorderColor);
+        pub fn set_border_color(&self, border_color: MTLSamplerBorderColor);
 
         #[method(normalizedCoordinates)]
-        pub fn normalizedCoordinates(&self) -> bool;
+        pub fn normalized_coordinates(&self) -> bool;
 
         #[method(setNormalizedCoordinates:)]
-        pub fn setNormalizedCoordinates(&self, normalized_coordinates: bool);
+        pub fn set_normalized_coordinates(&self, normalized_coordinates: bool);
 
         #[method(lodMinClamp)]
-        pub fn lodMinClamp(&self) -> c_float;
+        pub fn lod_min_clamp(&self) -> c_float;
 
         #[method(setLodMinClamp:)]
-        pub fn setLodMinClamp(&self, lod_min_clamp: c_float);
+        pub fn set_lod_min_clamp(&self, lod_min_clamp: c_float);
 
         #[method(lodMaxClamp)]
-        pub fn lodMaxClamp(&self) -> c_float;
+        pub fn lod_max_clamp(&self) -> c_float;
 
         #[method(setLodMaxClamp:)]
-        pub fn setLodMaxClamp(&self, lod_max_clamp: c_float);
+        pub fn set_lod_max_clamp(&self, lod_max_clamp: c_float);
 
         #[method(lodAverage)]
-        pub fn lodAverage(&self) -> bool;
+        pub fn lod_average(&self) -> bool;
 
         #[method(setLodAverage:)]
-        pub fn setLodAverage(&self, lod_average: bool);
+        pub fn set_lod_average(&self, lod_average: bool);
 
         #[cfg(feature = "MTLDepthStencil")]
         #[method(compareFunction)]
-        pub fn compareFunction(&self) -> MTLCompareFunction;
+        pub fn compare_function(&self) -> MTLCompareFunction;
 
         #[cfg(feature = "MTLDepthStencil")]
         #[method(setCompareFunction:)]
-        pub fn setCompareFunction(&self, compare_function: MTLCompareFunction);
+        pub fn set_compare_function(&self, compare_function: MTLCompareFunction);
 
         #[method(supportArgumentBuffers)]
-        pub fn supportArgumentBuffers(&self) -> bool;
+        pub fn support_argument_buffers(&self) -> bool;
 
         #[method(setSupportArgumentBuffers:)]
-        pub fn setSupportArgumentBuffers(&self, support_argument_buffers: bool);
+        pub fn set_support_argument_buffers(&self, support_argument_buffers: bool);
 
         #[method_id(@__retain_semantics Other label)]
         pub fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        pub fn setLabel(&self, label: Option<&NSString>);
+        pub fn set_label(&self, label: Option<&NSString>);
     }
 );
 
@@ -232,7 +232,7 @@ extern_protocol!(
 
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
-        unsafe fn gpuResourceID(&self) -> MTLResourceID;
+        unsafe fn gpu_resource_id(&self) -> MTLResourceID;
     }
 
     unsafe impl ProtocolType for dyn MTLSamplerState {}

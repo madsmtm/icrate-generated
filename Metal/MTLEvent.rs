@@ -15,7 +15,7 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
     }
 
     unsafe impl ProtocolType for dyn MTLEvent {}
@@ -63,7 +63,7 @@ extern_protocol!(
     pub unsafe trait MTLSharedEvent: MTLEvent + IsRetainable {
         #[cfg(feature = "block2")]
         #[method(notifyListener:atValue:block:)]
-        unsafe fn notifyListener_atValue_block(
+        unsafe fn notify_listener_at_value_block(
             &self,
             listener: &MTLSharedEventListener,
             value: u64,
@@ -71,16 +71,20 @@ extern_protocol!(
         );
 
         #[method_id(@__retain_semantics New newSharedEventHandle)]
-        unsafe fn newSharedEventHandle(&self) -> Retained<MTLSharedEventHandle>;
+        unsafe fn new_shared_event_handle(&self) -> Retained<MTLSharedEventHandle>;
 
         #[method(waitUntilSignaledValue:timeoutMS:)]
-        unsafe fn waitUntilSignaledValue_timeoutMS(&self, value: u64, milliseconds: u64) -> bool;
+        unsafe fn wait_until_signaled_value_timeout_ms(
+            &self,
+            value: u64,
+            milliseconds: u64,
+        ) -> bool;
 
         #[method(signaledValue)]
-        unsafe fn signaledValue(&self) -> u64;
+        unsafe fn signaled_value(&self) -> u64;
 
         #[method(setSignaledValue:)]
-        unsafe fn setSignaledValue(&self, signaled_value: u64);
+        unsafe fn set_signaled_value(&self, signaled_value: u64);
     }
 
     unsafe impl ProtocolType for dyn MTLSharedEvent {}

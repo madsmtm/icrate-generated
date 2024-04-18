@@ -62,19 +62,19 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[method(endEncoding)]
-        fn endEncoding(&self);
+        fn end_encoding(&self);
 
         #[method(insertDebugSignpost:)]
-        fn insertDebugSignpost(&self, string: &NSString);
+        fn insert_debug_signpost(&self, string: &NSString);
 
         #[method(pushDebugGroup:)]
-        fn pushDebugGroup(&self, string: &NSString);
+        fn push_debug_group(&self, string: &NSString);
 
         #[method(popDebugGroup)]
-        fn popDebugGroup(&self);
+        fn pop_debug_group(&self);
     }
 
     unsafe impl ProtocolType for dyn MTLCommandEncoder {}

@@ -21,7 +21,7 @@ extern_methods!(
     unsafe impl CARenderer {
         #[deprecated = "+rendererWithMTLTexture"]
         #[method_id(@__retain_semantics Other rendererWithCGLContext:options:)]
-        pub unsafe fn rendererWithCGLContext_options(
+        pub unsafe fn renderer_with_cgl_context_options(
             ctx: NonNull<c_void>,
             dict: Option<&NSDictionary>,
         ) -> Retained<CARenderer>;
@@ -32,28 +32,28 @@ extern_methods!(
 
         #[cfg(feature = "CALayer")]
         #[method(setLayer:)]
-        pub fn setLayer(&self, layer: Option<&CALayer>);
+        pub fn set_layer(&self, layer: Option<&CALayer>);
 
         #[method(bounds)]
         pub fn bounds(&self) -> CGRect;
 
         #[method(setBounds:)]
-        pub fn setBounds(&self, bounds: CGRect);
+        pub fn set_bounds(&self, bounds: CGRect);
 
         #[method(updateBounds)]
-        pub fn updateBounds(&self) -> CGRect;
+        pub fn update_bounds(&self) -> CGRect;
 
         #[method(addUpdateRect:)]
-        pub fn addUpdateRect(&self, r: CGRect);
+        pub fn add_update_rect(&self, r: CGRect);
 
         #[method(render)]
         pub fn render(&self);
 
         #[method(nextFrameTime)]
-        pub fn nextFrameTime(&self) -> CFTimeInterval;
+        pub fn next_frame_time(&self) -> CFTimeInterval;
 
         #[method(endFrame)]
-        pub fn endFrame(&self);
+        pub fn end_frame(&self);
     }
 );
 

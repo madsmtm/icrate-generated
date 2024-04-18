@@ -26,10 +26,10 @@ extern_methods!(
         pub unsafe fn drawable(&self) -> Retained<ProtocolObject<dyn CAMetalDrawable>>;
 
         #[method(targetTimestamp)]
-        pub unsafe fn targetTimestamp(&self) -> CFTimeInterval;
+        pub unsafe fn target_timestamp(&self) -> CFTimeInterval;
 
         #[method(targetPresentationTimestamp)]
-        pub unsafe fn targetPresentationTimestamp(&self) -> CFTimeInterval;
+        pub unsafe fn target_presentation_timestamp(&self) -> CFTimeInterval;
     }
 );
 
@@ -47,7 +47,7 @@ extern_methods!(
 extern_protocol!(
     pub unsafe trait CAMetalDisplayLinkDelegate {
         #[method(metalDisplayLink:needsUpdate:)]
-        unsafe fn metalDisplayLink_needsUpdate(
+        unsafe fn metal_display_link_needs_update(
             &self,
             link: &CAMetalDisplayLink,
             update: &CAMetalDisplayLinkUpdate,
@@ -73,16 +73,20 @@ extern_methods!(
     unsafe impl CAMetalDisplayLink {
         #[cfg(all(feature = "CALayer", feature = "CAMetalLayer"))]
         #[method_id(@__retain_semantics Init initWithMetalLayer:)]
-        pub unsafe fn initWithMetalLayer(
+        pub unsafe fn init_with_metal_layer(
             this: Allocated<Self>,
             layer: &CAMetalLayer,
         ) -> Retained<Self>;
 
         #[method(addToRunLoop:forMode:)]
-        pub unsafe fn addToRunLoop_forMode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
+        pub unsafe fn add_to_run_loop_for_mode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
 
         #[method(removeFromRunLoop:forMode:)]
-        pub unsafe fn removeFromRunLoop_forMode(&self, runloop: &NSRunLoop, mode: &NSRunLoopMode);
+        pub unsafe fn remove_from_run_loop_for_mode(
+            &self,
+            runloop: &NSRunLoop,
+            mode: &NSRunLoopMode,
+        );
 
         #[method(invalidate)]
         pub unsafe fn invalidate(&self);
@@ -93,33 +97,33 @@ extern_methods!(
         ) -> Option<Retained<ProtocolObject<dyn CAMetalDisplayLinkDelegate>>>;
 
         #[method(setDelegate:)]
-        pub unsafe fn setDelegate(
+        pub unsafe fn set_delegate(
             &self,
             delegate: Option<&ProtocolObject<dyn CAMetalDisplayLinkDelegate>>,
         );
 
         #[method(preferredFrameLatency)]
-        pub unsafe fn preferredFrameLatency(&self) -> c_float;
+        pub unsafe fn preferred_frame_latency(&self) -> c_float;
 
         #[method(setPreferredFrameLatency:)]
-        pub unsafe fn setPreferredFrameLatency(&self, preferred_frame_latency: c_float);
+        pub unsafe fn set_preferred_frame_latency(&self, preferred_frame_latency: c_float);
 
         #[cfg(feature = "CAFrameRateRange")]
         #[method(preferredFrameRateRange)]
-        pub unsafe fn preferredFrameRateRange(&self) -> CAFrameRateRange;
+        pub unsafe fn preferred_frame_rate_range(&self) -> CAFrameRateRange;
 
         #[cfg(feature = "CAFrameRateRange")]
         #[method(setPreferredFrameRateRange:)]
-        pub unsafe fn setPreferredFrameRateRange(
+        pub unsafe fn set_preferred_frame_rate_range(
             &self,
             preferred_frame_rate_range: CAFrameRateRange,
         );
 
         #[method(isPaused)]
-        pub unsafe fn isPaused(&self) -> bool;
+        pub unsafe fn is_paused(&self) -> bool;
 
         #[method(setPaused:)]
-        pub unsafe fn setPaused(&self, paused: bool);
+        pub unsafe fn set_paused(&self, paused: bool);
     }
 );
 

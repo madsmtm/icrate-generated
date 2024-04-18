@@ -35,38 +35,38 @@ extern_methods!(
         pub unsafe fn unlock();
 
         #[method(animationDuration)]
-        pub fn animationDuration() -> CFTimeInterval;
+        pub fn animation_duration() -> CFTimeInterval;
 
         #[method(setAnimationDuration:)]
-        pub fn setAnimationDuration(dur: CFTimeInterval);
+        pub fn set_animation_duration(dur: CFTimeInterval);
 
         #[cfg(feature = "CAMediaTimingFunction")]
         #[method_id(@__retain_semantics Other animationTimingFunction)]
-        pub fn animationTimingFunction() -> Option<Retained<CAMediaTimingFunction>>;
+        pub fn animation_timing_function() -> Option<Retained<CAMediaTimingFunction>>;
 
         #[cfg(feature = "CAMediaTimingFunction")]
         #[method(setAnimationTimingFunction:)]
-        pub fn setAnimationTimingFunction(function: Option<&CAMediaTimingFunction>);
+        pub fn set_animation_timing_function(function: Option<&CAMediaTimingFunction>);
 
         #[method(disableActions)]
-        pub fn disableActions() -> bool;
+        pub fn disable_actions() -> bool;
 
         #[method(setDisableActions:)]
-        pub fn setDisableActions(flag: bool);
+        pub fn set_disable_actions(flag: bool);
 
         #[cfg(feature = "block2")]
         #[method(completionBlock)]
-        pub unsafe fn completionBlock() -> *mut block2::Block<dyn Fn()>;
+        pub unsafe fn completion_block() -> *mut block2::Block<dyn Fn()>;
 
         #[cfg(feature = "block2")]
         #[method(setCompletionBlock:)]
-        pub unsafe fn setCompletionBlock(block: Option<&block2::Block<dyn Fn()>>);
+        pub unsafe fn set_completion_block(block: Option<&block2::Block<dyn Fn()>>);
 
         #[method_id(@__retain_semantics Other valueForKey:)]
-        pub unsafe fn valueForKey(key: &NSString) -> Option<Retained<AnyObject>>;
+        pub unsafe fn value_for_key(key: &NSString) -> Option<Retained<AnyObject>>;
 
         #[method(setValue:forKey:)]
-        pub unsafe fn setValue_forKey(an_object: Option<&AnyObject>, key: &NSString);
+        pub unsafe fn set_value_for_key(an_object: Option<&AnyObject>, key: &NSString);
     }
 );
 

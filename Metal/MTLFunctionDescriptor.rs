@@ -42,43 +42,43 @@ unsafe impl NSObjectProtocol for MTLFunctionDescriptor {}
 extern_methods!(
     unsafe impl MTLFunctionDescriptor {
         #[method_id(@__retain_semantics Other functionDescriptor)]
-        pub fn functionDescriptor() -> Retained<MTLFunctionDescriptor>;
+        pub fn function_descriptor() -> Retained<MTLFunctionDescriptor>;
 
         #[method_id(@__retain_semantics Other name)]
         pub fn name(&self) -> Option<Retained<NSString>>;
 
         #[method(setName:)]
-        pub fn setName(&self, name: Option<&NSString>);
+        pub fn set_name(&self, name: Option<&NSString>);
 
         #[method_id(@__retain_semantics Other specializedName)]
-        pub fn specializedName(&self) -> Option<Retained<NSString>>;
+        pub fn specialized_name(&self) -> Option<Retained<NSString>>;
 
         #[method(setSpecializedName:)]
-        pub fn setSpecializedName(&self, specialized_name: Option<&NSString>);
+        pub fn set_specialized_name(&self, specialized_name: Option<&NSString>);
 
         #[cfg(feature = "MTLFunctionConstantValues")]
         #[method_id(@__retain_semantics Other constantValues)]
-        pub fn constantValues(&self) -> Option<Retained<MTLFunctionConstantValues>>;
+        pub fn constant_values(&self) -> Option<Retained<MTLFunctionConstantValues>>;
 
         #[cfg(feature = "MTLFunctionConstantValues")]
         #[method(setConstantValues:)]
-        pub fn setConstantValues(&self, constant_values: Option<&MTLFunctionConstantValues>);
+        pub fn set_constant_values(&self, constant_values: Option<&MTLFunctionConstantValues>);
 
         #[method(options)]
         pub fn options(&self) -> MTLFunctionOptions;
 
         #[method(setOptions:)]
-        pub fn setOptions(&self, options: MTLFunctionOptions);
+        pub fn set_options(&self, options: MTLFunctionOptions);
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method_id(@__retain_semantics Other binaryArchives)]
-        pub unsafe fn binaryArchives(
+        pub unsafe fn binary_archives(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLBinaryArchive>>>>;
 
         #[cfg(feature = "MTLBinaryArchive")]
         #[method(setBinaryArchives:)]
-        pub unsafe fn setBinaryArchives(
+        pub unsafe fn set_binary_archives(
             &self,
             binary_archives: Option<&NSArray<ProtocolObject<dyn MTLBinaryArchive>>>,
         );

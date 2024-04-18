@@ -11,7 +11,7 @@ extern_protocol!(
         fn label(&self) -> Option<Retained<NSString>>;
 
         #[method(setLabel:)]
-        fn setLabel(&self, label: Option<&NSString>);
+        fn set_label(&self, label: Option<&NSString>);
 
         #[cfg(feature = "MTLDevice")]
         #[method_id(@__retain_semantics Other device)]
@@ -19,24 +19,24 @@ extern_protocol!(
 
         #[cfg(feature = "MTLCommandBuffer")]
         #[method_id(@__retain_semantics Other commandBuffer)]
-        fn commandBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLCommandBuffer>>>;
+        fn command_buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLCommandBuffer>>>;
 
         #[cfg(feature = "MTLCommandBuffer")]
         #[method_id(@__retain_semantics Other commandBufferWithDescriptor:)]
-        unsafe fn commandBufferWithDescriptor(
+        unsafe fn command_buffer_with_descriptor(
             &self,
             descriptor: &MTLCommandBufferDescriptor,
         ) -> Option<Retained<ProtocolObject<dyn MTLCommandBuffer>>>;
 
         #[cfg(feature = "MTLCommandBuffer")]
         #[method_id(@__retain_semantics Other commandBufferWithUnretainedReferences)]
-        unsafe fn commandBufferWithUnretainedReferences(
+        unsafe fn command_buffer_with_unretained_references(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLCommandBuffer>>>;
 
         #[deprecated = "Use MTLCaptureScope instead"]
         #[method(insertDebugCaptureBoundary)]
-        unsafe fn insertDebugCaptureBoundary(&self);
+        unsafe fn insert_debug_capture_boundary(&self);
     }
 
     unsafe impl ProtocolType for dyn MTLCommandQueue {}

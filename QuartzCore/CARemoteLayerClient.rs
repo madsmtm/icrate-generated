@@ -22,7 +22,7 @@ extern_methods!(
         pub unsafe fn invalidate(&self);
 
         #[method(clientId)]
-        pub unsafe fn clientId(&self) -> u32;
+        pub unsafe fn client_id(&self) -> u32;
 
         #[cfg(feature = "CALayer")]
         #[method_id(@__retain_semantics Other layer)]
@@ -30,7 +30,7 @@ extern_methods!(
 
         #[cfg(feature = "CALayer")]
         #[method(setLayer:)]
-        pub unsafe fn setLayer(&self, layer: Option<&CALayer>);
+        pub unsafe fn set_layer(&self, layer: Option<&CALayer>);
     }
 );
 
