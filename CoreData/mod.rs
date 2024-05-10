@@ -13,7 +13,7 @@
 #![allow(clippy::identity_op)]
 #![allow(clippy::missing_safety_doc)]
 
-#[cfg_attr(feature = "apple", link(name = "CoreData", kind = "framework"))]
+#[link(name = "CoreData", kind = "framework")]
 extern "C" {}
 
 #[cfg(feature = "CoreDataDefines")]
