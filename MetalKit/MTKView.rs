@@ -256,7 +256,7 @@ extern_methods!(
 );
 
 extern_protocol!(
-    pub unsafe trait MTKViewDelegate: NSObjectProtocol {
+    pub unsafe trait MTKViewDelegate: NSObjectProtocol + IsMainThreadOnly {
         #[cfg(feature = "objc2-app-kit")]
         #[cfg(target_os = "macos")]
         #[method(mtkView:drawableSizeWillChange:)]

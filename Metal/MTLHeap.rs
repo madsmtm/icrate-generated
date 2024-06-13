@@ -108,7 +108,8 @@ extern_methods!(
 );
 
 extern_protocol!(
-    pub unsafe trait MTLHeap: NSObjectProtocol + IsRetainable {
+    #[cfg(feature = "MTLAllocation")]
+    pub unsafe trait MTLHeap: MTLAllocation + IsRetainable {
         #[method_id(@__retain_semantics Other label)]
         fn label(&self) -> Option<Retained<NSString>>;
 
@@ -217,5 +218,6 @@ extern_protocol!(
         ) -> Option<Retained<ProtocolObject<dyn MTLAccelerationStructure>>>;
     }
 
+    #[cfg(feature = "MTLAllocation")]
     unsafe impl ProtocolType for dyn MTLHeap {}
 );

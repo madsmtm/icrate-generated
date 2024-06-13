@@ -29,7 +29,7 @@ extern_methods!(
         pub unsafe fn actualScaleFactor(&self) -> CGFloat;
 
         #[method(totalBounds)]
-        pub unsafe fn totalBounds(&self) -> NSRect;
+        pub unsafe fn totalBounds(&self) -> CGRect;
     }
 );
 
@@ -51,19 +51,19 @@ extern_category!(
         unsafe fn sizeWithAttributes(
             &self,
             attrs: Option<&NSDictionary<NSAttributedStringKey, AnyObject>>,
-        ) -> NSSize;
+        ) -> CGSize;
 
         #[method(drawAtPoint:withAttributes:)]
         unsafe fn drawAtPoint_withAttributes(
             &self,
-            point: NSPoint,
+            point: CGPoint,
             attrs: Option<&NSDictionary<NSAttributedStringKey, AnyObject>>,
         );
 
         #[method(drawInRect:withAttributes:)]
         unsafe fn drawInRect_withAttributes(
             &self,
-            rect: NSRect,
+            rect: CGRect,
             attrs: Option<&NSDictionary<NSAttributedStringKey, AnyObject>>,
         );
     }
@@ -76,13 +76,13 @@ extern_category!(
     #[doc(alias = "NSStringDrawing")]
     pub unsafe trait NSAttributedStringNSStringDrawing {
         #[method(size)]
-        unsafe fn size(&self) -> NSSize;
+        unsafe fn size(&self) -> CGSize;
 
         #[method(drawAtPoint:)]
-        unsafe fn drawAtPoint(&self, point: NSPoint);
+        unsafe fn drawAtPoint(&self, point: CGPoint);
 
         #[method(drawInRect:)]
-        unsafe fn drawInRect(&self, rect: NSRect);
+        unsafe fn drawInRect(&self, rect: CGRect);
     }
 
     unsafe impl NSAttributedStringNSStringDrawing for NSAttributedString {}
@@ -120,7 +120,7 @@ extern_category!(
         #[method(drawWithRect:options:attributes:context:)]
         unsafe fn drawWithRect_options_attributes_context(
             &self,
-            rect: NSRect,
+            rect: CGRect,
             options: NSStringDrawingOptions,
             attributes: Option<&NSDictionary<NSAttributedStringKey, AnyObject>>,
             context: Option<&NSStringDrawingContext>,
@@ -129,11 +129,11 @@ extern_category!(
         #[method(boundingRectWithSize:options:attributes:context:)]
         unsafe fn boundingRectWithSize_options_attributes_context(
             &self,
-            size: NSSize,
+            size: CGSize,
             options: NSStringDrawingOptions,
             attributes: Option<&NSDictionary<NSAttributedStringKey, AnyObject>>,
             context: Option<&NSStringDrawingContext>,
-        ) -> NSRect;
+        ) -> CGRect;
     }
 
     unsafe impl NSStringNSExtendedStringDrawing for NSString {}
@@ -146,7 +146,7 @@ extern_category!(
         #[method(drawWithRect:options:context:)]
         unsafe fn drawWithRect_options_context(
             &self,
-            rect: NSRect,
+            rect: CGRect,
             options: NSStringDrawingOptions,
             context: Option<&NSStringDrawingContext>,
         );
@@ -154,10 +154,10 @@ extern_category!(
         #[method(boundingRectWithSize:options:context:)]
         unsafe fn boundingRectWithSize_options_context(
             &self,
-            size: NSSize,
+            size: CGSize,
             options: NSStringDrawingOptions,
             context: Option<&NSStringDrawingContext>,
-        ) -> NSRect;
+        ) -> CGRect;
     }
 
     unsafe impl NSAttributedStringNSExtendedStringDrawing for NSAttributedString {}

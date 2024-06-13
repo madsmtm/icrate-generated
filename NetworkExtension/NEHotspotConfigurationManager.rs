@@ -365,6 +365,10 @@ impl NEHotspotConfigurationError {
     pub const ApplicationIsNotInForeground: Self = Self(14);
     #[doc(alias = "NEHotspotConfigurationErrorInvalidSSIDPrefix")]
     pub const InvalidSSIDPrefix: Self = Self(15);
+    #[doc(alias = "NEHotspotConfigurationErrorUserUnauthorized")]
+    pub const UserUnauthorized: Self = Self(16);
+    #[doc(alias = "NEHotspotConfigurationErrorSystemDenied")]
+    pub const SystemDenied: Self = Self(17);
 }
 
 unsafe impl Encode for NEHotspotConfigurationError {
@@ -411,6 +415,23 @@ extern_methods!(
         pub unsafe fn getConfiguredSSIDsWithCompletionHandler(
             &self,
             completion_handler: &block2::Block<dyn Fn(NonNull<NSArray<NSString>>)>,
+        );
+
+        #[cfg(feature = "block2")]
+        #[method(joinAccessoryHotspot:passphrase:completionHandler:)]
+        pub unsafe fn joinAccessoryHotspot_passphrase_completionHandler(
+            &self,
+            accessory: &ASAccessory,
+            passphrase: &NSString,
+            completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
+        );
+
+        #[cfg(feature = "block2")]
+        #[method(joinAccessoryHotspotWithoutSecurity:completionHandler:)]
+        pub unsafe fn joinAccessoryHotspotWithoutSecurity_completionHandler(
+            &self,
+            accessory: &ASAccessory,
+            completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
         );
     }
 );

@@ -242,31 +242,17 @@ extern_methods!(
         #[method(waitForDataInBackgroundAndNotify)]
         pub unsafe fn waitForDataInBackgroundAndNotify(&self);
 
-        #[cfg(feature = "block2")]
         #[method(readabilityHandler)]
-        pub unsafe fn readabilityHandler(
-            &self,
-        ) -> *mut block2::Block<dyn Fn(NonNull<NSFileHandle>)>;
+        pub unsafe fn readabilityHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setReadabilityHandler:)]
-        pub unsafe fn setReadabilityHandler(
-            &self,
-            readability_handler: Option<&block2::Block<dyn Fn(NonNull<NSFileHandle>)>>,
-        );
+        pub unsafe fn setReadabilityHandler(&self, readability_handler: Unknown);
 
-        #[cfg(feature = "block2")]
         #[method(writeabilityHandler)]
-        pub unsafe fn writeabilityHandler(
-            &self,
-        ) -> *mut block2::Block<dyn Fn(NonNull<NSFileHandle>)>;
+        pub unsafe fn writeabilityHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setWriteabilityHandler:)]
-        pub unsafe fn setWriteabilityHandler(
-            &self,
-            writeability_handler: Option<&block2::Block<dyn Fn(NonNull<NSFileHandle>)>>,
-        );
+        pub unsafe fn setWriteabilityHandler(&self, writeability_handler: Unknown);
     }
 );
 

@@ -166,7 +166,7 @@ extern_methods!(
 );
 
 extern_protocol!(
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     pub unsafe trait MTLIndirectCommandBuffer: MTLResource + IsRetainable {
         #[method(size)]
         fn size(&self) -> NSUInteger;
@@ -193,6 +193,6 @@ extern_protocol!(
         ) -> Retained<ProtocolObject<dyn MTLIndirectComputeCommand>>;
     }
 
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     unsafe impl ProtocolType for dyn MTLIndirectCommandBuffer {}
 );

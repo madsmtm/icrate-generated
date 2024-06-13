@@ -47,11 +47,15 @@ extern_methods!(
         #[method_id(@__retain_semantics Other packetFlow)]
         pub unsafe fn packetFlow(&self) -> Retained<NEPacketTunnelFlow>;
 
+        #[method_id(@__retain_semantics Other virtualInterface)]
+        pub unsafe fn virtualInterface(&self) -> Option<Retained<nw_interface_t>>;
+
         #[cfg(all(
             feature = "NWEndpoint",
             feature = "NWTCPConnection",
             feature = "NWTLSParameters"
         ))]
+        #[deprecated = "Use the `virtualInterface` property with `nw_parameters_require_interface`"]
         #[method_id(@__retain_semantics Other createTCPConnectionThroughTunnelToEndpoint:enableTLS:TLSParameters:delegate:)]
         pub unsafe fn createTCPConnectionThroughTunnelToEndpoint_enableTLS_TLSParameters_delegate(
             &self,
@@ -66,6 +70,7 @@ extern_methods!(
             feature = "NWHostEndpoint",
             feature = "NWUDPSession"
         ))]
+        #[deprecated = "Use the `virtualInterface` property with `nw_parameters_require_interface`"]
         #[method_id(@__retain_semantics Other createUDPSessionThroughTunnelToEndpoint:fromEndpoint:)]
         pub unsafe fn createUDPSessionThroughTunnelToEndpoint_fromEndpoint(
             &self,

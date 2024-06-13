@@ -25,6 +25,9 @@ unsafe impl NSSecureCoding for CAEDRMetadata {}
 
 extern_methods!(
     unsafe impl CAEDRMetadata {
+        #[method_id(@__retain_semantics New new)]
+        pub unsafe fn new() -> Retained<Self>;
+
         #[method_id(@__retain_semantics Init init)]
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
 
@@ -52,13 +55,5 @@ extern_methods!(
 
         #[method(isAvailable)]
         pub unsafe fn isAvailable() -> bool;
-    }
-);
-
-extern_methods!(
-    /// Methods declared on superclass `NSObject`
-    unsafe impl CAEDRMetadata {
-        #[method_id(@__retain_semantics New new)]
-        pub unsafe fn new() -> Retained<Self>;
     }
 );

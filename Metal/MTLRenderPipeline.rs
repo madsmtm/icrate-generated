@@ -657,6 +657,14 @@ extern_methods!(
 
         #[method(reset)]
         pub fn reset(&self);
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(shaderValidation)]
+        pub unsafe fn shaderValidation(&self) -> MTLShaderValidation;
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(setShaderValidation:)]
+        pub unsafe fn setShaderValidation(&self, shader_validation: MTLShaderValidation);
     }
 );
 
@@ -806,6 +814,7 @@ extern_protocol!(
         ) -> Option<Retained<ProtocolObject<dyn MTLFunctionHandle>>>;
 
         #[cfg(all(
+            feature = "MTLAllocation",
             feature = "MTLRenderCommandEncoder",
             feature = "MTLResource",
             feature = "MTLVisibleFunctionTable"
@@ -818,6 +827,7 @@ extern_protocol!(
         ) -> Option<Retained<ProtocolObject<dyn MTLVisibleFunctionTable>>>;
 
         #[cfg(all(
+            feature = "MTLAllocation",
             feature = "MTLIntersectionFunctionTable",
             feature = "MTLRenderCommandEncoder",
             feature = "MTLResource"
@@ -834,6 +844,10 @@ extern_protocol!(
             &self,
             additional_binary_functions: &MTLRenderPipelineFunctionsDescriptor,
         ) -> Result<Retained<ProtocolObject<dyn MTLRenderPipelineState>>, Retained<NSError>>;
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(shaderValidation)]
+        unsafe fn shaderValidation(&self) -> MTLShaderValidation;
     }
 
     unsafe impl ProtocolType for dyn MTLRenderPipelineState {}
@@ -1067,6 +1081,14 @@ extern_methods!(
 
         #[method(reset)]
         pub unsafe fn reset(&self);
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(shaderValidation)]
+        pub unsafe fn shaderValidation(&self) -> MTLShaderValidation;
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(setShaderValidation:)]
+        pub unsafe fn setShaderValidation(&self, shader_validation: MTLShaderValidation);
     }
 );
 
@@ -1268,6 +1290,19 @@ extern_methods!(
             support_indirect_command_buffers: bool,
         );
 
+        #[cfg(feature = "MTLBinaryArchive")]
+        #[method_id(@__retain_semantics Other binaryArchives)]
+        pub unsafe fn binaryArchives(
+            &self,
+        ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLBinaryArchive>>>>;
+
+        #[cfg(feature = "MTLBinaryArchive")]
+        #[method(setBinaryArchives:)]
+        pub unsafe fn setBinaryArchives(
+            &self,
+            binary_archives: Option<&NSArray<ProtocolObject<dyn MTLBinaryArchive>>>,
+        );
+
         #[cfg(feature = "MTLLinkedFunctions")]
         #[method_id(@__retain_semantics Other objectLinkedFunctions)]
         pub unsafe fn objectLinkedFunctions(&self) -> Retained<MTLLinkedFunctions>;
@@ -1303,6 +1338,14 @@ extern_methods!(
 
         #[method(reset)]
         pub unsafe fn reset(&self);
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(shaderValidation)]
+        pub unsafe fn shaderValidation(&self) -> MTLShaderValidation;
+
+        #[cfg(feature = "MTLPipeline")]
+        #[method(setShaderValidation:)]
+        pub unsafe fn setShaderValidation(&self, shader_validation: MTLShaderValidation);
     }
 );
 

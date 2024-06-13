@@ -115,11 +115,19 @@ unsafe impl NSObjectProtocol for MTLRenderPassAttachmentDescriptor {}
 
 extern_methods!(
     unsafe impl MTLRenderPassAttachmentDescriptor {
-        #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLResource",
+            feature = "MTLTexture"
+        ))]
         #[method_id(@__retain_semantics Other texture)]
         pub fn texture(&self) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
 
-        #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLResource",
+            feature = "MTLTexture"
+        ))]
         #[method(setTexture:)]
         pub fn setTexture(&self, texture: Option<&ProtocolObject<dyn MTLTexture>>);
 
@@ -141,11 +149,19 @@ extern_methods!(
         #[method(setDepthPlane:)]
         pub fn setDepthPlane(&self, depth_plane: NSUInteger);
 
-        #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLResource",
+            feature = "MTLTexture"
+        ))]
         #[method_id(@__retain_semantics Other resolveTexture)]
         pub fn resolveTexture(&self) -> Option<Retained<ProtocolObject<dyn MTLTexture>>>;
 
-        #[cfg(all(feature = "MTLResource", feature = "MTLTexture"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLResource",
+            feature = "MTLTexture"
+        ))]
         #[method(setResolveTexture:)]
         pub fn setResolveTexture(&self, resolve_texture: Option<&ProtocolObject<dyn MTLTexture>>);
 
@@ -555,11 +571,19 @@ extern_methods!(
             stencil_attachment: Option<&MTLRenderPassStencilAttachmentDescriptor>,
         );
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other visibilityResultBuffer)]
         pub fn visibilityResultBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setVisibilityResultBuffer:)]
         pub fn setVisibilityResultBuffer(
             &self,

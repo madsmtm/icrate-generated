@@ -177,24 +177,16 @@ extern_methods!(
         #[method_id(@__retain_semantics Other underlyingErrors)]
         pub unsafe fn underlyingErrors(&self) -> Retained<NSArray<NSError>>;
 
-        #[cfg(all(feature = "NSString", feature = "block2"))]
+        #[cfg(feature = "NSString")]
         #[method(setUserInfoValueProviderForDomain:provider:)]
         pub unsafe fn setUserInfoValueProviderForDomain_provider(
             error_domain: &NSErrorDomain,
-            provider: Option<
-                &block2::Block<
-                    dyn Fn(NonNull<NSError>, NonNull<NSErrorUserInfoKey>) -> *mut AnyObject,
-                >,
-            >,
+            provider: Unknown,
         );
 
-        #[cfg(all(feature = "NSString", feature = "block2"))]
+        #[cfg(feature = "NSString")]
         #[method(userInfoValueProviderForDomain:)]
-        pub unsafe fn userInfoValueProviderForDomain(
-            error_domain: &NSErrorDomain,
-        ) -> *mut block2::Block<
-            dyn Fn(NonNull<NSError>, NonNull<NSErrorUserInfoKey>) -> *mut AnyObject,
-        >;
+        pub unsafe fn userInfoValueProviderForDomain(error_domain: &NSErrorDomain) -> Unknown;
     }
 );
 

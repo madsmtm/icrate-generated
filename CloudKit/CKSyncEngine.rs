@@ -44,19 +44,14 @@ extern_methods!(
         #[method_id(@__retain_semantics Other state)]
         pub unsafe fn state(&self) -> Retained<CKSyncEngineState>;
 
-        #[cfg(feature = "block2")]
         #[method(fetchChangesWithCompletionHandler:)]
-        pub unsafe fn fetchChangesWithCompletionHandler(
-            &self,
-            completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
-        );
+        pub unsafe fn fetchChangesWithCompletionHandler(&self, completion_handler: Unknown);
 
-        #[cfg(feature = "block2")]
         #[method(fetchChangesWithOptions:completionHandler:)]
         pub unsafe fn fetchChangesWithOptions_completionHandler(
             &self,
             options: &CKSyncEngineFetchChangesOptions,
-            completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
+            completion_handler: Unknown,
         );
 
         #[cfg(feature = "block2")]
@@ -66,20 +61,15 @@ extern_methods!(
             completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
         );
 
-        #[cfg(feature = "block2")]
         #[method(sendChangesWithOptions:completionHandler:)]
         pub unsafe fn sendChangesWithOptions_completionHandler(
             &self,
             options: &CKSyncEngineSendChangesOptions,
-            completion_handler: Option<&block2::Block<dyn Fn(*mut NSError)>>,
+            completion_handler: Unknown,
         );
 
-        #[cfg(feature = "block2")]
         #[method(cancelOperationsWithCompletionHandler:)]
-        pub unsafe fn cancelOperationsWithCompletionHandler(
-            &self,
-            completion_handler: Option<&block2::Block<dyn Fn()>>,
-        );
+        pub unsafe fn cancelOperationsWithCompletionHandler(&self, completion_handler: Unknown);
     }
 );
 

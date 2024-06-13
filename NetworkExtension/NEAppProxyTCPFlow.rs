@@ -39,7 +39,11 @@ extern_methods!(
             completion_handler: &block2::Block<dyn Fn(*mut NSError)>,
         );
 
+        #[method_id(@__retain_semantics Other remoteFlowEndpoint)]
+        pub unsafe fn remoteFlowEndpoint(&self) -> Retained<nw_endpoint_t>;
+
         #[cfg(feature = "NWEndpoint")]
+        #[deprecated]
         #[method_id(@__retain_semantics Other remoteEndpoint)]
         pub unsafe fn remoteEndpoint(&self) -> Retained<NWEndpoint>;
     }

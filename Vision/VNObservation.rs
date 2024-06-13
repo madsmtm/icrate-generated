@@ -1568,3 +1568,46 @@ extern_methods!(
         pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
     }
 );
+
+extern_class!(
+    #[derive(Debug, PartialEq, Eq, Hash)]
+    pub struct VNImageAestheticsScoresObservation;
+
+    unsafe impl ClassType for VNImageAestheticsScoresObservation {
+        #[inherits(NSObject)]
+        type Super = VNObservation;
+        type Mutability = InteriorMutable;
+    }
+);
+
+unsafe impl NSCoding for VNImageAestheticsScoresObservation {}
+
+unsafe impl NSCopying for VNImageAestheticsScoresObservation {}
+
+unsafe impl NSObjectProtocol for VNImageAestheticsScoresObservation {}
+
+unsafe impl NSSecureCoding for VNImageAestheticsScoresObservation {}
+
+#[cfg(feature = "VNRequestRevisionProviding")]
+unsafe impl VNRequestRevisionProviding for VNImageAestheticsScoresObservation {}
+
+extern_methods!(
+    unsafe impl VNImageAestheticsScoresObservation {
+        #[method_id(@__retain_semantics Init init)]
+        pub unsafe fn init(this: Allocated<Self>) -> Retained<Self>;
+
+        #[method(isUtility)]
+        pub unsafe fn isUtility(&self) -> bool;
+
+        #[method(overallScore)]
+        pub unsafe fn overallScore(&self) -> c_float;
+    }
+);
+
+extern_methods!(
+    /// Methods declared on superclass `NSObject`
+    unsafe impl VNImageAestheticsScoresObservation {
+        #[method_id(@__retain_semantics New new)]
+        pub unsafe fn new() -> Retained<Self>;
+    }
+);

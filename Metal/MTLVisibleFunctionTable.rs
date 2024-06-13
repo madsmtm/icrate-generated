@@ -44,7 +44,7 @@ extern_methods!(
 );
 
 extern_protocol!(
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     pub unsafe trait MTLVisibleFunctionTable: MTLResource + IsRetainable {
         #[cfg(feature = "MTLTypes")]
         #[method(gpuResourceID)]
@@ -67,6 +67,6 @@ extern_protocol!(
         );
     }
 
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     unsafe impl ProtocolType for dyn MTLVisibleFunctionTable {}
 );

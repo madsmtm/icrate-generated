@@ -74,6 +74,18 @@ extern_protocol!(
             activity_type: Option<&UIActivityType>,
             size: CGSize,
         ) -> Option<Retained<UIImage>>;
+
+        #[cfg(all(
+            feature = "UIActivityViewController",
+            feature = "UIResponder",
+            feature = "UIViewController"
+        ))]
+        #[optional]
+        #[method_id(@__retain_semantics Other activityViewControllerShareRecipients:)]
+        unsafe fn activityViewControllerShareRecipients(
+            &self,
+            activity_view_controller: &UIActivityViewController,
+        ) -> Retained<NSArray<INPerson>>;
     }
 
     unsafe impl ProtocolType for dyn UIActivityItemSource {}

@@ -130,16 +130,11 @@ extern_methods!(
         #[method(terminationReason)]
         pub unsafe fn terminationReason(&self) -> NSTaskTerminationReason;
 
-        #[cfg(feature = "block2")]
         #[method(terminationHandler)]
-        pub unsafe fn terminationHandler(&self) -> *mut block2::Block<dyn Fn(NonNull<NSTask>)>;
+        pub unsafe fn terminationHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setTerminationHandler:)]
-        pub unsafe fn setTerminationHandler(
-            &self,
-            termination_handler: Option<&block2::Block<dyn Fn(NonNull<NSTask>)>>,
-        );
+        pub unsafe fn setTerminationHandler(&self, termination_handler: Unknown);
 
         #[cfg(feature = "NSObjCRuntime")]
         #[method(qualityOfService)]
@@ -166,15 +161,14 @@ extern_methods!(
             feature = "NSArray",
             feature = "NSError",
             feature = "NSString",
-            feature = "NSURL",
-            feature = "block2"
+            feature = "NSURL"
         ))]
         #[method_id(@__retain_semantics Other launchedTaskWithExecutableURL:arguments:error:terminationHandler:)]
         pub unsafe fn launchedTaskWithExecutableURL_arguments_error_terminationHandler(
             url: &NSURL,
             arguments: &NSArray<NSString>,
             error: Option<&mut Option<Retained<NSError>>>,
-            termination_handler: Option<&block2::Block<dyn Fn(NonNull<NSTask>)>>,
+            termination_handler: Unknown,
         ) -> Option<Retained<NSTask>>;
 
         #[method(waitUntilExit)]

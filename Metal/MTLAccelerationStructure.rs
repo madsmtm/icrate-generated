@@ -52,6 +52,25 @@ unsafe impl RefEncode for MTLAccelerationStructureInstanceOptions {
     const ENCODING_REF: Encoding = Encoding::Pointer(&Self::ENCODING);
 }
 
+// NS_ENUM
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub struct MTLMatrixLayout(pub NSInteger);
+impl MTLMatrixLayout {
+    #[doc(alias = "MTLMatrixLayoutColumnMajor")]
+    pub const ColumnMajor: Self = Self(0);
+    #[doc(alias = "MTLMatrixLayoutRowMajor")]
+    pub const RowMajor: Self = Self(1);
+}
+
+unsafe impl Encode for MTLMatrixLayout {
+    const ENCODING: Encoding = NSInteger::ENCODING;
+}
+
+unsafe impl RefEncode for MTLMatrixLayout {
+    const ENCODING_REF: Encoding = Encoding::Pointer(&Self::ENCODING);
+}
+
 extern_class!(
     #[derive(Debug, PartialEq, Eq, Hash)]
     pub struct MTLAccelerationStructureDescriptor;
@@ -133,12 +152,20 @@ extern_methods!(
         #[method(setLabel:)]
         pub unsafe fn setLabel(&self, label: Option<&NSString>);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other primitiveDataBuffer)]
         pub unsafe fn primitiveDataBuffer(&self)
             -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setPrimitiveDataBuffer:)]
         pub fn setPrimitiveDataBuffer(
             &self,
@@ -289,11 +316,19 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureTriangleGeometryDescrip
 
 extern_methods!(
     unsafe impl MTLAccelerationStructureTriangleGeometryDescriptor {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other vertexBuffer)]
         pub unsafe fn vertexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setVertexBuffer:)]
         pub fn setVertexBuffer(&self, vertex_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -317,11 +352,19 @@ extern_methods!(
         #[method(setVertexStride:)]
         pub fn setVertexStride(&self, vertex_stride: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other indexBuffer)]
         pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setIndexBuffer:)]
         pub fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -345,13 +388,21 @@ extern_methods!(
         #[method(setTriangleCount:)]
         pub fn setTriangleCount(&self, triangle_count: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other transformationMatrixBuffer)]
         pub unsafe fn transformationMatrixBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setTransformationMatrixBuffer:)]
         pub unsafe fn setTransformationMatrixBuffer(
             &self,
@@ -365,6 +416,15 @@ extern_methods!(
         pub unsafe fn setTransformationMatrixBufferOffset(
             &self,
             transformation_matrix_buffer_offset: NSUInteger,
+        );
+
+        #[method(transformationMatrixLayout)]
+        pub unsafe fn transformationMatrixLayout(&self) -> MTLMatrixLayout;
+
+        #[method(setTransformationMatrixLayout:)]
+        pub unsafe fn setTransformationMatrixLayout(
+            &self,
+            transformation_matrix_layout: MTLMatrixLayout,
         );
 
         #[method_id(@__retain_semantics Other descriptor)]
@@ -400,11 +460,19 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureBoundingBoxGeometryDesc
 
 extern_methods!(
     unsafe impl MTLAccelerationStructureBoundingBoxGeometryDescriptor {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other boundingBoxBuffer)]
         pub unsafe fn boundingBoxBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setBoundingBoxBuffer:)]
         pub fn setBoundingBoxBuffer(
             &self,
@@ -459,11 +527,19 @@ unsafe impl NSObjectProtocol for MTLMotionKeyframeData {}
 
 extern_methods!(
     unsafe impl MTLMotionKeyframeData {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other buffer)]
         pub unsafe fn buffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setBuffer:)]
         pub unsafe fn setBuffer(&self, buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -526,11 +602,19 @@ extern_methods!(
         #[method(setVertexStride:)]
         pub unsafe fn setVertexStride(&self, vertex_stride: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other indexBuffer)]
         pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setIndexBuffer:)]
         pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -554,13 +638,21 @@ extern_methods!(
         #[method(setTriangleCount:)]
         pub unsafe fn setTriangleCount(&self, triangle_count: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other transformationMatrixBuffer)]
         pub unsafe fn transformationMatrixBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setTransformationMatrixBuffer:)]
         pub unsafe fn setTransformationMatrixBuffer(
             &self,
@@ -574,6 +666,15 @@ extern_methods!(
         pub unsafe fn setTransformationMatrixBufferOffset(
             &self,
             transformation_matrix_buffer_offset: NSUInteger,
+        );
+
+        #[method(transformationMatrixLayout)]
+        pub unsafe fn transformationMatrixLayout(&self) -> MTLMatrixLayout;
+
+        #[method(setTransformationMatrixLayout:)]
+        pub unsafe fn setTransformationMatrixLayout(
+            &self,
+            transformation_matrix_layout: MTLMatrixLayout,
         );
 
         #[method_id(@__retain_semantics Other descriptor)]
@@ -726,11 +827,19 @@ unsafe impl NSObjectProtocol for MTLAccelerationStructureCurveGeometryDescriptor
 
 extern_methods!(
     unsafe impl MTLAccelerationStructureCurveGeometryDescriptor {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other controlPointBuffer)]
         pub unsafe fn controlPointBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setControlPointBuffer:)]
         pub unsafe fn setControlPointBuffer(
             &self,
@@ -763,11 +872,19 @@ extern_methods!(
         #[method(setControlPointFormat:)]
         pub unsafe fn setControlPointFormat(&self, control_point_format: MTLAttributeFormat);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other radiusBuffer)]
         pub unsafe fn radiusBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setRadiusBuffer:)]
         pub unsafe fn setRadiusBuffer(&self, radius_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -791,11 +908,19 @@ extern_methods!(
         #[method(setRadiusStride:)]
         pub unsafe fn setRadiusStride(&self, radius_stride: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other indexBuffer)]
         pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setIndexBuffer:)]
         pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -925,11 +1050,19 @@ extern_methods!(
         #[method(setRadiusStride:)]
         pub unsafe fn setRadiusStride(&self, radius_stride: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other indexBuffer)]
         pub unsafe fn indexBuffer(&self) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setIndexBuffer:)]
         pub unsafe fn setIndexBuffer(&self, index_buffer: Option<&ProtocolObject<dyn MTLBuffer>>);
 
@@ -1193,6 +1326,25 @@ unsafe impl RefEncode for MTLIndirectAccelerationStructureMotionInstanceDescript
     const ENCODING_REF: Encoding = Encoding::Pointer(&Self::ENCODING);
 }
 
+// NS_ENUM
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub struct MTLTransformType(pub NSInteger);
+impl MTLTransformType {
+    #[doc(alias = "MTLTransformTypePackedFloat4x3")]
+    pub const PackedFloat4x3: Self = Self(0);
+    #[doc(alias = "MTLTransformTypeComponent")]
+    pub const Component: Self = Self(1);
+}
+
+unsafe impl Encode for MTLTransformType {
+    const ENCODING: Encoding = NSInteger::ENCODING;
+}
+
+unsafe impl RefEncode for MTLTransformType {
+    const ENCODING_REF: Encoding = Encoding::Pointer(&Self::ENCODING);
+}
+
 extern_class!(
     #[derive(Debug, PartialEq, Eq, Hash)]
     pub struct MTLInstanceAccelerationStructureDescriptor;
@@ -1210,13 +1362,21 @@ unsafe impl NSObjectProtocol for MTLInstanceAccelerationStructureDescriptor {}
 
 extern_methods!(
     unsafe impl MTLInstanceAccelerationStructureDescriptor {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other instanceDescriptorBuffer)]
         pub unsafe fn instanceDescriptorBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setInstanceDescriptorBuffer:)]
         pub fn setInstanceDescriptorBuffer(
             &self,
@@ -1244,13 +1404,13 @@ extern_methods!(
         #[method(setInstanceCount:)]
         pub fn setInstanceCount(&self, instance_count: NSUInteger);
 
-        #[cfg(feature = "MTLResource")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
         #[method_id(@__retain_semantics Other instancedAccelerationStructures)]
         pub unsafe fn instancedAccelerationStructures(
             &self,
         ) -> Option<Retained<NSArray<ProtocolObject<dyn MTLAccelerationStructure>>>>;
 
-        #[cfg(feature = "MTLResource")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
         #[method(setInstancedAccelerationStructures:)]
         pub fn setInstancedAccelerationStructures(
             &self,
@@ -1270,13 +1430,21 @@ extern_methods!(
             instance_descriptor_type: MTLAccelerationStructureInstanceDescriptorType,
         );
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other motionTransformBuffer)]
         pub unsafe fn motionTransformBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setMotionTransformBuffer:)]
         pub unsafe fn setMotionTransformBuffer(
             &self,
@@ -1297,6 +1465,27 @@ extern_methods!(
 
         #[method(setMotionTransformCount:)]
         pub unsafe fn setMotionTransformCount(&self, motion_transform_count: NSUInteger);
+
+        #[method(instanceTransformationMatrixLayout)]
+        pub unsafe fn instanceTransformationMatrixLayout(&self) -> MTLMatrixLayout;
+
+        #[method(setInstanceTransformationMatrixLayout:)]
+        pub unsafe fn setInstanceTransformationMatrixLayout(
+            &self,
+            instance_transformation_matrix_layout: MTLMatrixLayout,
+        );
+
+        #[method(motionTransformType)]
+        pub unsafe fn motionTransformType(&self) -> MTLTransformType;
+
+        #[method(setMotionTransformType:)]
+        pub unsafe fn setMotionTransformType(&self, motion_transform_type: MTLTransformType);
+
+        #[method(motionTransformStride)]
+        pub unsafe fn motionTransformStride(&self) -> NSUInteger;
+
+        #[method(setMotionTransformStride:)]
+        pub unsafe fn setMotionTransformStride(&self, motion_transform_stride: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub fn descriptor() -> Retained<Self>;
@@ -1331,13 +1520,21 @@ unsafe impl NSObjectProtocol for MTLIndirectInstanceAccelerationStructureDescrip
 
 extern_methods!(
     unsafe impl MTLIndirectInstanceAccelerationStructureDescriptor {
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other instanceDescriptorBuffer)]
         pub unsafe fn instanceDescriptorBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setInstanceDescriptorBuffer:)]
         pub unsafe fn setInstanceDescriptorBuffer(
             &self,
@@ -1365,12 +1562,20 @@ extern_methods!(
         #[method(setMaxInstanceCount:)]
         pub unsafe fn setMaxInstanceCount(&self, max_instance_count: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other instanceCountBuffer)]
         pub unsafe fn instanceCountBuffer(&self)
             -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setInstanceCountBuffer:)]
         pub unsafe fn setInstanceCountBuffer(
             &self,
@@ -1394,13 +1599,21 @@ extern_methods!(
             instance_descriptor_type: MTLAccelerationStructureInstanceDescriptorType,
         );
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other motionTransformBuffer)]
         pub unsafe fn motionTransformBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setMotionTransformBuffer:)]
         pub unsafe fn setMotionTransformBuffer(
             &self,
@@ -1422,13 +1635,21 @@ extern_methods!(
         #[method(setMaxMotionTransformCount:)]
         pub unsafe fn setMaxMotionTransformCount(&self, max_motion_transform_count: NSUInteger);
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method_id(@__retain_semantics Other motionTransformCountBuffer)]
         pub unsafe fn motionTransformCountBuffer(
             &self,
         ) -> Option<Retained<ProtocolObject<dyn MTLBuffer>>>;
 
-        #[cfg(all(feature = "MTLBuffer", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAllocation",
+            feature = "MTLBuffer",
+            feature = "MTLResource"
+        ))]
         #[method(setMotionTransformCountBuffer:)]
         pub unsafe fn setMotionTransformCountBuffer(
             &self,
@@ -1443,6 +1664,27 @@ extern_methods!(
             &self,
             motion_transform_count_buffer_offset: NSUInteger,
         );
+
+        #[method(instanceTransformationMatrixLayout)]
+        pub unsafe fn instanceTransformationMatrixLayout(&self) -> MTLMatrixLayout;
+
+        #[method(setInstanceTransformationMatrixLayout:)]
+        pub unsafe fn setInstanceTransformationMatrixLayout(
+            &self,
+            instance_transformation_matrix_layout: MTLMatrixLayout,
+        );
+
+        #[method(motionTransformType)]
+        pub unsafe fn motionTransformType(&self) -> MTLTransformType;
+
+        #[method(setMotionTransformType:)]
+        pub unsafe fn setMotionTransformType(&self, motion_transform_type: MTLTransformType);
+
+        #[method(motionTransformStride)]
+        pub unsafe fn motionTransformStride(&self) -> NSUInteger;
+
+        #[method(setMotionTransformStride:)]
+        pub unsafe fn setMotionTransformStride(&self, motion_transform_stride: NSUInteger);
 
         #[method_id(@__retain_semantics Other descriptor)]
         pub unsafe fn descriptor() -> Retained<Self>;
@@ -1461,7 +1703,7 @@ extern_methods!(
 );
 
 extern_protocol!(
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     pub unsafe trait MTLAccelerationStructure: MTLResource + IsRetainable {
         #[method(size)]
         unsafe fn size(&self) -> NSUInteger;
@@ -1471,6 +1713,6 @@ extern_protocol!(
         unsafe fn gpuResourceID(&self) -> MTLResourceID;
     }
 
-    #[cfg(feature = "MTLResource")]
+    #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
     unsafe impl ProtocolType for dyn MTLAccelerationStructure {}
 );

@@ -22,25 +22,21 @@ extern_methods!(
         #[method_id(@__retain_semantics Other inputItems)]
         pub unsafe fn inputItems(&self) -> Retained<NSArray>;
 
-        #[cfg(all(feature = "NSArray", feature = "block2"))]
+        #[cfg(feature = "NSArray")]
         #[method(completeRequestReturningItems:completionHandler:)]
         pub unsafe fn completeRequestReturningItems_completionHandler(
             &self,
             items: Option<&NSArray>,
-            completion_handler: Option<&block2::Block<dyn Fn(Bool)>>,
+            completion_handler: Unknown,
         );
 
         #[cfg(feature = "NSError")]
         #[method(cancelRequestWithError:)]
         pub unsafe fn cancelRequestWithError(&self, error: &NSError);
 
-        #[cfg(all(feature = "NSURL", feature = "block2"))]
+        #[cfg(feature = "NSURL")]
         #[method(openURL:completionHandler:)]
-        pub unsafe fn openURL_completionHandler(
-            &self,
-            url: &NSURL,
-            completion_handler: Option<&block2::Block<dyn Fn(Bool)>>,
-        );
+        pub unsafe fn openURL_completionHandler(&self, url: &NSURL, completion_handler: Unknown);
     }
 );
 

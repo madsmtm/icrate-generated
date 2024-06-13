@@ -279,8 +279,8 @@ extern_methods!(
             context_info: *mut c_void,
         );
 
-        #[method(shouldRunSavePanelWithAccessoryView)]
-        pub unsafe fn shouldRunSavePanelWithAccessoryView(&self) -> bool;
+        #[method(savePanelShowsFileFormatsControl)]
+        pub unsafe fn savePanelShowsFileFormatsControl(&self) -> bool;
 
         #[cfg(all(
             feature = "NSPanel",
@@ -725,14 +725,14 @@ extern_methods!(
         #[method(relinquishPresentedItemToReader:)]
         pub unsafe fn relinquishPresentedItemToReader(
             &self,
-            reader: &block2::Block<dyn Fn(*mut block2::Block<dyn Fn()>)>,
+            reader: &block2::Block<dyn Fn(Unknown)>,
         );
 
         #[cfg(feature = "block2")]
         #[method(relinquishPresentedItemToWriter:)]
         pub unsafe fn relinquishPresentedItemToWriter(
             &self,
-            writer: &block2::Block<dyn Fn(*mut block2::Block<dyn Fn()>)>,
+            writer: &block2::Block<dyn Fn(Unknown)>,
         );
 
         #[cfg(feature = "block2")]
@@ -783,6 +783,10 @@ extern_methods!(
 extern_methods!(
     /// NSDeprecated
     unsafe impl NSDocument {
+        #[deprecated]
+        #[method(shouldRunSavePanelWithAccessoryView)]
+        pub unsafe fn shouldRunSavePanelWithAccessoryView(&self) -> bool;
+
         #[deprecated = "Use -saveToURL:ofType:forSaveOperation:completionHandler: instead"]
         #[method(saveToURL:ofType:forSaveOperation:error:_)]
         pub unsafe fn saveToURL_ofType_forSaveOperation_error(

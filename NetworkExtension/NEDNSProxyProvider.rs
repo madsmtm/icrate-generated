@@ -47,11 +47,20 @@ extern_methods!(
         #[method(handleNewFlow:)]
         pub unsafe fn handleNewFlow(&self, flow: &NEAppProxyFlow) -> bool;
 
+        #[cfg(all(feature = "NEAppProxyFlow", feature = "NEAppProxyUDPFlow"))]
+        #[method(handleNewUDPFlow:initialRemoteFlowEndpoint:)]
+        pub unsafe fn handleNewUDPFlow_initialRemoteFlowEndpoint(
+            &self,
+            flow: &NEAppProxyUDPFlow,
+            remote_endpoint: &nw_endpoint_t,
+        ) -> bool;
+
         #[cfg(all(
             feature = "NEAppProxyFlow",
             feature = "NEAppProxyUDPFlow",
             feature = "NWEndpoint"
         ))]
+        #[deprecated]
         #[method(handleNewUDPFlow:initialRemoteEndpoint:)]
         pub unsafe fn handleNewUDPFlow_initialRemoteEndpoint(
             &self,

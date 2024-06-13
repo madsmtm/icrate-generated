@@ -948,6 +948,9 @@ extern_methods!(
             &self,
             allowed_input_source_locales: Option<&NSArray<NSString>>,
         );
+
+        #[method(isWritingToolsActive)]
+        pub unsafe fn isWritingToolsActive(&self) -> bool;
     }
 );
 
@@ -1129,6 +1132,17 @@ extern_methods!(
         #[cfg(feature = "NSTextCheckingClient")]
         #[method(setInlinePredictionType:)]
         pub unsafe fn setInlinePredictionType(&self, inline_prediction_type: NSTextInputTraitType);
+
+        #[cfg(feature = "NSTextCheckingClient")]
+        #[method(mathExpressionCompletionType)]
+        pub unsafe fn mathExpressionCompletionType(&self) -> NSTextInputTraitType;
+
+        #[cfg(feature = "NSTextCheckingClient")]
+        #[method(setMathExpressionCompletionType:)]
+        pub unsafe fn setMathExpressionCompletionType(
+            &self,
+            math_expression_completion_type: NSTextInputTraitType,
+        );
     }
 );
 
@@ -1233,6 +1247,34 @@ extern_methods!(
         pub unsafe fn scrollablePlainDocumentContentTextView(
             mtm: MainThreadMarker,
         ) -> Retained<NSScrollView>;
+    }
+);
+
+extern_methods!(
+    /// NSTextView_TextHighlight
+    #[cfg(all(feature = "NSResponder", feature = "NSText", feature = "NSView"))]
+    unsafe impl NSTextView {
+        #[method_id(@__retain_semantics Other textHighlightAttributes)]
+        pub unsafe fn textHighlightAttributes(
+            &self,
+        ) -> Retained<NSDictionary<NSAttributedStringKey, AnyObject>>;
+
+        #[method(setTextHighlightAttributes:)]
+        pub unsafe fn setTextHighlightAttributes(
+            &self,
+            text_highlight_attributes: &NSDictionary<NSAttributedStringKey, AnyObject>,
+        );
+
+        #[cfg(feature = "NSTextRange")]
+        #[method(drawTextHighlightBackgroundForTextRange:origin:)]
+        pub unsafe fn drawTextHighlightBackgroundForTextRange_origin(
+            &self,
+            text_range: &NSTextRange,
+            origin: NSPoint,
+        );
+
+        #[method(highlight:)]
+        pub unsafe fn highlight(&self, sender: Option<&AnyObject>);
     }
 );
 
@@ -1561,6 +1603,25 @@ extern_protocol!(
             text_view: &NSTextView,
             index: NSUInteger,
         ) -> bool;
+
+        #[cfg(all(feature = "NSResponder", feature = "NSView"))]
+        #[optional]
+        #[method(textViewWritingToolsWillBegin:)]
+        unsafe fn textViewWritingToolsWillBegin(&self, text_view: &NSTextView);
+
+        #[cfg(all(feature = "NSResponder", feature = "NSView"))]
+        #[optional]
+        #[method(textViewWritingToolsDidEnd:)]
+        unsafe fn textViewWritingToolsDidEnd(&self, text_view: &NSTextView);
+
+        #[cfg(all(feature = "NSResponder", feature = "NSView"))]
+        #[optional]
+        #[method_id(@__retain_semantics Other textView:writingToolsIgnoredRangesInEnclosingRange:)]
+        unsafe fn textView_writingToolsIgnoredRangesInEnclosingRange(
+            &self,
+            text_view: &NSTextView,
+            enclosing_range: NSRange,
+        ) -> Retained<NSArray<NSValue>>;
 
         #[cfg(all(feature = "NSResponder", feature = "NSView"))]
         #[deprecated = "Use -textView:clickedOnLink:atIndex: instead"]

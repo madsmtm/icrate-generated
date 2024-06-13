@@ -5,6 +5,8 @@ use objc2_foundation::*;
 
 use crate::*;
 
+pub type NWEndpointArray = NSArray<nw_endpoint_t>;
+
 extern_class!(
     #[derive(Debug, PartialEq, Eq, Hash)]
     #[cfg(feature = "NEAppProxyFlow")]
@@ -24,7 +26,17 @@ unsafe impl NSObjectProtocol for NEAppProxyUDPFlow {}
 extern_methods!(
     #[cfg(feature = "NEAppProxyFlow")]
     unsafe impl NEAppProxyUDPFlow {
+        #[cfg(feature = "block2")]
+        #[method(readDatagramsAndFlowEndpointsWithCompletionHandler:)]
+        pub unsafe fn readDatagramsAndFlowEndpointsWithCompletionHandler(
+            &self,
+            completion_handler: &block2::Block<
+                dyn Fn(*mut NSArray<NSData>, *mut NWEndpointArray, *mut NSError),
+            >,
+        );
+
         #[cfg(all(feature = "NWEndpoint", feature = "block2"))]
+        #[deprecated]
         #[method(readDatagramsWithCompletionHandler:)]
         pub unsafe fn readDatagramsWithCompletionHandler(
             &self,
@@ -33,7 +45,17 @@ extern_methods!(
             >,
         );
 
+        #[cfg(feature = "block2")]
+        #[method(writeDatagrams:sentByFlowEndpoints:completionHandler:)]
+        pub unsafe fn writeDatagrams_sentByFlowEndpoints_completionHandler(
+            &self,
+            datagrams: &NSArray<NSData>,
+            remote_endpoints: &NWEndpointArray,
+            completion_handler: &block2::Block<dyn Fn(*mut NSError)>,
+        );
+
         #[cfg(all(feature = "NWEndpoint", feature = "block2"))]
+        #[deprecated]
         #[method(writeDatagrams:sentByEndpoints:completionHandler:)]
         pub unsafe fn writeDatagrams_sentByEndpoints_completionHandler(
             &self,
@@ -42,7 +64,11 @@ extern_methods!(
             completion_handler: &block2::Block<dyn Fn(*mut NSError)>,
         );
 
+        #[method_id(@__retain_semantics Other localFlowEndpoint)]
+        pub unsafe fn localFlowEndpoint(&self) -> Option<Retained<nw_endpoint_t>>;
+
         #[cfg(feature = "NWEndpoint")]
+        #[deprecated]
         #[method_id(@__retain_semantics Other localEndpoint)]
         pub unsafe fn localEndpoint(&self) -> Option<Retained<NWEndpoint>>;
     }

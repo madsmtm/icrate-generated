@@ -227,6 +227,10 @@ extern "C" {
         &'static CIImageRepresentationOption;
 }
 
+extern "C" {
+    pub static kCIImageRepresentationHDRImage: &'static CIImageRepresentationOption;
+}
+
 extern_methods!(
     /// ImageRepresentation
     unsafe impl CIContext {

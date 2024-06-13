@@ -323,19 +323,17 @@ extern_methods!(
         #[method(backgroundTimeRemaining)]
         pub unsafe fn backgroundTimeRemaining(&self) -> NSTimeInterval;
 
-        #[cfg(feature = "block2")]
         #[method(beginBackgroundTaskWithExpirationHandler:)]
         pub unsafe fn beginBackgroundTaskWithExpirationHandler(
             &self,
-            handler: Option<&block2::Block<dyn Fn()>>,
+            handler: Unknown,
         ) -> UIBackgroundTaskIdentifier;
 
-        #[cfg(feature = "block2")]
         #[method(beginBackgroundTaskWithName:expirationHandler:)]
         pub unsafe fn beginBackgroundTaskWithName_expirationHandler(
             &self,
             task_name: Option<&NSString>,
-            handler: Option<&block2::Block<dyn Fn()>>,
+            handler: Unknown,
         ) -> UIBackgroundTaskIdentifier;
 
         #[method(endBackgroundTask:)]

@@ -90,13 +90,11 @@ extern_methods!(
         #[method(setQueuePriority:)]
         pub unsafe fn setQueuePriority(&self, queue_priority: NSOperationQueuePriority);
 
-        #[cfg(feature = "block2")]
         #[method(completionBlock)]
-        pub unsafe fn completionBlock(&self) -> *mut block2::Block<dyn Fn()>;
+        pub unsafe fn completionBlock(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setCompletionBlock:)]
-        pub unsafe fn setCompletionBlock(&self, completion_block: Option<&block2::Block<dyn Fn()>>);
+        pub unsafe fn setCompletionBlock(&self, completion_block: Unknown);
 
         #[method(waitUntilFinished)]
         pub unsafe fn waitUntilFinished(&self);

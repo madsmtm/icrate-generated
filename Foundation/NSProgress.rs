@@ -131,32 +131,23 @@ extern_methods!(
         #[method(isPaused)]
         pub unsafe fn isPaused(&self) -> bool;
 
-        #[cfg(feature = "block2")]
         #[method(cancellationHandler)]
-        pub unsafe fn cancellationHandler(&self) -> *mut block2::Block<dyn Fn()>;
+        pub unsafe fn cancellationHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setCancellationHandler:)]
-        pub unsafe fn setCancellationHandler(
-            &self,
-            cancellation_handler: Option<&block2::Block<dyn Fn()>>,
-        );
+        pub unsafe fn setCancellationHandler(&self, cancellation_handler: Unknown);
 
-        #[cfg(feature = "block2")]
         #[method(pausingHandler)]
-        pub unsafe fn pausingHandler(&self) -> *mut block2::Block<dyn Fn()>;
+        pub unsafe fn pausingHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setPausingHandler:)]
-        pub unsafe fn setPausingHandler(&self, pausing_handler: Option<&block2::Block<dyn Fn()>>);
+        pub unsafe fn setPausingHandler(&self, pausing_handler: Unknown);
 
-        #[cfg(feature = "block2")]
         #[method(resumingHandler)]
-        pub unsafe fn resumingHandler(&self) -> *mut block2::Block<dyn Fn()>;
+        pub unsafe fn resumingHandler(&self) -> Unknown;
 
-        #[cfg(feature = "block2")]
         #[method(setResumingHandler:)]
-        pub unsafe fn setResumingHandler(&self, resuming_handler: Option<&block2::Block<dyn Fn()>>);
+        pub unsafe fn setResumingHandler(&self, resuming_handler: Unknown);
 
         #[cfg(feature = "NSString")]
         #[method(setUserInfoObject:forKey:)]

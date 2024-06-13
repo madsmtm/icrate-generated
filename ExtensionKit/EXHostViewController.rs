@@ -112,7 +112,9 @@ extern_methods!(
 );
 
 extern_protocol!(
-    pub unsafe trait EXHostViewControllerDelegate: NSObjectProtocol {
+    pub unsafe trait EXHostViewControllerDelegate:
+        NSObjectProtocol + IsMainThreadOnly
+    {
         #[cfg(feature = "objc2-app-kit")]
         #[cfg(target_os = "macos")]
         #[optional]

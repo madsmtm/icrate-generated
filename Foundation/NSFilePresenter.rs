@@ -22,18 +22,12 @@ extern_protocol!(
         #[cfg(feature = "block2")]
         #[optional]
         #[method(relinquishPresentedItemToReader:)]
-        unsafe fn relinquishPresentedItemToReader(
-            &self,
-            reader: &block2::Block<dyn Fn(*mut block2::Block<dyn Fn()>)>,
-        );
+        unsafe fn relinquishPresentedItemToReader(&self, reader: &block2::Block<dyn Fn(Unknown)>);
 
         #[cfg(feature = "block2")]
         #[optional]
         #[method(relinquishPresentedItemToWriter:)]
-        unsafe fn relinquishPresentedItemToWriter(
-            &self,
-            writer: &block2::Block<dyn Fn(*mut block2::Block<dyn Fn()>)>,
-        );
+        unsafe fn relinquishPresentedItemToWriter(&self, writer: &block2::Block<dyn Fn(Unknown)>);
 
         #[cfg(all(feature = "NSError", feature = "block2"))]
         #[optional]

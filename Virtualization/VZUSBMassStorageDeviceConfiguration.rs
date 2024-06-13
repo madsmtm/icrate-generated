@@ -24,6 +24,12 @@ unsafe impl NSCopying for VZUSBMassStorageDeviceConfiguration {}
 #[cfg(feature = "VZStorageDeviceConfiguration")]
 unsafe impl NSObjectProtocol for VZUSBMassStorageDeviceConfiguration {}
 
+#[cfg(all(
+    feature = "VZStorageDeviceConfiguration",
+    feature = "VZUSBDeviceConfiguration"
+))]
+unsafe impl VZUSBDeviceConfiguration for VZUSBMassStorageDeviceConfiguration {}
+
 extern_methods!(
     #[cfg(feature = "VZStorageDeviceConfiguration")]
     unsafe impl VZUSBMassStorageDeviceConfiguration {

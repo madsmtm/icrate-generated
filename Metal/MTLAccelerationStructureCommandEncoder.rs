@@ -31,6 +31,7 @@ extern_protocol!(
     {
         #[cfg(all(
             feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
             feature = "MTLBuffer",
             feature = "MTLResource"
         ))]
@@ -45,6 +46,7 @@ extern_protocol!(
 
         #[cfg(all(
             feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
             feature = "MTLBuffer",
             feature = "MTLResource"
         ))]
@@ -62,6 +64,7 @@ extern_protocol!(
 
         #[cfg(all(
             feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
             feature = "MTLBuffer",
             feature = "MTLResource"
         ))]
@@ -78,7 +81,11 @@ extern_protocol!(
             options: MTLAccelerationStructureRefitOptions,
         );
 
-        #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
+            feature = "MTLResource"
+        ))]
         #[method(copyAccelerationStructure:toAccelerationStructure:)]
         unsafe fn copyAccelerationStructure_toAccelerationStructure(
             &self,
@@ -88,6 +95,7 @@ extern_protocol!(
 
         #[cfg(all(
             feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
             feature = "MTLBuffer",
             feature = "MTLResource"
         ))]
@@ -101,6 +109,7 @@ extern_protocol!(
 
         #[cfg(all(
             feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
             feature = "MTLArgument",
             feature = "MTLBuffer",
             feature = "MTLResource"
@@ -114,7 +123,11 @@ extern_protocol!(
             size_data_type: MTLDataType,
         );
 
-        #[cfg(all(feature = "MTLAccelerationStructure", feature = "MTLResource"))]
+        #[cfg(all(
+            feature = "MTLAccelerationStructure",
+            feature = "MTLAllocation",
+            feature = "MTLResource"
+        ))]
         #[method(copyAndCompactAccelerationStructure:toAccelerationStructure:)]
         fn copyAndCompactAccelerationStructure_toAccelerationStructure(
             &self,
@@ -130,7 +143,7 @@ extern_protocol!(
         #[method(waitForFence:)]
         unsafe fn waitForFence(&self, fence: &ProtocolObject<dyn MTLFence>);
 
-        #[cfg(feature = "MTLResource")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
         #[method(useResource:usage:)]
         unsafe fn useResource_usage(
             &self,
@@ -138,7 +151,7 @@ extern_protocol!(
             usage: MTLResourceUsage,
         );
 
-        #[cfg(feature = "MTLResource")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLResource"))]
         #[method(useResources:count:usage:)]
         unsafe fn useResources_count_usage(
             &self,
@@ -147,11 +160,11 @@ extern_protocol!(
             usage: MTLResourceUsage,
         );
 
-        #[cfg(feature = "MTLHeap")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLHeap"))]
         #[method(useHeap:)]
         unsafe fn useHeap(&self, heap: &ProtocolObject<dyn MTLHeap>);
 
-        #[cfg(feature = "MTLHeap")]
+        #[cfg(all(feature = "MTLAllocation", feature = "MTLHeap"))]
         #[method(useHeaps:count:)]
         unsafe fn useHeaps_count(
             &self,
